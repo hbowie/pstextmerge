@@ -1,0 +1,13 @@
+module	action	modifier	object	value
+input	set		normalization	0
+input	open	xls		#PATH#pstextmerge.xls
+filter	add	not equal to	plistkey	
+filter	set		params	
+template	open	file		#PATH#template.plist
+template	generate			
+input	set		normalization	0
+input	open	xls		#PATH#pstextmerge.xls
+filter	add	not equal to	Name1	
+filter	set		params	
+template	open	file		#PATH#template.xml
+template	generate			

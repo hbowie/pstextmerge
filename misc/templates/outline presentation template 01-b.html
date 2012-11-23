@@ -1,0 +1,135 @@
+<?nextrec?>
+<?definegroup 1 "=$sectionnumber1$="?>
+<?definegroup 2 "=$sectionnumber2$="?>
+<?definegroup 3 "=$sectionnumber3$="?>
+<?definegroup 4 "=$sectionnumber4$="?>
+<?ifendgroup 4?>
+<?ifendgroup 3?>
+<?ifendgroup 2?>
+<?ifendgroup 1?>
+<hr size="2" width="100%">
+<table border=0 width="100%">
+  <tr>
+    <td class=footer width="33%">
+      Page =$page$=
+    </td>
+    <td class=footerCenter width="34%">
+      =$title1$=
+    </td>
+    <td class=footerRight width="33%">
+        =$today&MMMM dd, yyyy hh:mm aa$=
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+<?ifnewgroup 1?>
+<?set title1 = "=$text$="?>
+<?set priorpage = 1?>
+<?set page = 2?>
+<?set tocpage = 2?>
+<?set nextpage = 3?>
+<?output "=$dataparent$=/=$datafilename&b$=_=$page&3$=.html"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>=$Table of Contents$=</title>
+	<style type="text/css">
+	  body {
+      font-family: Verdana, Geneva, Arial, sans-serif;
+	  }
+	  a:link {
+	    color: blue;
+	    text-decoration: none;
+	  }
+	  a:active {
+	    color: blue;
+	    text-decoration: none;
+	  }
+	  a:visited {
+	    color: blue;
+	    text-decoration: none;
+	  }
+	  h1 {
+	    font-size: 16pt;
+	    font-weight: 600;
+	  }
+		p.tocLine {
+			margin-left: 12pt;
+			margin-top: 0pt;
+			margin-bottom: 0pt;
+		}
+		p.head3 {
+			margin-left: 12pt;
+		}
+		p.para2 {
+			
+		}
+		td.header {
+		  font-size: 12pt;
+		}
+		td.headerBig {
+		  font-size: 16pt;
+		}
+		td.headerCenter {
+		  font-size: 12pt;
+		  text-align: center;
+		}
+		td.headerRight {
+		  font-size: 12pt;
+		  text-align: right;
+		}
+		td.footer {
+		  font-size: 9pt;
+		}
+		td.footerCenter {
+		  font-size: 9pt;
+		  text-align: center;
+		}
+		td.footerRight {
+		  font-size: 9pt;
+		  text-align: right;
+		}
+	</style>
+</head>
+<body>
+<table border=0 width="100%">
+  <tr>
+    <td class=headerBig width="33%">
+      Boeing IT S2EPG
+    </td>
+    <td width="34%">
+      &nbsp;
+    </td>
+    <td class=headerRight width="11%">
+        Home
+    </td>
+    <td class=headerRight width="11%">
+      <a href="=$dataparent$=/=$datafilename&b$=_=$priorpage&3$=.html">
+        Prior
+      </a>
+    </td>
+    <td class=headerRight width="11%">
+      <a href="=$dataparent$=/=$datafilename&b$=_=$nextpage&3$=.html">
+        Next
+      </a>
+    </td>
+  </tr>
+</table>
+<hr size="2" width="100%">
+<h1>Table of Contents</h1>
+<?ifnewgroup 2?>
+<?set tocpage ++ ?>
+  <p class=tocLine>
+    &bull; 
+    <a href="=$dataparent$=/=$datafilename&b$=_=$tocpage&3$=.html">
+      =$text$=
+    </a>
+  </p>
+<?ifnewgroup 3?>
+<?ifnewgroup 4?>
+<?endif?>
+<?loop?>
+

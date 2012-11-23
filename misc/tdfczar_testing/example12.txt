@@ -1,0 +1,17 @@
+Category 1	Category 2	Category 3	Category 4	Category 5	Category 6	Description	E-mail	Web Site
+TDF Czar Template Example 11	Internet					DogPile		http://www.dogpile.com/
+TDF Czar Template Example 11	Internet					Google		http://www.google.com
+TDF Czar Template Example 11	Internet					Yahoo		http://www.yahoo.com/
+TDF Czar Template Example 11						Amazon.com		http://www.amazon.com/exec/obidos/redirect-home/reasontorock-20
+TDF Czar Template Example 11						Buy.com		http://www.buy.com
+TDF Czar Template Example 11	Shopping					B		http://btob.bn.com/index.asp?SourceId=0039357124&Btob=Y
+TDF Czar Template Example 11	Shopping					Barnes		http://www.bn.com
+TDF Czar Template Example 11	Shopping					Borders		http://www.borders.com
+TDF Czar Template Example 11	Shopping	Books				Poisoned Pen		http://www.poisonedpen.com/
+TDF Czar Template Example 11	Shopping					Insight.com		http://www.insight.com/web/index.php
+TDF Czar Template Example 11	Shopping					MacZones		http://www.zones.com/cgi-bin/zones/site/home/index.html?zone=mac
+TDF Czar Template Example 11	Shopping					Water Filters Online		http://waterfiltersonline.com/
+TDF Czar Template Example 11	Sports Sites					AZ Diamondbacks		http://arizona.diamondbacks.mlb.com/NASApp/mlb/ari/homepage/ari_homepage.jsp
+TDF Czar Template Example 11						Travelocity		http://www.travelocity.com
+TDF Czar Template Example 11	Travel					DogFriendly		http://www.dogfriendly.com/
+TDF Czar Template Example 11	Travel					PetsWelcome		http://www.petswelcome.com/

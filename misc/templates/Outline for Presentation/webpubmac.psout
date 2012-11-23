@@ -1,0 +1,484 @@
+> Using the Mac for Web Publishing
+
+  > Title Page
+  
+    > The Mac OS X Users Group
+      http://www.xusers.org
+      
+      > Herb Bowie
+      
+  > A Little Historical Perspective
+  
+    &#8220;...as a card-carrying member of the human species, I'm dashed proud that a society which dilly-dallied for 30,000 years before developing a combination shampoo and conditioner managed to create something as wonderful as the Web so quickly.&#8221;
+    
+    &#8212; Andy Ihnatko, July 1995, from the Foreword to 
+    
+    <i>Publishing on the World Wide Web for Macintosh</i>            
+    http://www.amazon.com/exec/obidos/ASIN/1568302282/powersurgepublis  
+  
+  > About the Author
+  
+    > Herb Bowie
+  
+    > Started Web Publishing using the Mac circa 1995 
+      
+    > Web Sites
+    
+      > ReasonToRock.com
+      http://www.google.com/search?hl=en&q=rock+music&btnG=Google+Search
+      
+      > AZGifted.org
+      http://www.azgifted.org
+      
+      > AZGifted.org (new)
+      http://www.azgifted.org/new/
+      
+      > PowerSurgePub.com
+      http://www.powersurgepub.com
+      
+  > Strategies for Web Design
+  
+    > HTML as document formatting Language is straightforward
+    
+      > But most Web pages are not isolated documents
+      
+    > Complicating Issues
+    
+      > Average browser window is too wide for straight text
+    
+      > Need to &#8220;gussy up&#8221; content to satisfy users
+      
+      > Much content is topical, volatile
+      
+      > Most Web pages part of a site
+      
+        > Consistent page design
+        
+        > Contextual information
+        
+        > Navigation
+        
+      > Ways of Managing All This Complexity
+      
+        > Separate data (content) from format
+        
+          > Easier to keep pages consistent
+          
+          > Easier to create new pages
+          
+          > Easier to update format
+          
+          > Easier to refresh data
+          
+      > Variety of Tools to Accomplish This
+      
+        > Cascading Style Sheets
+        
+          > Specify fonts, colors, sizes for an entire site in one file
+          
+        > Use page templates, includes
+        
+          > Static &#8212; Before uploading to server
+          
+            > Simple, works well as personal publishing system
+          
+          > Dynamic &#8212; Merge data and formats on server, when page is requested
+          
+            > More complex, better for groups and more dynamic content
+          
+  > Search Engine Rankings
+  
+    > Avoid Tricks
+    
+    > Avoid Link Exchanges
+    
+    > Offer Lots of Good Content
+    
+    > Focus on a Niche
+    
+    > Use keywords in domain name
+    
+    > Let related sites know about yours
+    
+    > Offer links from your site to related, valuable sites
+    
+    > Static HTML
+    
+    > Avoid Frames
+    
+    > 24 x 7 Site Availability
+    
+    > Start Early &#8212; Be Patient &#8212; Longevity Counts!
+    
+  > Web Hosting
+  
+    > Use your own computer
+      
+      > Computer must have its own public, static IP address
+      
+      > You are responsible for up-time
+      
+    > Use a Web Hosting Service
+    
+      > XrackHosting
+        http://www.xrackhosting.com
+        
+        > This is the one I use
+        
+        > Small, friendly, service-oriented, reliable
+        
+        > Uses Macs
+        
+        > Provides Apache, PHP, MySQL, phpMyAdmin, phpBB, etc.
+        
+        > Hosting plans starting at $9.95/month  
+      
+  > Tools
+  
+    > HTML Authoring/Text Editor 
+    
+      > Bare Bones Software
+        http://www.barebones.com/index.shtml
+      
+        > BBEdit 
+          http://www.barebones.com/products/bbedit
+          
+          > $199
+        
+          > Ridiculously powerful text editor 
+          
+            > (and yes, this is a good thing)
+            
+          > It <i>Still</i> Doesn't Suck&reg;
+            http://www.barebones.com/store/shirts_bbedit_back.shtml
+          
+        > TextWrangler 
+        http://www.barebones.com/products/textwrangler
+        
+          > Free
+        
+          > Slightly less ridiculous
+        
+    > HTML Generation
+    
+      > Daring Fireball
+        http://daringfireball.net/
+        
+        > Markdown
+          http://daringfireball.net/projects/markdown/
+          
+          > Free
+          
+          > Available as BBEdit Plugin
+          
+          > Available as Drupal Module
+          
+          > Converts "plain" text to HTML
+          
+    > Merge Data with HTML
+    
+      > PowerSurge Publishing
+        http://www.powersurgepub.com
+        
+        > PSTextMerge
+          http://www.powersurgepub.com/products/pstextmerge.html
+          
+          > $20
+          
+          > Reads data tables from Excel, etc.
+          
+          > Merges data into HTML Templates
+          
+          > Disclaimer: Product of Author
+          
+          > Used to create this presentation!
+          
+    > Graphics 
+    
+      > Lemke Software
+        http://www.lemkesoft.de
+        
+        > GraphicConverter
+          http://www.lemkesoft.de/en/graphcon.htm
+          
+            > $30
+            
+            > Graphics Conversion, Simple Editing 
+        
+    > FTP Client
+        
+      > Panic Software
+        http://www.panic.com
+        
+        > Transmit 
+        http://www.panic.com/transmit/
+        
+          > $29.95
+          
+          > Powerful, friendly, Mac-like, popular
+            
+    > Web Server Scripting
+    
+      > PHP
+        http://www.php.net/
+        
+          > Comes with Mac OS X  
+          
+      > PHP for Mac
+        http://phpmac.com
+            
+    > Database 
+    
+      > MySQL
+        http://www.mysql.com
+        
+          > Open Source
+          
+            > Extremely popular
+            
+          > Download
+            http://dev.mysql.com/downloads/mysql/4.1.html#Mac_OS_X
+            
+          > Installation Instructions
+            http://www.entropy.ch/software/MacOSx/mysql/
+             
+    > GUI for Database Administration         
+            
+      > phpMyAdmin
+        http://www.phpmyadmin.net
+      
+        > Web based GUI for MySQL Administration
+        
+        > Open Source
+        
+        > Download
+          http://www.phpmyadmin.net/home_page/downloads.php
+          
+    > Content Management Systems
+    
+      > OpenSourceCMS
+        http://www.opensourcecms.com/
+        
+        > CMS System Ratings
+          http://www.opensourcecms.com/index.php?option=content&task=view&id=388&Itemid=143
+        
+        
+    > Bulletin Board System
+    
+      > phpBB
+        http://www.phpbb.com
+        
+        > Open Source
+        
+        > Uses PHP and MySQL
+        
+        > Download
+          http://www.phpbb.com/downloads.php
+          
+    > Blogging
+    
+      > WordPress
+        http://wordpress.org
+        
+        > Open Source
+        
+        > Uses PHP and MySQL
+        
+        > Download
+          http://wordpress.org/download/
+          
+    > Broad Content Management
+    
+      > Drupal
+        http://drupal.org
+        
+        > Open Source
+        
+        > Uses PHP and MySQL
+          
+        > Includes blogging, forums
+        
+        > Modular &mdash; Many add-on Modules Available
+        
+        > General Content Management
+          
+        
+  > BBEdit
+  
+    > Philosophy
+    
+      > Not WYSIWYG...
+      
+        > WYGIWYT
+      
+          > &#8220;What You Get Is What You Type&#8221;
+        
+      > Quick to Embrace OS X Technologies
+      
+        > First 3rd-party App to support Automator
+        
+      > Extensive preferences
+      
+      > Rich Feature Set
+        
+    > Features
+    
+      > Generate any HTML/CSS Tag from a Dialog
+      
+      > Edit any HTML/CSS Tab with a Dialog
+      
+      > Generate HTML from text (using Markdown plugin)
+      
+      > Preview HTML in BBEdit, any Available Web Browser
+      
+        > BBEdit Preview Window updates dynamically as you type
+      
+      > Check Syntax (based on HTML level in DOCTYPE)
+      
+      > Check Spelling
+      
+      > Flexible HTML formatting
+      
+      > Insert HTML Entities
+      
+      > Insert user-definable glossary entries
+      
+      > Extremely fast, flexible find & replace for 
+      
+        > One File
+        
+        > All Open Files
+        
+        > All Files in a folder
+        
+        > All Files in a Web Site
+        
+      > Find Differences between two files
+      
+        > Merge differences from one file to the other
+        
+      > Open/Update Hidden (System) files
+      
+        > Such as Apache config file
+      
+      > Templating System
+      
+        > Templates may reference user variables, system variables
+        
+        > Templates may be written in Applescript
+        
+          > For conditional logic, looping, etc.
+          
+        > Update Document, Folder, Site at will 
+        
+      > Automate using:
+      
+        > Applescript
+        
+        > Automator
+        
+  > PSTextMerge
+    http://www.powersurgepub.com/products/pstextmerge/
+    
+      > Creates Static Web Pages using two input sources:
+      
+        > Rows and Columns of Data
+        
+          > From Tab-Delimited Files
+          
+          > From MS Excel Spreadsheets
+          
+        > HTML Templates (or any other text files: XML, RSS, etc.)
+        
+          > With column placeholders
+        
+          > With Simple Processing Commands
+          
+            > Output
+            
+            > Read next row of data
+            
+            > End main processing loop
+            
+            > If data present
+            
+            > Control Breaks
+            
+        > Scriptable (using its own scripting language)
+        
+          > Read Data
+          
+          > Merge Two Data Sources
+          
+          > Sort
+          
+          > Filter
+          
+          > Output using Template
+    
+  > Fire Up Your Personal Web Server
+  
+     > Install MySQL
+     
+      > Apple Guidance
+        http://developer.apple.com/internet/opensource/osdb.html
+            
+      > Download
+        http://dev.mysql.com/downloads/mysql/4.1.html#Mac_OS_X
+        
+      > Installation Instructions
+        http://www.entropy.ch/software/MacOSx/mysql/
+        
+      > Initialize through System Preferences
+  
+    > Turn on PHP
+    
+      > Stop Apache if running (see Step 2)
+    
+      > Edit Apache config file
+      
+        > /etc/httpd/httpd.conf
+        
+        > Can use BBEdit "File / Open Hidden..." Menu Item
+        
+        > Save a backup copy!
+        
+        > Find "php"
+        
+          > # LoadModule php4_module        libexec/httpd/libphp4.so
+          
+            > Remove # (un-comment)
+            
+          > # AddModule mod_php4.c
+          
+            > Remove # (un-comment)
+            
+        > Save the file
+  
+    > Power Up Apache
+    
+      > System Preferences -> Sharing -> Services -> Personal Web Sharing
+      
+      > Use the URL displayed to access your Sites folder
+      
+        > e.g., http://192.168.1.115/~hbowie/
+        
+    > Install phpMyAdmin
+      
+      > Download
+        http://www.phpmyadmin.net/home_page/downloads.php
+        
+  > Conclusion
+  
+    > Mac is a Great Platform for Web Publishing
+    
+      > Web Server Out of the Box
+      
+      > Great Tools Available
+      
+      > Lots of Open Source Packages Available
+  
+
+    
+    
+    

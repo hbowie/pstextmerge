@@ -1,0 +1,31 @@
+<<output "pstextmerge.xml">>
+<?xml version="1.0" encoding="Windows-1252" ?>
+<<nextrec>>
+<<definegroup 1 "<<name1>>">>
+<<definegroup 2 "<<name2>>">>
+<<definegroup 3 "<<name3>>">>
+<<definegroup 4 "<<name4>>">>
+<<ifendgroup 4>>
+</<<lastname4>>>
+<<ifendgroup 3>>
+</<<lastname3>>>
+<<ifendgroup 2>>
+	</<<lastname2>>>
+<<ifendgroup 1>>
+</<<lastname1>>>
+<<ifnewgroup 1>>
+<<<name1>>>
+<<set lastname1 = "<<name1>>">>
+<<ifnewgroup 2>>
+	<<<name2>>>
+<<set lastname2 = "<<name2>>">>
+<<ifnewgroup 3>>
+		<<<name3>>><<nobr>>
+<<set lastname3 = "<<name3>>">>
+<<ifnewgroup 4>>
+			<<<name4>>><<nobr>>
+<<set lastname4 = "<<name4>>">>
+<<endif>>
+<<data>><<nobr>>
+<<loop>>
+

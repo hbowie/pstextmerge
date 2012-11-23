@@ -1,0 +1,1 @@
+Proper Name	Common Name	Alias For	Data Format Rule	Combine by Appending?	Function Name	Parm1	Parm2	Parm3	Parm4	Parm5First Name	firstname		DataFormatRule	FALSE						Last Name	lastname		DataFormatRule	FALSE						State Code	statecode		DataFormatRule	FALSE						State Name	statename		DataFormatRule	FALSE	lookup	example14_states.txt	State Code	No	State Code	State Name

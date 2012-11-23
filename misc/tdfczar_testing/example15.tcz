@@ -1,0 +1,3 @@
+module	action	modifier	object	value
+input	set		normalization	0
+input	open	file		#PATH#bookmarks.txt

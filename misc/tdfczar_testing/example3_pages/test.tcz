@@ -1,0 +1,2 @@
+module	action	modifier	object	value
+input	open	file		#PATH#../changes.txt

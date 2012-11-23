@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Project to refresh the app distribution folders -->
+
+<project name="pstextmerge" default="refreshpc" basedir="../../">
+
+  <!-- Define global variables (directory locations) -->
+  <property name="appname" value="pstextmerge"/>
+  <property name="xbuild" value="xbuild"/>
+  <property name="appsfolder" value="apps/${appname}"/>
+  <property name="macfolder" value="${appsfolder}/mac/PSTextMerge Folder"/>
+  <property name="jarfolder" value="${appsfolder}/execjar/PSTextMerge Folder"/>
+  <property name="source" value="source/${appname}/com/powersurgepub/${appname}"/>
+  <property name="misc" value="misc/${appname}"/>
+  
+  <!-- Refresh the pc source folders -->
+  <target name="refreshpc">
+  
+    <!-- Refresh source folder first -->
+    
+      <!-- Copy files to top level of Mac App folder -->
+      <copy overwrite="false" verbose="true" preservelastmodified="true" todir="pcsource">
+        <fileset dir="source">
+          <include name="**/*.form"/>
+          <include name="**/*.html"/>
+          <include name="**/*.java"/>
+          <include name="**/*.txt"/>
+        </fileset>
+      </copy>
+    
+  </target>
+  
+</project>

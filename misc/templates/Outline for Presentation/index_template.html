@@ -1,0 +1,127 @@
+<?nextrec?>
+<?definegroup 1 "=$sectionnumber1$="?>
+<?definegroup 2 "=$sectionnumber2$="?>
+<?definegroup 3 "=$sectionnumber3$="?>
+<?definegroup 4 "=$sectionnumber4$="?>
+<?ifendgroup 4?>
+<?ifendgroup 3?>
+<?ifendgroup 2?>
+<?ifendgroup 1?>
+<br>&nbsp;
+<table border=0 width="100%">
+  <tr>
+    <td class=headerBig width="33%">
+      &nbsp;
+    </td>
+    <td width="34%">
+      &nbsp;
+    </td>
+    <td class=headerRight width="11%">
+      &nbsp;
+    </td>
+    <td class=headerRight width="11%">
+      &nbsp;
+    </td>
+    <td class=headerRight width="11%">
+      <a href="page=$nextpage&3$=.html">
+        Next
+      </a>
+    </td>
+  </tr>
+</table>
+<!-- #bbinclude "footer.html" -->
+<hr size="2" width="100%">
+<table border=0 width="100%">
+  <tr>
+    <td class=footer width="25%">
+      =$today&MMMM dd, yyyy hh:mm aa$=
+    </td>
+    <td class=footerCenter width="50%">
+      =$title1$=
+    </td>
+    <td class=footerRight width="25%">
+        Page =$page$=
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+<!-- end bbinclude -->
+<?ifnewgroup 1?>
+<?set title1 = "=$text$="?>
+<?set priorpage = 0?>
+<?set page = 1?>
+<?set tocpage = 2?>
+<?set nextpage = 2?>
+<?ifnewgroup 2?>
+<?if =$sectionnumber2$= = 1?>
+<?output "../web/index.html"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>=$title1$=</title>
+	<link rel=stylesheet href="./styles.css" type="text/css"
+		title="PSTextMerge Presentation Stylesheet">
+</head>
+<!-- #bbinclude "bodytag.html" -->
+<body bgcolor="#003300">
+<!-- end bbinclude -->
+<table border=0 width="100%">
+  <tr>
+    <td class=headerBig width="33%">
+      &nbsp;
+    </td>
+    <td width="34%">
+      &nbsp;
+    </td>
+    <td class=headerRight width="11%">
+        Home
+    </td>
+    <td class=headerRight width="11%">
+        Prior
+    </td>
+    <td class=headerRight width="11%">
+      <a href="page=$nextpage&3$=.html">
+        Next
+      </a>
+    </td>
+  </tr>
+</table>
+<hr size="2" width="100%">
+<br>&nbsp;
+<br>&nbsp;
+<h1>
+    =$title1$=
+</h1>
+<?endif?>
+<?ifnewgroup 3?>
+<?if =$sectionnumber2$= = 1?>
+<br>&nbsp;
+  <h2>
+    <?if "=$link$="?>
+      <a href="=$link$=">
+    <?endif?>
+      =$text$=
+    <?if "=$link$="?>
+      </a>
+     <?endif?>
+  </h2>
+<?endif?>
+<?ifnewgroup 4?>
+<?if =$sectionnumber2$= = 1?>
+<br>&nbsp;
+    <h3>
+     <?if "=$link$="?>
+      <a href="=$link$=">
+     <?endif?>
+       =$text$=
+     <?if "=$link$="?>
+      </a>
+     <?endif?>
+    </h3>
+<?endif?>
+<?endif?>
+<?loop?>
+

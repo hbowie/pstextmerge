@@ -1,0 +1,9 @@
+module	action	modifier	object	value
+input	set		dirdepth	5
+input	open	dir		#PATH#
+filter	add	equals	Type	File
+filter	set		params	
+sort	add	Ascending	Sort Key	
+sort	set		params	
+template	open	file		#PATH#example13_template.html
+template	generate			

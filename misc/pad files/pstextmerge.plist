@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>padVersion</key>
+		<string>1</string>
+	<key>companyAddress</key>
+		<string>719 N. 81st St.</string>
+	<key>fileBundleID</key>
+		<string></string>
+	<key>fileCreator</key>
+		<string>PStm</string>
+	<key>fileType</key>
+		<string>APPL</string>
+	<key>productOS</key>
+	<array>
+		<string>OS X</string>
+	</array>
+	<key>productFileSize</key>
+		<string>1.2 mb</string>
+	<key>productKeywords</key>
+	<array>
+		<string>Merges lists of data into text templates</string>
+		<string>Tab-delimited Files</string>
+		<string>Web Publishing</string>
+	</array>
+	<key>productDownloadURL</key>
+		<string>http://www.powersurgepub.com/products/pstextmerge/downloads/prod/pstextmerge.dmg</string>
+	<key>companyName</key>
+		<string>PowerSurge Publishing</string>
+	<key>companyCountry</key>
+		<string>USA</string>
+	<key>companyWebSite</key>
+		<string>http://www.powersurgepub.com</string>
+	<key>companyEmail</key>
+		<string>support@powersurgepub.com</string>
+	<key>companyPhone</key>
+		<string>206-783-0912</string>
+	<key>companyFax</key>
+		<string>206-783-4236</string>
+	<key>productName</key>
+		<string>PSTextMerge</string>
+	<key>productVersion</key>
+		<string>3.4</string>
+	<key>fileReleaseDateM</key>
+		<string>05</string>
+	<key>fileReleaseDateD</key>
+		<string>20</string>
+	<key>fileReleaseDateY</key>
+		<string>2007</string>
+	<key>productPrice</key>
+		<string>0</string>
+	<key>productLicense</key>
+		<string>Freeware</string>
+	<key>productLanguages</key>
+	<array>
+		<string>English</string>
+	</array>
+	<key>productReleaseNotes</key>
+		<string>Converted to freeware; added ability to truncate data on the left of a variable.</string>
+	<key>productRequirements</key>
+		<string>JVM 1.4.1+, OS X on Mac</string>
+	<key>keywords</key>
+		<string>tab-delimited file, utility, HTML, Web, merge, TDF, spreadsheet</string>
+	<key>productDescShort</key>
+		<string>Database Web Publishing for the Rest of Us</string>
+	<key>productDescLong</key>
+		<string>Performs various useful functions lists of data, including all of the following: sort, filter, output, merge into templates to generate output text files (such as HTML), merge multiple files into one, combine records with duplicate keys, parse HTML into tabular data, including bookmark and address book files.</string>
+	<key>productPageURL</key>
+		<string>http://www.powersurgepub.com/products/pstextmerge.html</string>
+	<key>productWebStore</key>
+		<string>https://order.kagi.com/?N7W</string>
+	<key>productIconURL</key>
+		<string>http://www.powersurgepub.com/images/pstextmerge_128x128.gif</string>
+</dict>
+</plist>

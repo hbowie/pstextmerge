@@ -1,0 +1,92 @@
+<?output "=$dataparent$=/=$datafilename&b$=.html"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>CVS Notes</title>
+</head>
+<body>
+<?nextrec?>
+<?definegroup 1 "=$sectionnumber1$="?>
+<?definegroup 2 "=$sectionnumber2$="?>
+<?definegroup 3 "=$sectionnumber3$="?>
+<?definegroup 4 "=$sectionnumber4$="?>
+<?ifendgroup 4?>
+<?ifendgroup 3?>
+		</ul>
+<?ifendgroup 2?>
+	</ul>
+<?ifendgroup 1?>
+<?ifnewgroup 1?>
+<?ifnewgroup 2?>
+<?ifnewgroup 3?>
+<?ifnewgroup 4?>
+<?endif?>
+<?if =$headingflag$= eq true?>
+<?if =$level$= eq 1?>
+<h1>
+<?if "=$link$="?>
+	<a href="=$link$=">
+<?endif?>
+		=$text$=
+<?if "=$link$="?>
+	</a>
+<?endif?>
+</h1>
+<p>Template File Name (templatefilename) = =$templatefilename$=</p>
+
+<p>Data File Name (datafilename) = =$datafilename$=</p>
+
+<p>Data File Parent (dataparent) = =$dataparent$=</p>
+
+<p>Template File Base (templatefilename) = =$templatefilename&b$=</p>
+
+<p>Data File Base (datafilename) = =$datafilename&b$=</p>
+
+<p>Today (today) = =$today$=</p>
+<?endif?>
+<?if =$level$= eq 2?>
+	<h2>
+<?if "=$link$="?>
+		<a href="=$link$=">
+<?endif?>
+			=$text$=
+<?if "=$link$="?>
+		</a>
+<?endif?>
+	</h2>
+	<ul>
+<?endif?>
+<?if =$level$= eq 3?>
+		<li>
+<?if "=$link$="?>
+			<a href="=$link$=">
+<?endif?>
+				=$text$=
+<?if "=$link$="?>
+			</a>
+<?endif?>
+		</li>
+		<ul>
+<?endif?>
+<?if =$level$= eq 4?>
+			<li>
+<?if "=$link$="?>
+				<a href="=$link$=">
+<?endif?>
+					=$text$=
+<?if "=$link$="?>
+				</a>
+<?endif?>
+			</li>
+<?endif?>
+<?endif?>
+<?if =$headingflag$= eq false?>
+				<p>
+					=$text$=
+				</p>
+<?endif?>
+<?loop?>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<?nextrec?>
+<?definegroup 1 "=$sectionnumber1$="?>
+<?definegroup 2 "=$sectionnumber2$="?>
+<?definegroup 3 "=$sectionnumber3$="?>
+<?definegroup 4 "=$sectionnumber4$="?>
+<?ifendgroup 4?>
+			</ul>
+<?ifendgroup 3?>
+		</ul>
+<?ifendgroup 2?>
+	</ul>
+<?ifendgroup 1?>
+</ol>
+<?ifnewgroup 1?>
+<?output "=$dataparent$=/=$datafilename&b$=.html"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>=$text$=</title>
+	<style type="text/css">
+	  body {
+      font-family: Verdana, Geneva, Arial, sans-serif;
+	  }
+	  h1 {
+	    font-size: 16pt;
+	    font-weight: 600;
+	  }
+	  ol {
+	  	font-size: 12pt;
+	  	margin-top: 12pt;
+	  }
+	  ul {
+	  	font-size: 12pt;
+	  	margin-top: 12pt;
+	  }
+	</style>
+</head>
+<body>
+<h1>
+<?if "=$link$="?>
+	<a href="=$link$=">
+<?endif?>
+		=$text$=
+<?if "=$link$="?>
+	</a>
+<?endif?>
+</h1>
+<ol>
+<?ifnewgroup 2?>
+	<li>
+<?if "=$link$="?>
+		<a href="=$link$=">
+<?endif?>
+			=$text$=
+<?if "=$link$="?>
+		</a>
+<?endif?>
+	</li>
+	<ul>
+<?ifnewgroup 3?>
+		<li>
+<?if "=$link$="?>
+			<a href="=$link$=">
+<?endif?>
+				=$text$=
+<?if "=$link$="?>
+			</a>
+<?endif?>
+		</li>
+		<ul>
+<?ifnewgroup 4?>
+			<li>
+<?if "=$link$="?>
+				<a href="=$link$=">
+<?endif?>
+					=$text$=
+<?if "=$link$="?>
+				</a>
+<?endif?>
+			</li>
+			<ul>
+<?endif?>
+<?if =$headingflag$= eq true?>
+<?if =$level$= gt 4?>
+				<li>
+					=$text$=
+				</li>
+<?endif?>
+<?endif?>
+<?if =$headingflag$= eq false?>
+				<p>
+					=$text$=
+				</p>
+<?endif?>
+<?loop?>
+</body>
+</html>

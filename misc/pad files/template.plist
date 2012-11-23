@@ -1,0 +1,22 @@
+<<output "pstextmerge.plist">>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<<nextrec>>
+<<definegroup 1 "<<plistkey>>">>
+<<definegroup 2 "<<array>>">>
+<<ifendgroup 2>>
+	</array>
+<<ifendgroup 1>>
+<<ifnewgroup 1>>
+	<key><<plistkey>></key>
+<<ifnewgroup 2>>
+	<array>
+<<endif>>
+<<if <<plistkey>>>>
+		<string><<data>></string>
+<<endif>>
+<<loop>>
+</dict>
+</plist>

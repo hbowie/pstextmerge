@@ -1,0 +1,5 @@
+module	action	modifier	object	value
+input	set		dirdepth	5
+input	open	dir		/Users/hbowie/Java/aux/tdfczar/tdfczar_testing
+template	open	file		#PATH#example4_template.html
+template	generate			

@@ -1,0 +1,4 @@
+module	action	modifier	object	value
+output	set		usedict	true
+input	set		normalization	0
+input	open	file		#PATH#example14.txt

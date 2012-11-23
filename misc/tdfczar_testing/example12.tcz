@@ -1,0 +1,3 @@
+module	action	modifier	object	value
+input	open	html3		#PATH#example11.html
+output	open			#PATH#example12.txt
