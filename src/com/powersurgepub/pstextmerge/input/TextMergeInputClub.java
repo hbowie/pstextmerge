@@ -79,7 +79,7 @@ public class TextMergeInputClub
   */
   public DataSource getDataSource(File chosenFile) {
     DataSource dataSource;
-    dataSource = new ClubPlanReader(chosenFile, inputType);
+    dataSource = new ClubEventReader(chosenFile, inputType);
     return dataSource;
   }
 
