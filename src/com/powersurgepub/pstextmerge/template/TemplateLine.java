@@ -697,6 +697,7 @@ public class TemplateLine {
           boolean keepRight = false;
           boolean convertLinks = false;
           boolean makeFileName = false;
+          boolean makeFileNameReadable = false;
           boolean noBreaks = false;
           boolean noPunctuation = false;
           String formatString;
@@ -748,6 +749,14 @@ public class TemplateLine {
                 leadingCount = (leadingCount * 10)
                   + Character.getNumericValue (workChar);
               } else
+              if (Character.toLowerCase(workChar) == 'f') {
+                makeFileName = true;
+              } else
+              if (makeFileName 
+                  && (! makeFileNameReadable)
+                  && Character.toLowerCase(workChar) == 'r') {
+                makeFileNameReadable = true;
+              } else
               if (Character.toLowerCase (workChar) == 'l') {
                 caseCode = -1;
               } else
@@ -773,9 +782,6 @@ public class TemplateLine {
                 convertLinks = true;
               }
               else
-              if (Character.toLowerCase(workChar) == 'f') {
-                makeFileName = true;
-              } else
               if (Character.toLowerCase(workChar) == 'n') {
                 noBreaks = true;
               } else
@@ -874,9 +880,13 @@ public class TemplateLine {
               }
             } // end if not initialCase
             
+            if (makeFileNameReadable) {
+              replaceData = StringUtils.makeReadableFileName(replaceData.trim());
+            } else
             if (makeFileName) {
               replaceData = StringUtils.makeFileName(replaceData.trim(), false);
             }
+            
             if (underscoreFound) {
               replaceData = StringUtils.replaceChars 
                   (replaceData.trim(), " ", "_");
