@@ -1,6 +1,6 @@
 package com.powersurgepub.pstextmerge.input;
 
-import com.powersurgepub.clubplanner.io.ClubEventReader;
+import com.powersurgepub.psdatalib.clubplanner.ClubEventReader;
   import com.powersurgepub.clubplanner.*;
   import com.powersurgepub.clubplanner.io.*;
   import com.powersurgepub.psdatalib.psdata.*;
