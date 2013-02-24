@@ -794,19 +794,12 @@ public class PSTextMerge
   /**
      Throw a URL to the local Web Browser for display.
    */
-  public void openURL (URL url) {
-    openURL (url.toString());
+  public boolean openURL (URL url) {
+    return home.openURL(url);
   }
   
-  private void openURL (String url) {
-    try {
-      xos.openURL (StringUtils.cleanURLString(url));
-    } catch (java.io.IOException e) {
-      JOptionPane.showMessageDialog (tabs, 
-        e.getMessage(),
-        "Browser Error",
-        JOptionPane.ERROR_MESSAGE);
-    }
+  private boolean openURL (String url) {
+    return home.openURL(url);
   }
 	
 	/**

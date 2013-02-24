@@ -1,0 +1,7 @@
+pstextmerge - Desktop app that merges tabular data into templates. 
+
+Copyright 1999 - 2013 Herb Bowie
+
+xos2 - Java code to assist in cross-platform adaptation. 
+
+Copyright 2004 - 2013 Herb Bowie
