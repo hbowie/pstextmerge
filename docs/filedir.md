@@ -46,4 +46,4 @@ The following special column headings are predefined for file directory entries.
 
 *[Return to User Guide][userguide]*
 
-[userguide]: pstextmerge.html#input
+[userguide]: index.md#input

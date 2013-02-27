@@ -454,5 +454,5 @@ This command indicates the end of the code that will be written out once per dat
 
 *[Return to User Guide][userguide]*
 
-[userguide]: pstextmerge.html#template
+[userguide]: index.md#template
 [pegdown]:   https://github.com/sirthias/pegdown/blob/master/LICENSE

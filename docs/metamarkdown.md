@@ -67,6 +67,6 @@ Note that there are two variants of this file type, one simply labeled "Markdown
 
 *[Return to User Guide][userguide]*
 
-[markdown]:  http://daringfireball.net/projects/markdown/
-[multimarkdown]: http://fletcher.github.com/peg-multimarkdown/
-[userguide]: pstextmerge.html#input
+[markdown]:       http://daringfireball.net/projects/markdown/
+[multimarkdown]:  http://fletcher.github.com/peg-multimarkdown/
+[userguide]:      index.md#input
