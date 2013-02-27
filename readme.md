@@ -3,6 +3,11 @@ Introduction
 
 PSTextMerge is a [PowerSurge Publishing](http://www.powersurgepub.com) application that will read tabular data in a wide variety of formats, then apply sorting and filtering to the data, then merge the data into specified templates, creating output text files in any desired format.
 
+Documentation
+-------------
+
+User documentation is available at [docs/index.md](docs/index.md).
+
 Source
 ------
 
