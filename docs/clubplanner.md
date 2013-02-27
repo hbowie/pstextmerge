@@ -221,6 +221,6 @@ The following additional fields are extracted for the Club Notes file format, wi
 
 *[Return to User Guide][userguide]*
 
-[markdown]:  http://daringfireball.net/projects/markdown/
-[multimarkdown]: http://fletcher.github.com/peg-multimarkdown/
-[userguide]: pstextmerge.md#input
+[markdown]:       http://daringfireball.net/projects/markdown/
+[multimarkdown]:  http://fletcher.github.com/peg-multimarkdown/
+[userguide]:      index.md#input
