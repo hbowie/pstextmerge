@@ -1,0 +1,33 @@
+<<output "../../../../../Java/projects/apps/pstextmerge/mac/PSTextMerge Folder/PSTextMerge.app/Contents/Resources/appfolder/versions.html">>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>PSTextMerge Version History</title>
+	<style type="text/css" title="text/css">
+      @import url(userguide/styles.css);
+    </style>
+</head>
+<body>
+
+<h1>PSTextMerge Version History</h1>
+
+<<nextrec>>
+<<definegroup 1 "<<sequence>>">>
+<<ifendgroup 1>>
+</ol>
+<<ifnewgroup 1>>
+<h3>Version <<sequence>> </h3>
+<ol>
+<<endif>>
+<<if <<status>> gt 5>>
+<li><p><strong><<title>></strong> <br />
+<<outcome>></p></li>
+<<endif>>
+<<loop>>
+
+</body>
+</html>
+
+

@@ -1,0 +1,13 @@
+module	action	modifier	object	value
+input	set		normalization	0
+input	open	file		#PATH#twodue.tdu
+sort	add	Descending	sequence	
+sort	add	Ascending	Tag1	
+sort	add	Ascending	title	
+sort	set		params	
+filter	add	greater than or equal to	status	5
+filter	set		params	
+template	open	file		#PATH#help_template.html
+template	generate			
+template	open	file		#PATH#web_template.html
+template	generate			
