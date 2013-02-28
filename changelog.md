@@ -1,6 +1,7 @@
-Version 4.10 (2013-02-27)
+Version 4.10 (2013-02-28)
 -------------------------
 
+* Refactored code to allow chunks of PSTextMerge to be used by other apps as well.
 * PSTextMerge has now been released under the Apache License Version 2.0.
 * Added an else command, which can be used following an if to invoke the opposite condition.
 * The variable  'templatefilename' now only returns the file name without the enclosing folder, and the new variable 'templateparent' now returns the enclosing folder. These are now consistent with the operation of 'datafilename' and 'dataparent'.
@@ -9,8 +10,8 @@ Version 4.00 (2012-07-27)
 -------------------------
 
 * Added Club Planner and Club Notes input formats. This is a new input format designed for planning events to be held by a club.
-* Added an Easy Play button to the Script tab to allow the user to select a folder containing multiple script files. After selecting such a folder, a new Easy tab will be added to the far left of the main window, with a button for each script in the folder. The user then need only click on the button to play the indicated script.
 * Added Autoplay button on the Script tab that allows the user to select a script to be automatically played each time the program launches.
+* Added an Easy Play button to the Script tab to allow the user to select a folder containing multiple script files. After selecting such a folder, a new Easy tab will be added to the far left of the main window, with a button for each script in the folder. The user then need only click on the button to play the indicated script.
 * Added demo restrictions and ability to purchase a license from the PowerSurgePub.com store.
 * Updated to run on recent versions of Mac OS X that no longer support the PowerPC architecture.
 * Added a new Input Format for iTunes Library XML Files, which allows summary information about albums to be extracted.
@@ -29,8 +30,8 @@ Version 3.4 (2007-05-18)
 Version 3.3 (2005-11-27)
 -------------------------
 
-* Added several new logical operands to check if a string is not included, if one string starts with another or does not, and if a string ends with another or does not.
 * Modified Last Mod Date format, generated when reading a file directory, to use hyphens instead of slashes between the month, day and year fields, to be compliant with ISO 8601. This also allows this date to be used when generating Google Sitemaps.
+* Added several new logical operands to check if a string is not included, if one string starts with another or does not, and if a string ends with another or does not.
 * Previously, all parent output directories had to be created before PSTextMerge would create an output file from a template. All necessary parent directories will now be created automatically, assuming sufficient permissions.
 
 Version 3.2 (2005-08-14)
@@ -49,11 +50,11 @@ Version 3.1 (2005-05-17)
 -------------------------
 
 * Added a template library. This defaults to a new templates folder in the PSTextMerge application folder. A new button on the Template tab allows you to select another folder to contain your collection of standard templates. Another new button on the Template tab allows you to open a template from the template library, rather than the folder where the input data file, or script file, resides. Recording a script that references a file from the template library will store the folder location as the template library, so that moving the template library will not later break scripts that have been recorded. In combination with the ability to reference the dataparent folder as a variable, and call out the data file name as a base file name (without a file extension), templates may now be written (and are supplied with the PSTextMerge standard distribution), that can be used with any appropriate data file, and will generate output in the data file's location, and with the data file's name (rather than hard-coding a specific output file name in each template file).
-* Added a new variable modifier, &quot;b&quot;, to strip the extension from a file name and return only the base part of the name.
 * Added a new global variable,  &quot;dataparent&quot;, allowing the enclosing folder of the input data file to be used in the output, most usefully as part of an output file name.
+* Added a new variable modifier, &quot;b&quot;, to strip the extension from a file name and return only the base part of the name.
 * Added a new data input format, called PSPub Outline. This format allows an outline to be easily created within any text editor. Any character may be used consistently within a file as a bullet character, to indicate a heading item. Indention is used to indicate outline levels. The output may then be formatted as HTML, in any format that the user chooses.
-* Modified the starting location for the first file open dialog to show the user's home directory, rather than the PSTextMerge folder.
 * Added the ability to remember recent scripts played, and to easily play them again by selecting them from the Play Recent submenu on the Script menu.
+* Modified the starting location for the first file open dialog to show the user's home directory, rather than the PSTextMerge folder.
 
 Version 3.0 (2005-04-09)
 -------------------------
@@ -98,8 +99,8 @@ Version 2.5 (2003-02-21)
 * Added a new input type to extract bookmarks from HTML files using Heading tags as categories.
 * Modified scripting logic to allow relative path references to refer to files higher in the folder hierarchy, using the ../ convention for each upwards folder level.
 * Added an underscore character ('_') as a new variable modifier. When present, this will cause any spaces in the variable to be replaced with underscore characters.
-* Omit spaces after forward and backwards slashes, when used as variable modifier separator characters.
 * When reading HTML tables, modified logic to bypass table cells where rowspan or colspan is greater than 1, on the assumption that this would not be part of a true data table.
+* Omit spaces after forward and backwards slashes, when used as variable modifier separator characters.
 * Corrected bug that caused wrong folders (one level too high) to appear in new Folder columns.
 * Corrected a bug that prevented playback of an action to open an HTML table.
 
@@ -109,8 +110,8 @@ Version 2.4 (2003-01-04)
 * For file directory input, file names are now broken into a maximum of five separate words (separated by spaces, puncutation, etc.), which are returned as individual fields (Word1 through Word5).
 * Added scroll bars to sort and filter parameter displays.
 * For HTML input, added ability to translate character entities found within HTML text to their equivalent ASCII characters. For now, translation is only provided for characters that are not platform-specific: &nbsp; (non-breaking space), &lt; (less than sign),  &gt; (greater than sign),  &amp; (ampersand) and &quot; (double quotation marks). Entities may be specified using mnemonics or their numeric equivalents.
-* For file directory opens, changed the column heading for file names from Name to File Name .
 * Added a maximum explosion depth for file directory opens. Sub-directories will also show up as separate fields in resulting tabular data, as well as in sort key.
+* For file directory opens, changed the column heading for file names from Name to File Name .
 * For file directories being input, broke the last modified date and time into two separate fields. The date field is in the form yyyy/MM/dd so that it can be easily sorted. The time field is in the form hh:mm:ss tmz with a military (24-hour) time, again for easy sorting.
 * Added a new merge option that uses column headings from last file read, for files that do not have their own embedded column headings.
 
@@ -122,31 +123,31 @@ Version 2.3 (2002-11-10)
 * Made several Mac OS X specific enhancements: <br>Put menu bar at top of screen; <br>enabled About and Quit menu items on Application menu; <br>enabled script files to be played by dropping them on the application or by double-clicking a file with an extension of .tcz.
 * Removed the ability to run the program as an applet, since this seemed fairly useless, wasn't reliable (due to lack of consistent testing), and was causing several user interface challenges.
 * Added a <b>Play Again</b> button on the script tab, which will rerun the last script recorded or played without having to re-select the script file.
+* Added <b>today</b> as a special variable that will be replaced with today's date, at the time that a template generation is run. Also added an optional date format as a variable modifier, to allow the format of today's date to be specified.
 * Added proper menus and accelerator/shortcut keys to perform major program functions without having to use tabs and buttons.
 * Modified user interface to gray out buttons and menu items when they are not applicable.
-* Added <b>today</b> as a special variable that will be replaced with today's date, at the time that a template generation is run. Also added an optional date format as a variable modifier, to allow the format of today's date to be specified.
 
 Version 2.2 (2002-10-12)
 -------------------------
 
-* Improved user interface on Input, Output and Template tabs.
 * Added the ability to parse an HTML table as an input data source.
+* Improved user interface on Input, Output and Template tabs.
 * Any punctuation entered as a variable modifier will cause that variable, along with any preceding or succeeding ones so marked, to be treated as elements of a list, with the punctuation character used to separate non-blank elements.
 
 Version 2.1.1 (2002-09-22)
 -------------------------
 
 * Corrected bug in checking for equality between two variables.
-* Modified to start with empty data dictionary every time a new input data source is opened, unless a merge has been requested.
 * Corrected bug that prevented Set command from working.
+* Modified to start with empty data dictionary every time a new input data source is opened, unless a merge has been requested.
 * Provided example in user guide of using meta-templates to generate templates from a data dictionary.
 * Added additional logging to show results of commands.
 
 Version 2.1 (2002-09-08)
 -------------------------
 
-* Sort tab now offers the ability to combine records with identical sort keys. This may be used with the new merge feature, or on a single file to eliminate duplicates.
 * When running on a Mac, output files will have the SimpleText creator code (ttxt) and the plain text (TEXT) type code assigned, to make these files easier to open using other programs.
+* Sort tab now offers the ability to combine records with identical sort keys. This may be used with the new merge feature, or on a single file to eliminate duplicates.
 * Input tab now offers the option to merge an input file with the existing data set. Files should have some overlapping columns, but may have unique columns as well.
 
 Version 2 (2002-08-24)
@@ -163,10 +164,10 @@ Version 1.17 (2002-08-14)
 Version 1.16 (2002-04-17)
 -------------------------
 
-* Added scroll bars to output text areas on Log and Script tabs.
-* Added a logging option that sends log data to the text area on the Log tab.
 * Added three new group commands to allow template lines to be written out before and after control breaks in up to ten different key fields.
 * Now available for execution under Mac OS X.
+* Added a logging option that sends log data to the text area on the Log tab.
+* Added scroll bars to output text areas on Log and Script tabs.
 
 Version 1.15 (2001-03-02)
 -------------------------
@@ -174,8 +175,8 @@ Version 1.15 (2001-03-02)
 * Created program icons.
 * Corrected bug that caused last row of input data to be skipped when using a template to generate an output file.
 * Modified Script playback file to use same log file settings as the rest of the program.
-* Corrected program logic so that global variable values would not be confused with data record values.
 * Corrected bug that caused results of IF comparisons to be reversed.
+* Corrected program logic so that global variable values would not be confused with data record values.
 
 Version 1.14 (2001-02-16)
 -------------------------
@@ -187,10 +188,10 @@ Version 1.12 (2001-02-08)
 -------------------------
 
 * Added check in dictionary read routine to skip blank lines in the input file.
+* Added ability to quit the program by closing the window.
 * Eliminated occurrences of  file:\\http at the beginning of hyperlink fields.
 * Added logic to handle condition when hyperlink field begins with slashes.
 * Modified so that the output dictionary would use the same log and log settings as the rest of the program.
-* Added ability to quit the program by closing the window.
 * Added logic to trim spaces from the front of hyperlink fields.
 
 Version 1.11 (2001-02-05)
@@ -198,8 +199,8 @@ Version 1.11 (2001-02-05)
 
 * Corrected an ArrayIndexOutOfBoundsException at com.powersurgepub.psdata.DataRecord by being more tolerant of irregularities in the Input data source.
 * Prevented fatal errors when one or more data records did not conform to expected configuration (blank lines, missing fields, extra fields, etc.).
-* Modified to prevent extra dictionaries from being accidentally created internally. This would result in custom formats being lost when going from Input to Output functions.
 * Eliminated penultimate dictionary record containing no field name, but a non-blank data format. This was being created when a Dictionary was being saved as part of the Output function.
+* Modified to prevent extra dictionaries from being accidentally created internally. This would result in custom formats being lost when going from Input to Output functions.
 * Modified to ensure that the dictionary file gets saved in the same directory as the output file.
 * Modified to remember last used directory and start further file activity (opens, saves) there, rather than home directory.
 * Added code to record a Script action when pressing the Template Generate button.

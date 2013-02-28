@@ -11162,4 +11162,90 @@
       
     </linkedtags>
   </item>
+  <item>
+    <tags>
+      Refactor
+    </tags>
+    <Tag1>
+      Refactor
+    </Tag1>
+    <Tag2>
+      
+    </Tag2>
+    <Tag3>
+      
+    </Tag3>
+    <Tag4>
+      
+    </Tag4>
+    <Tag5>
+      
+    </Tag5>
+    <duedate>
+      02/28/2013
+    </duedate>
+    <starttime>
+      00:00 AM
+    </starttime>
+    <duration>
+      N/A
+    </duration>
+    <alertprior>
+      N/A
+    </alertprior>
+    <priority>
+      3
+    </priority>
+    <status>
+      9
+    </status>
+    <assignedto>
+      
+    </assignedto>
+    <sequence>
+      4.10
+    </sequence>
+    <title>
+      Refactored code for greater reuse
+    </title>
+    <description>
+      
+    </description>
+    <outcome>
+      Refactored code to allow chunks of PSTextMerge to be used by other apps as well.
+    </outcome>
+    <webpage>
+      
+    </webpage>
+    <recursunit>
+      N/A
+    </recursunit>
+    <recursevery>
+      0
+    </recursevery>
+    <recursdayofweek>
+      -1
+    </recursdayofweek>
+    <recurswithinmonth>
+      -1
+    </recurswithinmonth>
+    <duedateymd>
+      2013-02-28
+    </duedateymd>
+    <type>
+      Action
+    </type>
+    <length>
+      0
+    </length>
+    <lastmod>
+       
+    </lastmod>
+    <lastmoddateymd>
+       
+    </lastmoddateymd>
+    <linkedtags>
+      &lt;a href=&apos;tags/refactor.html&apos; rel=&apos;tag&apos;&gt;Refactor&lt;/a&gt;
+    </linkedtags>
+  </item>
 </twodue>
