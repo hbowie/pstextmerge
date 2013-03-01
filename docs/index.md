@@ -6,7 +6,7 @@ PSTextMerge User Guide
 <ul id="toc-div">
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#sysrqmts">System Requirements</a></li>
-<li><a href="#license">License</a></li>
+<li><a href="#rights">Rights</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#command-line-parms">Command Line Parameters</a></li>
 <li><a href="#gui">User Interface</a></li>
@@ -36,11 +36,11 @@ PSTextMerge can also perform other operations with tabular data, extracting and 
 
 <h2 id="sysrqmts">System Requirements</h2>
 
-PSTextMerge is written in Java and can run on any reasonably modern operating system, including Mac OS X, Windows and Linux. PSTextMerge requires a Java Runtime Environment (JRE), also known as a Java Virtual Machine (JVM). The version of this JRE/JVM must be at least 6. Visit [www.java.com][java] to download a recent version for most operating systems. The JVM is installed as part of Mac OS X, and may be updated from the Software Update panel. 
+PSTextMerge is written in Java and can run on any reasonably modern operating system, including Mac OS X, Windows and Linux. PSTextMerge requires a Java Runtime Environment (JRE), also known as a Java Virtual Machine (JVM). The version of this JRE/JVM must be at least 6. Visit [www.java.com][java] to download a recent version for most operating systems. Installation happens a bit differently under Mac OS X, but generally will occur fairly automatically when you try to launch a Java app for the first time.  
 
 <p class="back-to-top"><a href="#toc">Back to Top</a></p>
 
-<h2 id="license">License</h2>
+<h2 id="rights">Rights</h2>
 
 PSTextMerge Copyright &copy; 1999 - 2013 Herb Bowie
 
