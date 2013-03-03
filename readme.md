@@ -8,6 +8,11 @@ Documentation
 
 User documentation is available at [docs/index.md](docs/index.md).
 
+Executables
+-----------
+
+Executable software may be downloaded at [PowerSurgePub.com](http://www.powersurgepub.com).
+
 Source
 ------
 
