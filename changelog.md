@@ -1,3 +1,8 @@
+Version 4.20 (2013-05-19)
+-------------------------
+
+* Template generation can now be performed without any input data, so long as there is not a nextrec command in the template. The purpose of this would be to include output files from other operations into a single output file.
+
 Version 4.10 (2013-02-28)
 -------------------------
 

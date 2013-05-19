@@ -14,7 +14,7 @@
       Status
     </field1>
     <seq1>
-      Ascending
+      Descending
     </seq1>
     <field2>
       Seq
@@ -11246,6 +11246,92 @@
     </lastmoddateymd>
     <linkedtags>
       &lt;a href=&apos;tags/refactor.html&apos; rel=&apos;tag&apos;&gt;Refactor&lt;/a&gt;
+    </linkedtags>
+  </item>
+  <item>
+    <tags>
+      Minor Enhancement
+    </tags>
+    <Tag1>
+      Minor Enhancement
+    </Tag1>
+    <Tag2>
+      
+    </Tag2>
+    <Tag3>
+      
+    </Tag3>
+    <Tag4>
+      
+    </Tag4>
+    <Tag5>
+      
+    </Tag5>
+    <duedate>
+      05/19/2013
+    </duedate>
+    <starttime>
+      00:00 AM
+    </starttime>
+    <duration>
+      N/A
+    </duration>
+    <alertprior>
+      N/A
+    </alertprior>
+    <priority>
+      3
+    </priority>
+    <status>
+      9
+    </status>
+    <assignedto>
+      
+    </assignedto>
+    <sequence>
+      4.20
+    </sequence>
+    <title>
+      Merge without Data
+    </title>
+    <description>
+      
+    </description>
+    <outcome>
+      Template generation can now be performed without any input data, so long as there is not a nextrec command in the template. The purpose of this would be to include output files from other operations into a single output file.
+    </outcome>
+    <webpage>
+      
+    </webpage>
+    <recursunit>
+      N/A
+    </recursunit>
+    <recursevery>
+      0
+    </recursevery>
+    <recursdayofweek>
+      -1
+    </recursdayofweek>
+    <recurswithinmonth>
+      -1
+    </recurswithinmonth>
+    <duedateymd>
+      2013-05-19
+    </duedateymd>
+    <type>
+      Action
+    </type>
+    <length>
+      0
+    </length>
+    <lastmod>
+       
+    </lastmod>
+    <lastmoddateymd>
+       
+    </lastmoddateymd>
+    <linkedtags>
+      &lt;a href=&apos;tags/minor-enhancement.html&apos; rel=&apos;tag&apos;&gt;Minor Enhancement&lt;/a&gt;
     </linkedtags>
   </item>
 </twodue>
