@@ -1,6 +1,7 @@
-Version 4.20 (2013-05-19)
+Version 4.20 (2013-05-25)
 -------------------------
 
+* Merge options on the Input tab were being ignored, resulting in the merged data replacing the prior data, instead of being added to it. This has now been corrected.
 * Template generation can now be performed without any input data, so long as there is not a nextrec command in the template. The purpose of this would be to include output files from other operations into a single output file.
 
 Version 4.10 (2013-02-28)

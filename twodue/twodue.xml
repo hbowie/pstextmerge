@@ -11334,4 +11334,90 @@
       &lt;a href=&apos;tags/minor-enhancement.html&apos; rel=&apos;tag&apos;&gt;Minor Enhancement&lt;/a&gt;
     </linkedtags>
   </item>
+  <item>
+    <tags>
+      Bug Fix
+    </tags>
+    <Tag1>
+      Bug Fix
+    </Tag1>
+    <Tag2>
+      
+    </Tag2>
+    <Tag3>
+      
+    </Tag3>
+    <Tag4>
+      
+    </Tag4>
+    <Tag5>
+      
+    </Tag5>
+    <duedate>
+      05/25/2013
+    </duedate>
+    <starttime>
+      00:00 AM
+    </starttime>
+    <duration>
+      N/A
+    </duration>
+    <alertprior>
+      N/A
+    </alertprior>
+    <priority>
+      3
+    </priority>
+    <status>
+      9
+    </status>
+    <assignedto>
+      
+    </assignedto>
+    <sequence>
+      4.20
+    </sequence>
+    <title>
+      Fixed Merge Bug
+    </title>
+    <description>
+      
+    </description>
+    <outcome>
+      Merge options on the Input tab were being ignored, resulting in the merged data replacing the prior data, instead of being added to it. This has now been corrected.
+    </outcome>
+    <webpage>
+      
+    </webpage>
+    <recursunit>
+      N/A
+    </recursunit>
+    <recursevery>
+      0
+    </recursevery>
+    <recursdayofweek>
+      -1
+    </recursdayofweek>
+    <recurswithinmonth>
+      -1
+    </recurswithinmonth>
+    <duedateymd>
+      2013-05-25
+    </duedateymd>
+    <type>
+      Action
+    </type>
+    <length>
+      0
+    </length>
+    <lastmod>
+       
+    </lastmod>
+    <lastmoddateymd>
+       
+    </lastmoddateymd>
+    <linkedtags>
+      &lt;a href=&apos;tags/bug-fix.html&apos; rel=&apos;tag&apos;&gt;Bug Fix&lt;/a&gt;
+    </linkedtags>
+  </item>
 </twodue>

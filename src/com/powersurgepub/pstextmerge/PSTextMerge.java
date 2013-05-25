@@ -72,7 +72,7 @@ public class PSTextMerge
   
   /** Program Name */
   public    static  final String  PROGRAM_NAME = "PSTextMerge";
-  public    static  final String  PROGRAM_VERSION = "4.10";
+  public    static  final String  PROGRAM_VERSION = "4.20";
   
   private   static  final String  USER_GUIDE
       = "userguide/pstextmerge.html";
@@ -504,7 +504,6 @@ public class PSTextMerge
       userDirFile = new File (userDirString);
       currentDirectory = userDirFile;
       textMergeScript.setNormalizerPath(userDirString);
-      // System.out.println ("User Directory = " + userDirString);
     }
     currentDirectory = home.getUserHome();
     fileSeparatorString = System.getProperty (GlobalConstants.FILE_SEPARATOR, "/");
@@ -537,10 +536,6 @@ public class PSTextMerge
       log.setLogThreshold (logIn.getLogThreshold());
     }
     logEvent = new LogEvent();
-    // System.out.println ("Log Threshold is " + String.valueOf (log.getLogThreshold()));
-    // log.recordEvent (LogEvent.NORMAL, 
-    //     "PSTextMerge Log File established",
-    //    false);
     
     // Determine which Tabs are to be displayed
     tabConfig = System.getProperty ("tabs", DEFAULT_TABS);
@@ -1160,7 +1155,7 @@ public class PSTextMerge
                         is not available. 
   */
   public void setListAvailable (boolean listAvailable) {
-    listAvailable = listAvailable;
+    this.listAvailable = listAvailable;
     if (textMergeOutput != null) {
       textMergeOutput.setListAvailable(listAvailable);
     }
