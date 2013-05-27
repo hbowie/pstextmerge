@@ -45,7 +45,6 @@ package com.powersurgepub.pstextmerge;
 public class PSTextMerge 
     implements 
       TextMergeController, 
-      PSFileOpener, 
       XHandler {
 
 	/*
@@ -664,7 +663,7 @@ public class PSTextMerge
 		// Create Script Pane
 		if (scriptTabDisplay) {
       textMergeScript.setTabs(tabs);
-      textMergeScript.setMenus(menuBar);
+      textMergeScript.setMenus(menuBar, "Script");
 		  tabPosition++;
 		}
 		
@@ -1045,32 +1044,6 @@ public class PSTextMerge
     }
   }
   
-  public void handleOpenFile (PSFile inFile) {
-    
-    if (inFile.exists()
-        && inFile.canRead()
-        && inFile.isFile()) {
-      FileName inFileName = new FileName (inFile);
-      String inFileNameExt = inFileName.getExt();
-      if (inFileNameExt.equals (TextMergeScript.SCRIPT_EXT)) {
-        textMergeScript.setNormalizerPath(currentDirectory.getPath());
-        textMergeScript.playScript(inFile);
-        textMergeScript.selectTab();
-      } else
-      if (inFileNameExt.equals ("txt")
-          || inFileNameExt.equals ("tab")
-          || inFileNameExt.equals ("csv")) {
-        textMergeInput.openFileOrDirectory(inFile);
-        textMergeInput.selectTab();
-      }
-    } else {
-      JOptionPane.showMessageDialog (tabs, 
-        "Recent Script File " + inFile.toString() + " is not available",
-        "Script File Error",
-        JOptionPane.ERROR_MESSAGE);
-    }
-  }
-  
   public void handleOpenURI (URI inURI) {
     
   }
@@ -1093,6 +1066,7 @@ public class PSTextMerge
   public void handleQuit() {	
     textMergeScript.stopScriptRecording();
     if (mainClass) {
+      textMergeScript.savePrefs();
       textMergeTemplate.savePrefs();
       userPrefs.setPref (UserPrefs.LEFT, mainFrame.getX());
       userPrefs.setPref (UserPrefs.TOP, mainFrame.getY());
