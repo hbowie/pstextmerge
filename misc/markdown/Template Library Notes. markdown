@@ -1,0 +1,25 @@
+# Template Library
+
+These are notes on how the template library is used by the text merge modules. 
+
+## Preferences
+
+A 'templates-folder' value is stored for each recent file in the user's saved preferences (in the preferences plist file, on a Mac). 
+
+## App Folder
+
+If a folder named 'templates' exists within the applications appfolder, then this will be set as the template library at program startup, by the main class. 
+
+## TextMergeTemplate class -- com.powersurgepub.psdatalib.textmerge
+
+The TextMergeTemplate module "owns" the templateLibrary variable. Other modules should use this module's getters and setters to access this variable. 
+
+During construction, the template library will be set to a user preference, if one exists. Otherwise, if the main class has a valid templates folder within its appfolder, then that location will be used. 
+
+## FileSpec class -- com.powersurgepub.psfiles
+
+The FileSpec class in the psfiles package contains a templatesFolder variable, and this is a pseudonym for the templateLibrary variable. The FileSpec module is responsible for saving and retrieving the preferred templateLibrary value for each source file. 
+
+## ScriptAction class -- com.powersurgepub.psdatalib.script
+
+This class will check to see if a file path lies within the template library and, if it does, will replace the template library path with the constant '#TEMPLATES#', so that this can be expanded using the current template library path when the script containing the path is later played back. 
