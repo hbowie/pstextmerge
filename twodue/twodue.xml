@@ -11420,4 +11420,90 @@
       &lt;a href=&apos;tags/bug-fix.html&apos; rel=&apos;tag&apos;&gt;Bug Fix&lt;/a&gt;
     </linkedtags>
   </item>
+  <item>
+    <tags>
+      Minor Enhancement
+    </tags>
+    <Tag1>
+      Minor Enhancement
+    </Tag1>
+    <Tag2>
+      
+    </Tag2>
+    <Tag3>
+      
+    </Tag3>
+    <Tag4>
+      
+    </Tag4>
+    <Tag5>
+      
+    </Tag5>
+    <duedate>
+      06/09/2013
+    </duedate>
+    <starttime>
+      00:00 AM
+    </starttime>
+    <duration>
+      N/A
+    </duration>
+    <alertprior>
+      N/A
+    </alertprior>
+    <priority>
+      3
+    </priority>
+    <status>
+      9
+    </status>
+    <assignedto>
+      
+    </assignedto>
+    <sequence>
+      4.20
+    </sequence>
+    <title>
+      Back slash at end of line will result in two spaces at line end
+    </title>
+    <description>
+      
+    </description>
+    <outcome>
+      The software normally drops trailing spaces at the end of a line, but a line ending with a space and a backslash will now result in two spaces appearing at the end of the output line, which will result in a line break being generated if converting Markdown to HTML.
+    </outcome>
+    <webpage>
+      
+    </webpage>
+    <recursunit>
+      N/A
+    </recursunit>
+    <recursevery>
+      0
+    </recursevery>
+    <recursdayofweek>
+      -1
+    </recursdayofweek>
+    <recurswithinmonth>
+      -1
+    </recurswithinmonth>
+    <duedateymd>
+      2013-06-09
+    </duedateymd>
+    <type>
+      Action
+    </type>
+    <length>
+      0
+    </length>
+    <lastmod>
+       
+    </lastmod>
+    <lastmoddateymd>
+       
+    </lastmoddateymd>
+    <linkedtags>
+      &lt;a href=&apos;tags/minor-enhancement.html&apos; rel=&apos;tag&apos;&gt;Minor Enhancement&lt;/a&gt;
+    </linkedtags>
+  </item>
 </twodue>

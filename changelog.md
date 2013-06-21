@@ -1,6 +1,7 @@
-Version 4.20 (2013-05-25)
+Version 4.20 (2013-06-09)
 -------------------------
 
+* The software normally drops trailing spaces at the end of a line, but a line ending with a space and a backslash will now result in two spaces appearing at the end of the output line, which will result in a line break being generated if converting Markdown to HTML.
 * Merge options on the Input tab were being ignored, resulting in the merged data replacing the prior data, instead of being added to it. This has now been corrected.
 * Template generation can now be performed without any input data, so long as there is not a nextrec command in the template. The purpose of this would be to include output files from other operations into a single output file.
 
