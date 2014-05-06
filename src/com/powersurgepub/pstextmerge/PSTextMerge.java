@@ -126,14 +126,14 @@ public class PSTextMerge
 	// Should Logging Tab be displayed? 
 	private     boolean             logTabDisplay = false;
   
-  private     DataRecList           list = new DataRecList();
+  private     DataRecList         list = new DataRecList();
   
-  private     TextMergeInput        textMergeInput = null;
-  private     TextMergeScript       textMergeScript = null;
-  private     TextMergeFilter       textMergeFilter = null;
-  private     TextMergeSort         textMergeSort = null;
-  private     TextMergeTemplate     textMergeTemplate = null;
-  private     TextMergeOutput       textMergeOutput = null;
+  private     TextMergeInput      textMergeInput = null;
+  private     TextMergeScript     textMergeScript = null;
+  private     TextMergeFilter     textMergeFilter = null;
+  private     TextMergeSort       textMergeSort = null;
+  private     TextMergeTemplate   textMergeTemplate = null;
+  private     TextMergeOutput     textMergeOutput = null;
 	
   // A log juggler to create other logging objects and perform logging operations. 
   private     LogJuggler          logJuggler;
