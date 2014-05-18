@@ -71,7 +71,7 @@ public class PSTextMerge
   
   /** Program Name */
   public    static  final String  PROGRAM_NAME = "PSTextMerge";
-  public    static  final String  PROGRAM_VERSION = "4.20";
+  public    static  final String  PROGRAM_VERSION = "4.30";
   
   private   static  final String  USER_GUIDE
       = "userguide/pstextmerge.html";
