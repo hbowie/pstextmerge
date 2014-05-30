@@ -9,6 +9,10 @@
 
     Added a parentfolder variable, to allow the name of the parent folder (without its path info) to be inserted by a template.
 
+3. **Added relative global variable**
+
+    Added the ability to set a folder as the root for a web site, and then use the relative global variable to create a path to the root from any location within the site.
+
 
 ## Version 4.20 (2013-06-09)
 
