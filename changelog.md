@@ -1,15 +1,19 @@
 
-## Version 4.30 (2014-05-26)
+## Version 4.30 (2014-06-09)
 
-1. **Added OUTER and OUTERLOOP Commands**
+1. **Added .mdtoc File Extension for Include Conversion**
+
+    Specifying an output file extension of .mdtoc will cause an included Markdown file to have a table of contents inserted into the document immediately following a heading titled &quot;Table of Contents&quot;. The table of contents will be based on the headings used in the document.
+
+2. **Added OUTER and OUTERLOOP Commands**
 
     Added OUTER and OUTERLOOP commands, to allow a template to perform both an outer loop and an inner loop over the data. This can be useful, for example, to build a navigation menu for each of several items, with additional detail available when the focus is on a particular item.
 
-2. **Added parentfolder variable**
+3. **Added parentfolder variable**
 
     Added a parentfolder variable, to allow the name of the parent folder (without its path info) to be inserted by a template.
 
-3. **Added relative global variable**
+4. **Added relative global variable**
 
     Added the ability to set a folder as the root for a web site, and then use the relative global variable to create a path to the root from any location within the site.
 
