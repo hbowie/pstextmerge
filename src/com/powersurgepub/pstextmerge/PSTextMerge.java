@@ -1,5 +1,5 @@
 /*
- * Copyright 1999 - 2013 Herb Bowie
+ * Copyright 1999 - 2014 Herb Bowie
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -208,15 +208,7 @@ public class PSTextMerge
   private     JMenu               windowMenu;
   
   private			JMenu								helpMenu;
-  private     JMenuItem           helpHistory;
-  private			JMenuItem						helpUserGuide;
-  private     JSeparator          helpSeparator2;
   private			JMenuItem						helpAbout;
-  
-  private			JMenuItem						helpPSPubWebSite;
-  private     JSeparator          helpSeparator3;
-  private     JMenuItem           helpReduceWindowSize;
-
 	
 	private     GridBagger          gb = new GridBagger();
 	
@@ -383,6 +375,8 @@ public class PSTextMerge
       xos.setMainWindow (mainFrame);
       xos.setXHandler (this);
       home = Home.getShared(PROGRAM_NAME, PROGRAM_VERSION);
+      helpMenu = new JMenu("Help");
+      home.setHelpMenu(mainFrame, helpMenu);
     } else {
       home = Home.getShared();
     }
@@ -434,7 +428,7 @@ public class PSTextMerge
       } catch (MalformedURLException e) {
         // shouldn't happen
       }
-      xos.setHelpMenuItem (helpUserGuide);
+      xos.setHelpMenuItem (home.getHelpMenuItem());
       Trouble.getShared().setParent(mainFrame);
     }
     calcDefaultScreenLocation();
@@ -696,66 +690,8 @@ public class PSTextMerge
     menuBar.add (windowMenu);
     
     // Help Menu 
-    helpMenu = new JMenu("Help");
+    // helpMenu = new JMenu("Help");
     menuBar.add (helpMenu);
-    
-    /* if (! xos.isRunningOnMacOS()) {
-      helpAbout = new JMenuItem ("About " + PROGRAM_NAME);
-      helpMenu.add (helpAbout);
-      helpAbout.addActionListener (new ActionListener ()
-        {
-          public void actionPerformed (ActionEvent event) {
-            handleAbout();
-          } // end actionPerformed method
-        } // end action listener
-      );
-    } */
-    
-    helpHistory = new JMenuItem ("Program History");
-    helpMenu.add (helpHistory);
-    helpHistory.addActionListener(new ActionListener()
-    {
-      public void actionPerformed (ActionEvent event) {
-        openURL (programHistoryURL);
-      }
-    });
-    
-    helpUserGuide = new JMenuItem ("User Guide");
-    helpMenu.add (helpUserGuide);
-    helpUserGuide.addActionListener (new ActionListener() 
-      {
-        public void actionPerformed (ActionEvent event) {
-          openURL (userGuideURL);
-        } // end ActionPerformed method
-      } // end action listener
-    );
-    
-    helpSeparator2 = new JSeparator();
-    helpMenu.add (helpSeparator2);
-
-    helpPSPubWebSite = new JMenuItem (PROGRAM_NAME + " Home Page");
-    helpMenu.add (helpPSPubWebSite);
-    helpPSPubWebSite.addActionListener (new ActionListener() 
-      {
-        public void actionPerformed (ActionEvent event) {
-          openURL ("http://www.powersurgepub.com/");
-        } // end ActionPerformed method
-      } // end action listener
-    );
-    
-    helpSeparator3 = new JSeparator();
-    helpMenu.add (helpSeparator3);
-    
-    helpReduceWindowSize = new JMenuItem ("Reduce Window Size");
-    helpReduceWindowSize.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_W,
-        Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-    helpMenu.add (helpReduceWindowSize);
-    helpReduceWindowSize.addActionListener(new ActionListener()
-      {
-        public void actionPerformed (ActionEvent event) {
-          setDefaultScreenSizeAndLocation();
-        }
-      });
     
     log.recordEvent (LogEvent.NORMAL,
         "Application Folder = " + home.getAppFolder().toString(),

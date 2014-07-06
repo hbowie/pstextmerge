@@ -296,7 +296,7 @@ Artist Sort Key
 
 Genre
 :    The genre assigned to the tracks in the album. Any genre containing "jazz" will be reported as "Jazz"; any genre containing "holiday", "Christmas" or "xmas" will be reported as "Holiday"; any other variations in genre within an album will result in this field being set to "Mixed".
- 
+
 Year
 :    The year in which the album was released.
 
@@ -489,7 +489,6 @@ If you are about to read a file directory, then this field controls whether sub-
 This tab allows the user to view a tab-delimited data file that has been opened for input. Subsequent tabs, such as Sort and Filter, will affect the data that is displayed on the View tab.
 
 The user can scroll from left to right and up and down, assuming there is more data available than will fit within the current window. Columns can also be resized by clicking on their right borders and dragging. Each initial column size will be approximately proportional to the largest data field within the column.
-<>if yes eq yes ?>
 
 <h3 id="textmerge-sort">TextMerge Sort</h3>
 
@@ -879,7 +878,7 @@ If a variable may be interpreted as a series of "words," with the words delimite
 For example, if the template file contained the following:
 
 <blockquote>
-	PM37;
+	PM36;
 </blockquote>
 
 And the name variable was equal to:
@@ -1586,37 +1585,37 @@ The following special column headings are predefined for file directory entries.
 
 Sort Key
 :    Used for sorting the directory entries alphanumerically, without regards to case (upper or lower) or punctuation. The complete file path will appear here, all in lower-case, with spaces between file directories, and spaces replacing punctuation.
-	
+
 Folder1 through Foldern
 :    Folder1 will contain the first sub-directory name, within the specified input directory, if this entry came from a sub-directory. Folder1 through Foldern columns will appear, where "n" is the maximum directory depth - 1 (since a maximum directory depth of 1 indicates no sub-directory explosion at all).
 
 Path
 :    The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row.
-	
+
 File Name
 :    Name of the file or sub-directory.
-	
+
 Type
 :    The type of directory entry: "File" or "Directory".
-	
+
 English Name
 :    A file name with standardized spacing, without punctuation, and without a file extension.
-	
+
 File Name w/o Extension
 :    The file name without its extension.
-	
+
 File Ext
 :    The file extension, if a file and if it has one.
-	
+
 File Size
 :    Size of the file, in bytes.
-	
+
 Last Mod Date
 :    Date of last change to the file, in "yyyy-mm-dd" format.
-	
+
 Last Mod Time
 :    Time of last change to the file, in "hh:mm:ss zzz" format, where "hh" is a 24-hour (military) hour, "mm" is minutes, "ss" is seconds and "zzz" is an abbreviation of the time zone.
-	
+
 Word1 through Word5
 :    The file name, without directories and without extension, will be broken down into up to five separate fields, using punctuation, spaces, and case transitions to demarcate words.
 
@@ -1637,49 +1636,49 @@ Note that there are two variants of this file type, one simply labeled "Markdown
 
 Complete Path
 :    The complete path to the file, including all directories, plus the file name and extension.
-	
+
 Base Path
 :    The folder path to the top directory containing the markdown files included in the list.
 
 Local Path
 :    The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row.
-	
+
 Depth
 :    0 for files at the top level of the extract, 1 for files within the next set of folders, and so forth.
-	
+
 File Name
 :    Name of the file, including its file extension.
-	
+
 File Name Base
 :    The file name without its extension, and without the period preceding the extension.
-	
+
 File Ext
 :    The file extension, without the preceding period.
-	
+
 Last Mod Date
 :    Date of last change to the file, in "yyyy-mm-dd hh:mm:ss TMZ" format.
-	
+
 File Size
 :    Approximate size of the file, in bytes.
-	
+
 Title
 :    The title can come from a number of different sources. If the file does not contain a title, then the file name will be used as the title, after removing its extension, and normalizing the case and word separators to leading caps and a space, respectively. If the file contains a level 1 heading, denoted by an initial line followed by a line of simulated double underlines (four or more equal signs), per the [Markdown][] specification, then this will be used as the title. And finally, if the metadata at the top of the file contains a line starting with "Title:", then the remainder of the line will be used as the title.
-	
+
 Author
 :    If the file title is followed by a byline, starting with the word "by", then the remainder of the line will be used as the author. Alternatively, if the metadata at the top of the file contains a line starting with "By", "Author", or "Creator", then the remainder of the line will be used as the author.
-	
+
 Date
 :    The date associated with the file, as established by a metadata line at the top of the file starting with "Date:".
-	
+
 Breadcrumbs
 :    A string that can be used to provide "breadcrumbs" for this page.
-	
+
 Tags
 :    These would be the tags provided by a metadata line starting with the key of "Tags", "Keywords" or "Category". Multiple tags may be provided, each separated from the other by a comma, with or without spaces. Tags may be nested as well, with a period separating each level, without any spaces.
 
 Linked Tags
 :    Tags with links for each tag.
-	
+
 Tag
 :    An individual tag.
 
@@ -1692,16 +1691,16 @@ This structure is then converted to a columnar data structure, with one row for 
 
 sectionnumber1 through sectionnumber10
 :    The sectionnumber1 column contains the current highest level "section", or item number, in the overall structure. These numbers are assigned internally, beginning with 1, and are not taken from the input file.
-	
+
 headingflag
 :    Set to "true" if this item is a bulleted item, otherwise set to "false".
-	
+
 level
 :    Starting with 1, the depth of the current item in the overall structure.
-	
+
 text
 :    The body of the item or paragraph.
-	
+
 link
 :    The URL, if any, supplied for this item or paragraph.
 
@@ -1786,12 +1785,12 @@ The following lines can be used as a template for creating a Club Planner event.
 		/*
 		Copy and paste notes about the event. Precede each note with a header line indicating
 		who it came from, on what date and via what medium. For example:
-	
+
 		-- Will Dorchak, Feb 16, via email
-	
+
 		Follow the header with a blank line, and the the text of the note, using blank lines
 		to separate paragraphs.
-	
+
 		*/
 
 <h4 id="input-fields">Input Fields</h4>
