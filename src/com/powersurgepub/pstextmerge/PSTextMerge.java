@@ -371,11 +371,11 @@ public class PSTextMerge
     }
 
     mainFrame = new JFrame(PROGRAM_NAME);
+    helpMenu = new JMenu("Help");
     if (mainClass) {
       xos.setMainWindow (mainFrame);
       xos.setXHandler (this);
       home = Home.getShared(PROGRAM_NAME, PROGRAM_VERSION);
-      helpMenu = new JMenu("Help");
       home.setHelpMenu(mainFrame, helpMenu);
     } else {
       home = Home.getShared();
@@ -691,7 +691,7 @@ public class PSTextMerge
     
     // Help Menu 
     // helpMenu = new JMenu("Help");
-    menuBar.add (helpMenu);
+    // menuBar.add (helpMenu);
     
     log.recordEvent (LogEvent.NORMAL,
         "Application Folder = " + home.getAppFolder().toString(),

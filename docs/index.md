@@ -878,7 +878,7 @@ If a variable may be interpreted as a series of "words," with the words delimite
 For example, if the template file contained the following:
 
 <blockquote>
-	AM25;
+	AM32;
 </blockquote>
 
 And the name variable was equal to:
