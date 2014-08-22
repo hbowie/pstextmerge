@@ -74,7 +74,7 @@
       <a href="#file-formats">File Formats</a>
       <ul>
         <li>
-          <a href="#template-files">Template Files</a>
+          <a href="#template-file-format">Template File Format</a>
         </li>
         <li>
           <a href="#script-files">Script Files</a>
@@ -90,6 +90,9 @@
         </li>
         <li>
           <a href="#club-planner-files">Club Planner Files</a>
+        </li>
+        <li>
+          <a href="#club-planner-minutes-file-format">Club Planner Minutes File Format</a>
         </li>
       </ul>
 
@@ -648,7 +651,7 @@ This button processes the template file you have selected, and creates whatever 
 <h4 id="template-file-format">Template File Format</h4>
 
 
-See the [Template File Format specification](#templatefiles) for details.
+See the [Template File Format specification](#template-file-format) for details.
 
 <h3 id="textmerge-script">TextMerge Script</h3>
 
@@ -749,7 +752,7 @@ The following commands are available. Note that the first two commands open loca
 
 The following file formats are used by PSTextMerge.
 
-<h3 id="template-files">Template Files</h3>
+<h3 id="template-file-format">Template File Format</h3>
 
 
 This section describes the contents of a template file, used for producing formatted output from a table of rows and columns.
@@ -878,7 +881,7 @@ If a variable may be interpreted as a series of "words," with the words delimite
 For example, if the template file contained the following:
 
 <blockquote>
-	AM32;
+	PM21;
 </blockquote>
 
 And the name variable was equal to:
@@ -1709,7 +1712,7 @@ link
 
 Information about events and other items for club consideration are stored in text files, with one event/item per file.
 
-Note that there are two variants of this file, one labeled "Club Planner" and the other labeled "Club Notes". The first has only one row per event, while the second has one row per note header in the Notes field for each event.
+Note that there are two variants of this file that can be produced as an output tab-delimited file, one labeled "Club Planner" and the other labeled "Club Notes". The first has only one row per event, while the second has one row per note header in the Notes field for each event.
 
 <h4 id="folder-structure">Folder Structure</h4>
 
@@ -1922,6 +1925,30 @@ The following additional fields are extracted for the Club Notes file format, wi
 **Note**: The text of the note, following the note header.
 
 **Note as HTML**: The text of the note, converted from [Markdown][] to HTML, suitable for insertion into a Web page or email.
+
+<h3 id="club-planner-minutes-file-format">Club Planner Minutes File Format</h3>
+
+
+A plain text file containing meeting minutes can be imported into and exported from Club Planner. The file should be formatted much like the events files themselves, although in this case only one file is used to contain minutes information for all events that were discussed at the meeting.
+
+The Minutes file uses the following special conventions.
+
+* A Markdown heading (indicated by one or more '#' symbols at the beginning of the line) is used to indicate optional section headings, simply for human readability of the file.
+
+* An ellipsis (three or more periods in a row) on a line by itself is used to indicate the end of information about a particular event.
+
+The following fields can be included on the minutes file, and will cause updates to the corresponding event fields, for new or modified data fields.
+
+* What
+* When
+* Where
+* Who
+* Notes
+
+Note that the bulk of the minutes taken for each event will usually be entered in the Notes field. These meeting minutes notes should normally be prefixed with a note header line saying something like 'Jonathan on Jul 22 via Minutes', where Jonathan would be the name of the club secretary and Jul 22 would be the date of the meeting. These new notes will then be appended to any existing notes about an event.
+
+
+
 
 [java]:       http://www.java.com/
 [pspub]:      http://www.powersurgepub.com/
