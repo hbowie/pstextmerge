@@ -94,6 +94,9 @@
         <li>
           <a href="#club-planner-minutes-file-format">Club Planner Minutes File Format</a>
         </li>
+        <li>
+          <a href="#club-planner-financial-register-file-format">Club Planner Financial Register File Format</a>
+        </li>
       </ul>
 
     </li>
@@ -881,7 +884,7 @@ If a variable may be interpreted as a series of "words," with the words delimite
 For example, if the template file contained the following:
 
 <blockquote>
-	PM21;
+	AM34;
 </blockquote>
 
 And the name variable was equal to:
@@ -1946,6 +1949,25 @@ The following fields can be included on the minutes file, and will cause updates
 * Notes
 
 Note that the bulk of the minutes taken for each event will usually be entered in the Notes field. These meeting minutes notes should normally be prefixed with a note header line saying something like 'Jonathan on Jul 22 via Minutes', where Jonathan would be the name of the club secretary and Jul 22 would be the date of the meeting. These new notes will then be appended to any existing notes about an event.
+
+<h3 id="club-planner-financial-register-file-format">Club Planner Financial Register File Format</h3>
+
+
+A tab-delimited file can be exported from Club Planner in this format. The contents of this file will be derived from the actual income and actual expense fields found on the events. The following fields will be included.
+
+**Tran Date**: The date of the financial transaction.
+
+**Ck #**: This would be the check number of the transaction.
+
+**Inc/Exp**: Either 'Income' or 'Expense' to indicate the type of transaction.
+
+**From/To**: Either the source of funds, for income, or the payee, for an expense.
+
+**For**: What the payment was for.
+
+**Amount**: The amount of the transaction.
+
+**What**: The title of the event associated with this transaction.
 
 
 
