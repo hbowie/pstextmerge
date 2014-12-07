@@ -119,10 +119,6 @@ PSTextMerge can also perform other operations with tabular data, extracting and 
 PSTextMerge was formerly known as TDF Czar.
 
 
-
-
-
-
 <h2 id="getting-started">Getting Started</h2>
 
 
