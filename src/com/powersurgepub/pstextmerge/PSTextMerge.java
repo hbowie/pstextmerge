@@ -1,5 +1,5 @@
 /*
- * Copyright 1999 - 2014 Herb Bowie
+ * Copyright 1999 - 2015 Herb Bowie
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,9 +36,6 @@ package com.powersurgepub.pstextmerge;
    An application with a GUI interface to do all sorts of things 
    with tabular data. <p>
   
-   This code is copyright (c) 1999-2013 by Herb Bowie of PowerSurge Publishing. 
-   All rights reserved. <p>
-  
    @author Herb Bowie
  */
 
@@ -71,7 +68,7 @@ public class PSTextMerge
   
   /** Program Name */
   public    static  final String  PROGRAM_NAME = "PSTextMerge";
-  public    static  final String  PROGRAM_VERSION = "4.30";
+  public    static  final String  PROGRAM_VERSION = "4.40";
   
   private   static  final String  USER_GUIDE
       = "userguide/pstextmerge.html";

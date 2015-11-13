@@ -812,6 +812,11 @@ The letter "X" will cause selected special characters to be translated to their 
 
 The letter "H" will cause selected special characters to be translated to their equivalent HTML entities.
 
+<h5 id="email-apostrophes-modifier-">E-mail Apostrophes Modifier '</h5>
+
+
+Placing a single apostrophe as part of the variable modifiers string will cause any HTML entities representing an apostrophe to be converted back to a normal ASCII/UTF apostrophe character: '. This can be useful for generating HTML to use as e-mail content, since e-mail parsers seem to sometimes drop the HTML entities commonly used for apostrophes.
+
 <h5 id="link-modifier-j">Link Modifier "J"</h5>
 
 
