@@ -3,7 +3,7 @@
 
 1. **Added New Apostrophe Variable Modifier**
 
-    A plain apostrophe placed in the variable modifiers string will now cause any HTML entities representing an apostrophe or a single quotation mark will be converted back to a normal ASCII/UTF straight single quote/apostrophe character. This can be useful when generating HTML for e-mails, since the HTML entities are sometimes dropped by e-mail clients.
+    A plain apostrophe placed in the variable modifiers string will now cause any HTML entities representing an apostrophe or a single quotation mark to be converted back to a normal ASCII/UTF straight single quote/apostrophe character. This can be useful when generating HTML for e-mails, since the HTML entities are sometimes dropped by e-mail clients.
 
 
 ## Version 4.30 (2014-06-09)

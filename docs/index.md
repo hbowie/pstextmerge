@@ -1,5 +1,5 @@
 <!-- Generated using template product-user-guide-template.mdtoc -->
-<!-- Generated using template product-user-guide-template.md -->
+<!-- Generated using template pstextmerge.md -->
 <h1 id="pstextmerge-user-guide">PSTextMerge User Guide</h1>
 
 
@@ -36,9 +36,6 @@
     </li>
     <li>
       <a href="#user-interface">User Interface</a>
-    </li>
-    <li>
-      <a href="#tips-tricks-and-special-functions">Tips, Tricks and Special Functions</a>
       <ul>
         <li>
           <a href="#textmerge-input">TextMerge Input</a>
@@ -77,25 +74,19 @@
           <a href="#template-file-format">Template File Format</a>
         </li>
         <li>
-          <a href="#script-files">Script Files</a>
+          <a href="#script-file-format">Script File Format</a>
         </li>
         <li>
-          <a href="#file-directories">File Directories</a>
+          <a href="#file-directory-format">File Directory Format</a>
         </li>
         <li>
-          <a href="#markdown-metadata">Markdown Metadata</a>
+          <a href="#markdown-metadata-file-format">Markdown Metadata File Format</a>
         </li>
         <li>
-          <a href="#pspub-outline">PSPub Outline</a>
+          <a href="#pspub-outline-file-format">PSPub Outline File Format</a>
         </li>
         <li>
-          <a href="#club-planner-files">Club Planner Files</a>
-        </li>
-        <li>
-          <a href="#club-planner-minutes-file-format">Club Planner Minutes File Format</a>
-        </li>
-        <li>
-          <a href="#club-planner-financial-register-file-format">Club Planner Financial Register File Format</a>
+          <a href="#club-planner-file-formats">Club Planner File Formats</a>
         </li>
       </ul>
 
@@ -110,11 +101,11 @@
 
 PSTextMerge merges lists of tabular data into text templates to create fully populated text files. The output files can be Web pages, XML files, RSS Feeds or any other varieties of text files. The input data can be obtained from a tab-delimited data file, or directly from a Microsoft Excel (&#8216;.xls&#8217;) spreadsheet, or from a number of other sources. You can record and easily play back recorded scripts, making it easy to re-generate your output text files when your data changes.
 
-The input data can be sorted and filtered before being used to generate output, and these operations can be scripted as well.  
+The input data can be sorted and filtered before being used to generate output, and these operations can be scripted as well.
 
-Tab-delimited files can be easily exported from most spreadsheets, databases, address book, and many other programs.
+Tab-delimited files can be easily exported from most spreadsheets, databases, address book, and many other programs, and then used as input to this application.
 
-PSTextMerge can also perform other operations with tabular data, extracting and merging data from multiple bookmarks files, address books, and other formats. 
+PSTextMerge can also perform other operations with tabular data, extracting and merging data from multiple bookmarks files, address books, and other formats.
 
 PSTextMerge was formerly known as TDF Czar.
 
@@ -132,12 +123,11 @@ Because PSTextMerge may be run on multiple platforms, it may look slightly diffe
 <h3 id="rights">Rights</h3>
 
 
-PSTextMerge Copyright 1999 - 2014 by Herb Bowie
+PSTextMerge Copyright 1999 - 2016 by Herb Bowie
 
 PSTextMerge is [open source software](http://opensource.org/osd). Source code is available at [GitHub](http://github.com/hbowie/pstextmerge).
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at:
   [www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
@@ -183,12 +173,7 @@ File operations may be accessed via the File menu.
 <h2 id="user-interface">User Interface</h2>
 
 
-
-Most of PSTextMerge's user interface elements are laid out in a series of tabs that proceed in a natural progression from left to right. Most of the functions performed within these tabs may also be triggered by their corresponding script commands. See the Special Functions section for a description of each tab.
-
-
-<h2 id="tips-tricks-and-special-functions">Tips, Tricks and Special Functions</h2>
-
+Most of PSTextMerge's user interface elements are laid out in a series of tabs that proceed in a natural progression from left to right. Most of the functions performed within these tabs may also be triggered by their corresponding script commands.
 
 <h3 id="textmerge-input">TextMerge Input</h3>
 
@@ -219,7 +204,7 @@ This is a text file. Each line in the file must use tabs (or commas, if the file
 
 This is a text file format that can be used to help plan events for a club, such as an alumni club.
 
-See the [Club Planner specification][club] for details.
+See the [Club Planner specification](#club-planner-file-formats) for details.
 
 <h5 id="excel-spreadsheet">Excel Spreadsheet</h5>
 
@@ -236,7 +221,7 @@ Setting this option will also cause the program to treat the input file as a Mic
 
 When you specify a file directory as your data source, each entry in that directory will then be treated as if it were a single record, or line, or row, from a data file. The "Maximum Directory Depth" field below will control the depth to which sub-directories are read.
 
-See the [File Directory specification](#filedirectory) for details.
+See the [File Directory specification](#file-directory-format) for details.
 
 <h5 id="html-bookmarks-using-lists">HTML Bookmarks using Lists</h5>
 
@@ -322,7 +307,7 @@ Podcast
 
 If you select a folder containing [Markdown][] files, then this input option will extract metadata about each file and make them available in a list.
 
-See the [Markdown Metadata specification][metamarkdown] for details.
+See the [Markdown Metadata specification](#markdown-metadata-file-format) for details.
 
 <h5 id="xml-rows-for-fields">XML Rows for Fields</h5>
 
@@ -647,9 +632,6 @@ This button also opens a template file, but uses your template library as the st
 
 This button processes the template file you have selected, and creates whatever output file(s) you have specified in the template file.  The function may also be invoked via the Template/Generate Menu item or with the G shortcut key.
 
-<h4 id="template-file-format">Template File Format</h4>
-
-
 See the [Template File Format specification](#template-file-format) for details.
 
 <h3 id="textmerge-script">TextMerge Script</h3>
@@ -761,7 +743,7 @@ This program will look for two sorts of special strings embedded within the temp
 <h4 id="delimiters">Delimiters</h4>
 
 
-Beginning with version 3.0, PSTextMerge will recognize either of two sets of command and variable delimiters automatically. The choice of delimiters will be triggered by the first command beginning delimiters encountered. The new delimiters are generally recommended, since they are more likely to be treated kindly by various HTML editors on the market when you are editing your template files.
+Beginning with version 3.0, PSTextMerge will recognize either of two sets of command and variable delimiters automatically. The choice of delimiters will be triggered by the first command-beginning delimiters encountered. The new delimiters are generally recommended, since they are more likely to be treated kindly by various HTML editors when you are editing your template files.
 
 <table>
 <tr><th>Meaning</th><th>Original Delimiters</th><th>New Delimiters</th></tr>
@@ -885,7 +867,7 @@ If a variable may be interpreted as a series of "words," with the words delimite
 For example, if the template file contained the following:
 
 <blockquote>
-	
+
 </blockquote>
 
 And the name variable was equal to:
@@ -1241,26 +1223,28 @@ The endif command terminates the scope of its corresponding if, ifchange, ifendg
 
 This command indicates the end of the code that will be written out once per data record. Lines after the loop command will be written out once per output file created, at the end of each file.
 
-<h3 id="script-files">Script Files</h3>
+<h3 id="script-file-format">Script File Format</h3>
 
 
-The script file is a tab-delimited text file, and you can edit one using your favorite tool for such things. You can create one completely from scratch if you want, but it usually easiest to record one first, and then edit the results.
+<p>The script file is itself a tab-delimited text file, and you can edit one using your favorite tool for such things. You can create one completely from scratch if you want, but it usually easiest to record one first, and then edit the results. </p>
 
-The script file has the following columns.
+<p>The script file has the following columns. </p>
 
-1. module &#8212; This names the tab to process the command.
-2. action &#8212; This names the action to be taken, and usually corresponds to a button on a tab.
-3. modifier &#8212; This supplies a value that modifies the intent of the command in some way.
-4. object &#8212; The name of the thing to be acted upon.
-5. value &#8212; A value that the object is to be set equal to.
+<ol>
+<li>module -- This names the tab to process the command.</li>
+<li>action -- This names the action to be taken, and usually corresponds to a button on a tab.</li>
+<li>modifier -- This supplies a value that modifies the intent of the command in some way.</li>
+<li>object -- The name of the thing to be acted upon.</li>
+<li>value -- A value that the object is to be set equal to.</li>
+</ol>
 
-Following is a complete list of all the allowable forms for script commands. Constants are displayed in normal type. Variables appear in italics. Blank cells indicate fields that are not applicable to a particular command, and therefore can be left blank or empty. Forward slashes are used to separate alternate values: only one of them must appear (without the slash) in an actual script command. Most of the values correspond directly to equivalent buttons on the tabs, as described elsewhere in this user guide. The one non-intuitive value is probably the Filter values for the andor object: True sets &#8220;and&#8221; logic on, while False sets &#8220;or&#8221; logic on.
+<p>Following is a complete list of all the allowable forms for script commands. Constants are displayed in normal type. Variables appear in italics. Blank cells indicate fields that are not applicable to a particular command, and therefore can be left blank or empty. Forward slashes are used to separate alternate values: only one of them must appear (without the slash) in an actual script command. Most of the values correspond directly to equivalent buttons on the tabs, as described elsewhere in this user guide. The one non-intuitive value is probably the Filter values for the andor object: True sets "and" logic on, while False sets "or" logic on.</p>
 
-Note that file names may begin with the literal &#8220;PATH&#8221; surrounded by &#8220;#&#8221; symbols. When recording a script, the program will automatically replace the path containing the script file with this literal. In addition, upwards references from the location of the script file will be indicated by two consecutive periods for each level in the folder hierarchy. On playback, the reversing decoding will occur. In effect this means that files within the same path structure as the script file, or a sub-folder, will have their locations identified relative to the location of the script file. Files on a completely different path will have their locations identified with absolute drive and path information. The overall effect of this is to make a script file, along with the input files referenced by the script file, portable packages that can be moved from one location to another, or executed with different drive identifiers, and still execute correctly. Normally all of this will be transparent to the user.
+<p>Note that file names may begin with the literal "PATH" surrounded by "#" symbols. When recording a script, the program will automatically replace the path containing the script file with this literal. In addition, upwards references from the location of the script file will be indicated by two consecutive periods for each level in the folder hierarchy. On playback, the reversing decoding will occur. In effect this means that files within the same path structure as the script file, or a sub-folder, will have their locations identified relative to the location of the script file. Files on a completely different path will have their locations identified with absolute drive and path information. The overall effect of this is to make a script file, along with the input files referenced by the script file, portable packages that can be moved from one location to another, or executed with different drive identifiers, and still execute correctly. Normally all of this will be transparent to the user. </p>
 
-Similarly, the literal &#8220;\#TEMPLATES\#&#8221; will be used as a placeholder for the path to the current template library, as set with the Set Template Library button on the Template tab.
+<p>Similarly, the literal "#TEMPLATES#" will be used as a placeholder for the path to the current template library, as set with the Set Template Library button on the Template tab. </p>
 
-The &#8220;epubin&#8221; and &#8220;epubout&#8221; actions require some additional description, since they have no correlates on the Script tab just described. The former identifies a directory containing the contents of an e-book in the EPUB format; the latter identifies the &#8220;.epub&#8221; file to be created using that directory as input.
+<p>The "epubin" and "epubout" actions require some additional description, since they have no correlates on the Script tab just described. The former identifies a directory containing the contents of an e-book in the EPUB format; the latter identifies the ".epub" file to be created using that directory as input. </p>
 
 <table class="shaded" border="0" cellspacing="2" cellpadding="4">
     <tr class="shaded">
@@ -1584,112 +1568,120 @@ The &#8220;epubin&#8221; and &#8220;epubout&#8221; actions require some addition
     </tr>
 </table>
 
-<h3 id="file-directories">File Directories</h3>
+<h3 id="file-directory-format">File Directory Format</h3>
 
 
-The following special column headings are predefined for file directory entries.
+<p><em><a href="powersurgepub.html#input">PSTextMerge User Guide</a></em></p>
+
+<p>The following special column headings are predefined for file directory entries.</p>
+
+<dl>
+<dt>Sort Key</dt>
+    <dd>Used for sorting the directory entries alphanumerically, without regards to case (upper or lower) or punctuation. The complete file path will appear here, all in lower-case, with spaces between file directories, and spaces replacing punctuation. </dd>
+
+<dt>Folder1 through Foldern</dt>
+    <dd>Folder1 will contain the first sub-directory name, within the specified input directory, if this entry came from a sub-directory. Folder1 through Foldern columns will appear, where &#8220;n&#8221; is the maximum directory depth - 1 (since a maximum directory depth of 1 indicates no sub-directory explosion at all). </dd>
+
+    <dt>Path</dt>
+        <dd>The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row. </dd>
+
+<dt>File Name</dt>
+    <dd>Name of the file or sub-directory. </dd>
+
+<dt>Type</dt>
+    <dd>The type of directory entry: &#8220;File&#8221; or &#8220;Directory&#8221;.</dd>
+
+<dt>English Name</dt>
+    <dd>A file name with standardized spacing, without punctuation, and without a file extension.</dd>
+
+    <dt>File Name w/o Extension</dt>
+        <dd>The file name without its extension.</dd>
+
+<dt>File Ext</dt>
+    <dd>The file extension, if a file and if it has one.</dd>
+
+<dt>File Size</dt>
+    <dd>Size of the file, in bytes.</dd>
+
+<dt>Last Mod Date</dt>
+    <dd>Date of last change to the file, in &#8220;yyyy-mm-dd&#8221; format.</dd>
+
+<dt>Last Mod Time </dt>
+    <dd>Time of last change to the file, in &#8220;hh:mm:ss zzz&#8221; format, where &#8220;hh&#8221; is a 24-hour (military) hour, &#8220;mm&#8221; is minutes, &#8220;ss&#8221; is seconds and &#8220;zzz&#8221; is an abbreviation of the time zone. </dd>
+
+<dt>Word1 through Word5 </dt>
+    <dd>The file name, without directories and without extension, will be broken down into up to five separate fields, using punctuation, spaces, and case transitions to demarcate words. </dd>
+
+</dl>
+
+<h3 id="markdown-metadata-file-format">Markdown Metadata File Format</h3>
 
 
-Sort Key
-:    Used for sorting the directory entries alphanumerically, without regards to case (upper or lower) or punctuation. The complete file path will appear here, all in lower-case, with spaces between file directories, and spaces replacing punctuation.
+<p>The following special column headings are predefined for metadata gathered from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> files.</p>
 
-Folder1 through Foldern
-:    Folder1 will contain the first sub-directory name, within the specified input directory, if this entry came from a sub-directory. Folder1 through Foldern columns will appear, where "n" is the maximum directory depth - 1 (since a maximum directory depth of 1 indicates no sub-directory explosion at all).
+<p>Metadata is provided in the spirit of, although not in complete conformance with, the <a href="http://fletcher.github.com/peg-multimarkdown/">MultiMarkdown</a> syntax. That is, special lines are expected at the top of the file, each line starting with a key, followed by a colon and then a value, as in the following example.</p>
 
-Path
-:    The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row.
+<blockquote>
+<p>Title:  Markdown Metadata <br />
+Author: Herb Bowie  <br />
+Tags:   Java, Documentation  <br />
+Date:   July 4, 2012</p>
+</blockquote>
 
-File Name
-:    Name of the file or sub-directory.
+<p>Note that there are two variants of this file type, one simply labeled &#8220;Markdown Metadata&#8221; and the other labeled &#8220;Markdown Metadata Tags&#8221;. The first has only one row per Markdown file, and identifies all tags for that file. The second has one row per tag per file, and identifies only one tag at a time. The first file format would normally be used for a simple index of the files, while the second format would be used to generate an index by tag. </p>
 
-Type
-:    The type of directory entry: "File" or "Directory".
+<dl>
+<dt>Complete Path</dt>
+    <dd>The complete path to the file, including all directories, plus the file name and extension. </dd>
 
-English Name
-:    A file name with standardized spacing, without punctuation, and without a file extension.
+<dt>Base Path</dt>
+    <dd>The folder path to the top directory containing the markdown files included in the list. </dd>
 
-File Name w/o Extension
-:    The file name without its extension.
+<dt>Local Path</dt>
+    <dd>The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row. </dd>
 
-File Ext
-:    The file extension, if a file and if it has one.
+<dt>Depth</dt>
+    <dd>0 for files at the top level of the extract, 1 for files within the next set of folders, and so forth. </dd>
 
-File Size
-:    Size of the file, in bytes.
+<dt>File Name</dt>
+    <dd>Name of the file, including its file extension. </dd>
 
-Last Mod Date
-:    Date of last change to the file, in "yyyy-mm-dd" format.
+<dt>File Name Base</dt>
+    <dd>The file name without its extension, and without the period preceding the extension.</dd>
 
-Last Mod Time
-:    Time of last change to the file, in "hh:mm:ss zzz" format, where "hh" is a 24-hour (military) hour, "mm" is minutes, "ss" is seconds and "zzz" is an abbreviation of the time zone.
+<dt>File Ext</dt>
+    <dd>The file extension, without the preceding period.</dd>
 
-Word1 through Word5
-:    The file name, without directories and without extension, will be broken down into up to five separate fields, using punctuation, spaces, and case transitions to demarcate words.
+<dt>Last Mod Date</dt>
+    <dd>Date of last change to the file, in &#8220;yyyy-mm-dd hh:mm:ss TMZ&#8221; format.</dd>
 
-<h3 id="markdown-metadata">Markdown Metadata</h3>
+<dt>File Size</dt>
+    <dd>Approximate size of the file, in bytes.</dd>
 
+<dt>Title</dt>
+    <dd>The title can come from a number of different sources. If the file does not contain a title, then the file name will be used as the title, after removing its extension, and normalizing the case and word separators to leading caps and a space, respectively. If the file contains a level 1 heading, denoted by an initial line followed by a line of simulated double underlines (four or more equal signs), per the [Markdown][] specification, then this will be used as the title. And finally, if the metadata at the top of the file contains a line starting with &#8220;Title:&#8221;, then the remainder of the line will be used as the title.  </dd>
 
-The following special column headings are predefined for metadata gathered from [Markdown][] files.
+<dt>Author</dt>
+    <dd>If the file title is followed by a byline, starting with the word &#8220;by&#8221;, then the remainder of the line will be used as the author. Alternatively, if the metadata at the top of the file contains a line starting with &#8220;By&#8221;, &#8220;Author&#8221;, or &#8220;Creator&#8221;, then the remainder of the line will be used as the author. </dd>
 
-Metadata is provided in the spirit of, although not in complete conformance with, the [MultiMarkdown][] syntax. That is, special lines are expected at the top of the file, each line starting with a key, followed by a colon and then a value, as in the following example.
+<dt>Date</dt>
+    <dd>The date associated with the file, as established by a metadata line at the top of the file starting with &#8220;Date:&#8221;. </dd>
 
-> Title:  Markdown Metadata
-> Author: Herb Bowie
-> Tags:   Java, Documentation
-> Date:   July 4, 2012
+<dt>Breadcrumbs</dt>
+    <dd></dd>
 
-Note that there are two variants of this file type, one simply labeled "Markdown Metadata" and the other labeled "Markdown Metadata Tags". The first has only one row per Markdown file, and identifies all tags for that file. The second has one row per tag per file, and identifies only one tag at a time. The first file format would normally be used for a simple index of the files, while the second format would be used to generate an index by tag.
+<dt>Tags</dt>
+    <dd>These would be the tags provided by a metadata line starting with the key of &#8220;Tags&#8221;, &#8220;Keywords&#8221; or &#8220;Category&#8221;. Multiple tags may be provided, each separated from the other by a comma, with or without spaces. Tags may be nested as well, with a period separating each level, without any spaces. </dd>
 
+<dt>Linked Tags</dt>
+    <dd></dd>
 
-Complete Path
-:    The complete path to the file, including all directories, plus the file name and extension.
+<dt>Tag</dt>
+    <dd></dd>
 
-Base Path
-:    The folder path to the top directory containing the markdown files included in the list.
+</dl>
 
-Local Path
-:    The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row.
-
-Depth
-:    0 for files at the top level of the extract, 1 for files within the next set of folders, and so forth.
-
-File Name
-:    Name of the file, including its file extension.
-
-File Name Base
-:    The file name without its extension, and without the period preceding the extension.
-
-File Ext
-:    The file extension, without the preceding period.
-
-Last Mod Date
-:    Date of last change to the file, in "yyyy-mm-dd hh:mm:ss TMZ" format.
-
-File Size
-:    Approximate size of the file, in bytes.
-
-Title
-:    The title can come from a number of different sources. If the file does not contain a title, then the file name will be used as the title, after removing its extension, and normalizing the case and word separators to leading caps and a space, respectively. If the file contains a level 1 heading, denoted by an initial line followed by a line of simulated double underlines (four or more equal signs), per the [Markdown][] specification, then this will be used as the title. And finally, if the metadata at the top of the file contains a line starting with "Title:", then the remainder of the line will be used as the title.
-
-Author
-:    If the file title is followed by a byline, starting with the word "by", then the remainder of the line will be used as the author. Alternatively, if the metadata at the top of the file contains a line starting with "By", "Author", or "Creator", then the remainder of the line will be used as the author.
-
-Date
-:    The date associated with the file, as established by a metadata line at the top of the file starting with "Date:".
-
-Breadcrumbs
-:    A string that can be used to provide "breadcrumbs" for this page.
-
-Tags
-:    These would be the tags provided by a metadata line starting with the key of "Tags", "Keywords" or "Category". Multiple tags may be provided, each separated from the other by a comma, with or without spaces. Tags may be nested as well, with a period separating each level, without any spaces.
-
-Linked Tags
-:    Tags with links for each tag.
-
-Tag
-:    An individual tag.
-
-<h3 id="pspub-outline">PSPub Outline</h3>
+<h3 id="pspub-outline-file-format">PSPub Outline File Format</h3>
 
 
 This is a special text file format to allow easy representation of an outline structure. Indention is used to indicate outline levels. The first character of the first line is assumed to be the "bullet" character that will subsequently identify all list items. Blank lines indicate paragraph breaks. A line beginning with "a:" (or simply with "http:") identifies a URL to be associated with the preceding outline item.
@@ -1711,266 +1703,229 @@ text
 link
 :    The URL, if any, supplied for this item or paragraph.
 
-<h3 id="club-planner-files">Club Planner Files</h3>
+<h3 id="club-planner-file-formats">Club Planner File Formats</h3>
 
 
-Information about events and other items for club consideration are stored in text files, with one event/item per file.
+<p>Information about events and other items for club consideration are stored in text files, with one event/item per file. </p>
 
-Note that there are two variants of this file that can be produced as an output tab-delimited file, one labeled "Club Planner" and the other labeled "Club Notes". The first has only one row per event, while the second has one row per note header in the Notes field for each event.
+<p>Note that there are two variants of this file, one labeled &#8220;Club Planner&#8221; and the other labeled &#8220;Club Notes&#8221;. The first has only one row per event, while the second has one row per note header in the Notes field for each event.</p>
 
-<h4 id="folder-structure">Folder Structure</h4>
+<h2>Folder Structure</h2>
 
+<p>The text files should be organized into folders whose names provide additional data about the items.</p>
 
-The text files should be organized into folders whose names provide additional data about the items.
-
-The event files should be placed into something like the following folder structure.
+<p>The event files should be placed into something like the following folder structure. </p>
 
 <ul>
-	<li><em>Club Name 2011 - 2012</em> -- A folder containing all events for the club operating year, with both starting and ending year included in the folder name.
-		<ul>
-			<li><em>Events</em> -- A folder containing all the event info. Other folders at this level may be used to store other information. Folders at the next level indicate status, and the following folder names are suggested.
-				<ul>
-					<li><em>Archive</em> -- For events that have already occurred and are no longer of current interest.</li>
-					<li><em>Board</em> -- Items of interest to the board of directors.</li>
-					<li><em>Current</em> -- Items of current interest.</li>
-					<li><em>Future</em> -- Items being considered for the future, but not yet of current interest.</li>
-					<li><em>News</em> -- Items to be reported in the next Email newsletter.</li>
-					<li><em>Save</em> -- Items being saved for possible consideration.</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
+    <li><em>Club Name 2011 - 2012</em> &#8212; A folder containing all events for the club operating year, with both starting and ending year included in the folder name.
+        <ul>
+            <li><em>Events</em> &#8212; A folder containing all the event info. Other folders at this level may be used to store other information. Folders at the next level indicate status, and the following folder names are suggested.
+                <ul>
+                    <li><em>Archive</em> &#8212; For events that have already occurred and are no longer of current interest.</li>
+                    <li><em>Board</em> &#8212; Items of interest to the board of directors.</li>
+                    <li><em>Current</em> &#8212; Items of current interest.</li>
+                    <li><em>Future</em> &#8212; Items being considered for the future, but not yet of current interest.</li>
+                    <li><em>News</em> &#8212; Items to be reported in the next Email newsletter.</li>
+                    <li><em>Save</em> &#8212; Items being saved for possible consideration.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
 </ul>
 
-The text files themselves consist of a series of field names, each followed by a colon, and then followed by the field data on the same and/or successive lines.
-
-<h4 id="template">Template</h4>
-
-
-The following lines can be used as a template for creating a Club Planner event.
-
-		/*
-			Fill out this form for a new event, then save it with the name of the event. Use a plain
-			text editor to complete the form. Fill out as many fields as you can, and leave the
-			rest blank. Note that text such as this, between a slash asterisk and an asterisk slash,
-			are comments and not content. Text following a pair of slashes on a line are also
-			treated as comments. Comments may be deleted once the form is filled out, or left in.
-		*/
-		Type:
-		/*
-			Type should be one of the following:
-			Active / Board / Career Networking / Close Meeting /
-			Collaboration w/Other Clubs  / Communication / Community / Culture /
-			Family / Finance  / Membership / Open Meeting / Organization  /
-			Scholarship  / Social / Sports / Student Connections
-		*/
-		What:                           // Enter a short title for the event
-		When:                           // e.g., Sat Mar 31 at 8 PM
-		Where:                          // Name of the venue, street address, city state and zip
-		Who:                            // Name of primary contact at email address
-		Why:                            // Justification for approving this event
-		Teaser:                         // Two or three sentences hitting the high points
-		Blurb:                          // One or more paragraphs with additional details
-		Cost:                           // e.g., $43 per person
-		Purchase:                       // Instructions for purchasing tickets
-		Tickets:                        // How purchasers will receive tickets
-		Quantity:                       // e.g., Block of 20 seats
-		Planned Income:                 // e.g., $43 x 20 = $860
-		Planned Expense:                // e.g., $43 x 20 = $860
-		Planned Attendance:             // How many people do we expect to participate?
-		Actual Income:
-		Actual Expense:
-		Actual Attendance:
-		Recap:                          // How did the event go? Any lessons learned?
-		ID:                             // Enter the article ID from our Web site
-		Link:                           // URL with more info about the event
-		Venue:                          // Link with more info about the venue
-		Image:                          // URL for an image about the event
-		News Image:                     // URL for an image to use in the email newsletter
-		Discuss:                        // Points to be discussed at our next board meeting
-		Notes:
-		/*
-		Copy and paste notes about the event. Precede each note with a header line indicating
-		who it came from, on what date and via what medium. For example:
+<p>The text files themselves consist of a series of field names, each followed by a colon, and then followed by the field data on the same and/or successive lines. </p>
+
+<h2>Template</h2>
+
+<p>The following lines can be used as a template for creating a Club Planner event. </p>
+
+<pre><code>    /*
+        Fill out this form for a new event, then save it with the name of the event. Use a plain
+        text editor to complete the form. Fill out as many fields as you can, and leave the
+        rest blank. Note that text such as this, between a slash asterisk and an asterisk slash,
+        are comments and not content. Text following a pair of slashes on a line are also
+        treated as comments. Comments may be deleted once the form is filled out, or left in.
+    */
+    Type:
+    /*
+        Type should be one of the following:
+        Active / Board / Career Networking / Close Meeting /
+        Collaboration w/Other Clubs  / Communication / Community / Culture /
+        Family / Finance  / Membership / Open Meeting / Organization  /
+        Scholarship  / Social / Sports / Student Connections
+    */
+    What:                           // Enter a short title for the event
+    When:                           // e.g., Sat Mar 31 at 8 PM
+    Where:                          // Name of the venue, street address, city state and zip
+    Who:                            // Name of primary contact at email address
+    Why:                            // Justification for approving this event
+    Teaser:                         // Two or three sentences hitting the high points
+    Blurb:                          // One or more paragraphs with additional details
+    Cost:                           // e.g., $43 per person
+    Purchase:                       // Instructions for purchasing tickets
+    Tickets:                        // How purchasers will receive tickets
+    Quantity:                       // e.g., Block of 20 seats
+    Planned Income:                 // e.g., $43 x 20 = $860
+    Planned Expense:                // e.g., $43 x 20 = $860
+    Planned Attendance:             // How many people do we expect to participate?
+    Actual Income:
+    Actual Expense:
+    Actual Attendance:
+    Recap:                          // How did the event go? Any lessons learned?
+    ID:                             // Enter the article ID from our Web site
+    Link:                           // URL with more info about the event
+    Venue:                          // Link with more info about the venue
+    Image:                          // URL for an image about the event
+    News Image:                     // URL for an image to use in the email newsletter
+    Discuss:                        // Points to be discussed at our next board meeting
+    Notes:
+    /*
+    Copy and paste notes about the event. Precede each note with a header line indicating
+    who it came from, on what date and via what medium. For example:
 
-		-- Will Dorchak, Feb 16, via email
+    -- Will Dorchak, Feb 16, via email
 
-		Follow the header with a blank line, and the the text of the note, using blank lines
-		to separate paragraphs.
+    Follow the header with a blank line, and the the text of the note, using blank lines
+    to separate paragraphs.
 
-		*/
+    */
+</code></pre>
 
-<h4 id="input-fields">Input Fields</h4>
+<h2>Input Fields</h2>
 
+<p>Field names and definitions follow. </p>
 
-Field names and definitions follow.
+<p><strong>Type</strong>: This is the general type of the event. The following values are suggested.  </p>
 
-**Type**: This is the general type of the event. The following values are suggested.
+<ul>
+<li>Active &#8212; An active event, such as a hike.</li>
+<li>Board &#8212; An item for consideration by the board, or pertaining to the board. </li>
+<li>Career Networking &#8212; Professional advancement.</li>
+<li>Close Meeting &#8212; An item to appear at the end of the board meeting agenda. </li>
+<li>Collaboration w/Other Clubs &#8212; Worked in common with other clubs, such as the other Big Ten clubs in the area.</li>
+<li>Communication &#8212; An item having to do with club communications, such as our Web site, Facebook page or email newsletters. </li>
+<li>Community &#8212; A community service event. </li>
+<li>Culture &#8212; A cultural event. </li>
+<li>Family &#8212; An event intended for families with children. </li>
+<li>Finance &#8212; An item having to do with club finances. </li>
+<li>Membership &#8212; An event planned to promote membership in the club.</li>
+<li>Open Meeting &#8212; An item to appear at the beginning of the board meeting agenda. </li>
+<li>Organization &#8212; An event or item having to do with the organization of the club. </li>
+<li>Scholarship &#8212; An event having to do with the club&#8217;s scholarship fund and the scholarships awarded to deserving students. </li>
+<li>Social &#8212; A purely social event. </li>
+<li>Sports &#8212; An event having to do with athletics. </li>
+<li>Student Connections &#8212; Prospective or current U-M students hailing from the greater Seattle area. </li>
+</ul>
 
-* Active -- An active event, such as a hike.
-* Board -- An item for consideration by the board, or pertaining to the board.
-* Career Networking -- Professional advancement.
-* Close Meeting -- An item to appear at the end of the board meeting agenda.
-* Collaboration w/Other Clubs -- Worked in common with other clubs, such as the other Big Ten clubs in the area.
-* Communication -- An item having to do with club communications, such as our Web site, Facebook page or email newsletters.
-* Community -- A community service event.
-* Culture -- A cultural event.
-* Family -- An event intended for families with children.
-* Finance -- An item having to do with club finances.
-* Membership -- An event planned to promote membership in the club.
-* Open Meeting -- An item to appear at the beginning of the board meeting agenda.
-* Organization -- An event or item having to do with the organization of the club.
-* Scholarship -- An event having to do with the club's scholarship fund and the scholarships awarded to deserving students.
-* Social -- A purely social event.
-* Sports -- An event having to do with athletics.
-* Student Connections -- Prospective or current U-M students hailing from the greater Seattle area.
+<p><strong>What</strong>: A brief descriptive title for the event. </p>
 
-**What**: A brief descriptive title for the event.
+<p><strong>When</strong>: An indication of the date and time that the event will be held, in a format emphasizing human readability. This need not be a complete date. It need not and generally should not contain the year, since this can be inferred from the operating year identified in the higher level folder. If an exact date is known, then this field should generally start with a three-character abbreviation for the day of the week. Three-character abbreviations for the month are also recognized and encouraged. Following are perfectly good examples of dates.</p>
 
-**When**: An indication of the date and time that the event will be held, in a format emphasizing human readability. This need not be a complete date. It need not and generally should not contain the year, since this can be inferred from the operating year identified in the higher level folder. If an exact date is known, then this field should generally start with a three-character abbreviation for the day of the week. Three-character abbreviations for the month are also recognized and encouraged. Following are perfectly good examples of dates.
+<ul>
+<li>Apr</li>
+<li>Sat May 5</li>
+<li>Thu Mar 25 5:30 - 7:30 PM</li>
+</ul>
 
-* Apr
-* Sat May 5
-* Thu Mar 25 5:30 - 7:30 PM
+<p><strong>Where</strong>: The location of the event, including the name of the venue and its address.</p>
 
-**Where**: The location of the event, including the name of the venue and its address.
+<p><strong>Who</strong>: Who is assigned to plan, coordinate and host the event. Can include multiple names. Can include email addresses and phone numbers.</p>
 
-**Who**: Who is assigned to plan, coordinate and host the event. Can include multiple names. Can include email addresses and phone numbers.
+<p><strong>Why</strong>: Why does the club think it would be a good idea to host the event? Why do we think this would be an event deserving of the club&#8217;s resources?</p>
 
-**Why**: Why does the club think it would be a good idea to host the event? Why do we think this would be an event deserving of the club's resources?
+<p><strong>Teaser</strong>: One to three sentences describing the event. Not intended to provide complete information, but intended to pique the reader&#8217;s interest and motivate him to read further. </p>
 
-**Teaser**: One to three sentences describing the event. Not intended to provide complete information, but intended to pique the reader's interest and motivate him to read further.
+<p><strong>Blurb</strong>: Additional information about the event. Need not repeat information in the teaser, and need not repeat additional event details available from other fields, such as When and Where. This field can contain multiple paragraphs, separated by blank lines. <a href="http://daringfireball.net/projects/markdown/">Markdown</a> formatting will be applied to this section. </p>
 
-**Blurb**: Additional information about the event. Need not repeat information in the teaser, and need not repeat additional event details available from other fields, such as When and Where. This field can contain multiple paragraphs, separated by blank lines. [Markdown][] formatting will be applied to this section.
+<p><strong>Cost</strong>: The cost per person to attend the event. If the event is free, then leave this field blank.</p>
 
-**Cost**: The cost per person to attend the event. If the event is free, then leave this field blank.
+<p><strong>Purchase</strong>: Instructions on how to purchase tickets to the event, if any. </p>
 
-**Purchase**: Instructions on how to purchase tickets to the event, if any.
+<p><strong>Tickets</strong>: For purchasers, information on how they are to receive the tickets. </p>
 
-**Tickets**: For purchasers, information on how they are to receive the tickets.
+<p><strong>Quantity</strong>: Number of seats or tickets available for the event; maximum number of attendees. </p>
 
-**Quantity**: Number of seats or tickets available for the event; maximum number of attendees.
+<p><strong>Planned Income</strong>: The amount of money the club plans to receive for the event. For this and the following dollar amount fields, multiple dollar figures may be interspersed with descriptive words. &#8220;$20 x 40&#8221; will result in a planned income of $800.00, for example. </p>
 
-**Planned Income**: The amount of money the club plans to receive for the event. For this and the following dollar amount fields, multiple dollar figures may be interspersed with descriptive words. "$20 x 40" will result in a planned income of $800.00, for example.
+<p><strong>Planned Expense</strong>: The amount of money planned/budgeted to be spent on the event.</p>
 
-**Planned Expense**: The amount of money planned/budgeted to be spent on the event.
+<p><strong>Planned Attendance</strong>: The number of attendees built into the club&#8217;s planning assumptions. </p>
 
-**Planned Attendance**: The number of attendees built into the club's planning assumptions.
+<p><strong>Actual Income</strong>: The club&#8217;s actual income for the event.</p>
 
-**Actual Income**: The club's actual income for the event.
+<p><strong>Actual Expense</strong>: The club&#8217;s actual expenses for the event. </p>
 
-**Actual Expense**: The club's actual expenses for the event.
+<p><strong>Actual Attendance</strong>: The actual number of people who attended the event. </p>
 
-**Actual Attendance**: The actual number of people who attended the event.
+<p><strong>Recap</strong>: A brief summary of how the event went. Can include lessons learned from the event. </p>
 
-**Recap**: A brief summary of how the event went. Can include lessons learned from the event.
+<p><strong>ID</strong>: After the event has been added to the club web site, the ID assigned to the page by the Content Management System should be entered here. This might be identified in the URL for the event as the &#8220;articleid&#8221;, as in &#8220;articleid=17&#8221;, meaning that an ID of &#8220;17&#8221; should be entered here. </p>
 
-**ID**: After the event has been added to the club web site, the ID assigned to the page by the Content Management System should be entered here. This might be identified in the URL for the event as the "articleid", as in "articleid=17", meaning that an ID of "17" should be entered here.
+<p><strong>Link</strong>: A URL pointing to a Web page with more information about the event. </p>
 
-**Link**: A URL pointing to a Web page with more information about the event.
+<p><strong>Venue</strong>: A URL pointing to a Web page with more information about the venue for the event. </p>
 
-**Venue**: A URL pointing to a Web page with more information about the venue for the event.
+<p><strong>Image</strong>: A URL pointing to an image that can be used to help advertise the event. </p>
 
-**Image**: A URL pointing to an image that can be used to help advertise the event.
+<p><strong>News Image</strong>: A URL pointing to an image suitable for use in our newsletter.</p>
 
-**News Image**: A URL pointing to an image suitable for use in our newsletter.
+<p><strong>Discuss</strong>: Identification of any issues to be discussed at an upcoming club meeting. </p>
 
-**Discuss**: Identification of any issues to be discussed at an upcoming club meeting.
+<p><strong>Notes</strong>: One or more blocks of text with information about the event. This field can contain multiple paragraphs, separated by blank lines. <a href="http://daringfireball.net/projects/markdown/">Markdown</a> formatting will be applied to this section.</p>
 
-**Notes**: One or more blocks of text with information about the event. This field can contain multiple paragraphs, separated by blank lines. [Markdown][] formatting will be applied to this section.
+<p>Each block of text should be preceded by a line similar to the following example. </p>
 
-Each block of text should be preceded by a line similar to the following example.
+<pre><code>-- AAUM on Feb 21 via email
+</code></pre>
 
-    -- AAUM on Feb 21 via email
+<p>Note that each such header line contains the following elements:</p>
 
-Note that each such header line contains the following elements:
+<ul>
+<li>Two hyphens and a space</li>
+<li>Identification of the source of the following information.</li>
+<li>The date on which the information was communicated. </li>
+<li>The means by which the information was communicated. </li>
+</ul>
 
-* Two hyphens and a space
-* Identification of the source of the following information.
-* The date on which the information was communicated.
-* The means by which the information was communicated.
+<h2>Calculated Fields</h2>
 
-<h4 id="calculated-fields">Calculated Fields</h4>
+<p>The following fields will be calculated and placed in the resulting list. </p>
 
+<p><strong>Year</strong>: The operating year for the event, if available from one of the enclosing folders (see section above on folder structure). </p>
 
-The following fields will be calculated and placed in the resulting list.
+<p><strong>Status</strong>: The event&#8217;s status, based on its immediately enclosing folder name. </p>
 
-**Year**: The operating year for the event, if available from one of the enclosing folders (see section above on folder structure).
+<p><strong>Seq</strong>: This is intended as a sort key, to create an agenda for a club meeting. A type of &#8220;Open Meeting&#8221; will result in a sequence of 1; a type of &#8220;Finance&#8221; will result in a sequence of 2; a type of &#8220;Communication&#8221; will result in a sequence of 8; a type of &#8220;Close Meeting&#8221; will result in a sequence of 9; any other type will result in a sequence of 5. </p>
 
-**Status**: The event's status, based on its immediately enclosing folder name.
+<p><strong>YMD</strong>: This will contain the event&#8217;s date, or as much of it as is known, in a predictable &#8220;yyyy-mm-dd&#8221; format that can be used for sorting. The information here is calculated based on the club&#8217;s operating year and the <em>When</em> field. </p>
 
-**Seq**: This is intended as a sort key, to create an agenda for a club meeting. A type of "Open Meeting" will result in a sequence of 1; a type of "Finance" will result in a sequence of 2; a type of "Communication" will result in a sequence of 8; a type of "Close Meeting" will result in a sequence of 9; any other type will result in a sequence of 5.
+<p><strong>File Name</strong>: The name of the file, without any folder information, and without a file extension. </p>
 
-**YMD**: This will contain the event's date, or as much of it as is known, in a predictable "yyyy-mm-dd" format that can be used for sorting. The information here is calculated based on the club's operating year and the *When* field.
+<p><strong>Blurb as HTML</strong>: The blurb field, converted from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> to HTML, suitable for insertion into a Web page or email. </p>
 
-**File Name**: The name of the file, without any folder information, and without a file extension.
+<p><strong>Over/Under</strong>: The amount by which the club&#8217;s actual income and expenses differed from the club&#8217;s planned income and expenses. A positive amount indicates the club did better than expected, with lower expenses and/or higher income than planned; a negative amount means the club did worse than expected. </p>
 
-**Blurb as HTML**: The blurb field, converted from [Markdown][] to HTML, suitable for insertion into a Web page or email.
+<p><strong>Finance Projection</strong>: The projected impact of this event on the club&#8217;s finances, calculated based on the planned and actual income and expenses. A negative number decreases the club&#8217;s funds, while a positive number increases them. This number is calculated using the planned values if no actuals are available, or the actual values once they are entered. </p>
 
-**Over/Under**: The amount by which the club's actual income and expenses differed from the club's planned income and expenses. A positive amount indicates the club did better than expected, with lower expenses and/or higher income than planned; a negative amount means the club did worse than expected.
+<p><strong>Short Date</strong>: This is a short, human-readable form of the date. It includes a three-letter abbreviation for the day of the week, a three-letter abbreviation for the month, and the 2-digit day of the month. </p>
 
-**Finance Projection**: The projected impact of this event on the club's finances, calculated based on the planned and actual income and expenses. A negative number decreases the club's funds, while a positive number increases them. This number is calculated using the planned values if no actuals are available, or the actual values once they are entered.
+<p><strong>Notes as HTML</strong>: The entire notes field, converted from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> to HTML, suitable for insertion into a Web page or email. </p>
 
-**Short Date**: This is a short, human-readable form of the date. It includes a three-letter abbreviation for the day of the week, a three-letter abbreviation for the month, and the 2-digit day of the month.
+<h2>Additional Fields in Club Notes File Format</h2>
 
-**Notes as HTML**: The entire notes field, converted from [Markdown][] to HTML, suitable for insertion into a Web page or email.
+<p>The following additional fields are extracted for the Club Notes file format, with one row for each note header.</p>
 
-<h4 id="additional-fields-in-club-notes-file-format">Additional Fields in Club Notes File Format</h4>
+<p><strong>Note For</strong>: The date of the note, in yyyy-mm-dd format, suitable for sorting and/or filtering, as extracted from the note header. </p>
 
+<p><strong>Note From</strong>: The source of the note, as extracted from the note header. </p>
 
-The following additional fields are extracted for the Club Notes file format, with one row for each note header.
+<p><strong>Note Via</strong>: The medium by which the note was communicated, as extracted from the note header. </p>
 
-**Note For**: The date of the note, in yyyy-mm-dd format, suitable for sorting and/or filtering, as extracted from the note header.
+<p><strong>Note</strong>: The text of the note, following the note header. </p>
 
-**Note From**: The source of the note, as extracted from the note header.
+<p><strong>Note as HTML</strong>: The text of the note, converted from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> to HTML, suitable for insertion into a Web page or email.</p>
 
-**Note Via**: The medium by which the note was communicated, as extracted from the note header.
-
-**Note**: The text of the note, following the note header.
-
-**Note as HTML**: The text of the note, converted from [Markdown][] to HTML, suitable for insertion into a Web page or email.
-
-<h3 id="club-planner-minutes-file-format">Club Planner Minutes File Format</h3>
-
-
-A plain text file containing meeting minutes can be imported into and exported from Club Planner. The file should be formatted much like the events files themselves, although in this case only one file is used to contain minutes information for all events that were discussed at the meeting.
-
-The Minutes file uses the following special conventions.
-
-* A Markdown heading (indicated by one or more '#' symbols at the beginning of the line) is used to indicate optional section headings, simply for human readability of the file.
-
-* An ellipsis (three or more periods in a row) on a line by itself is used to indicate the end of information about a particular event.
-
-The following fields can be included on the minutes file, and will cause updates to the corresponding event fields, for new or modified data fields.
-
-* What
-* When
-* Where
-* Who
-* Notes
-
-Note that the bulk of the minutes taken for each event will usually be entered in the Notes field. These meeting minutes notes should normally be prefixed with a note header line saying something like 'Jonathan on Jul 22 via Minutes', where Jonathan would be the name of the club secretary and Jul 22 would be the date of the meeting. These new notes will then be appended to any existing notes about an event.
-
-<h3 id="club-planner-financial-register-file-format">Club Planner Financial Register File Format</h3>
-
-
-A tab-delimited file can be exported from Club Planner in this format. The contents of this file will be derived from the actual income and actual expense fields found on the events. The following fields will be included.
-
-**Tran Date**: The date of the financial transaction.
-
-**Ck #**: This would be the check number of the transaction.
-
-**Inc/Exp**: Either 'Income' or 'Expense' to indicate the type of transaction.
-
-**From/To**: Either the source of funds, for income, or the payee, for an expense.
-
-**For**: What the payment was for.
-
-**Amount**: The amount of the transaction.
-
-**What**: The title of the event associated with this transaction.
-
-
+<p><em><a href="powersurgepub.html#input">Return to User Guide</a></em></p>
 
 
 [java]:       http://www.java.com/
