@@ -1710,7 +1710,8 @@ link
 
 <p>Note that there are two variants of this file, one labeled &#8220;Club Planner&#8221; and the other labeled &#8220;Club Notes&#8221;. The first has only one row per event, while the second has one row per note header in the Notes field for each event.</p>
 
-<h2>Folder Structure</h2>
+<h4 id="folder-structure">Folder Structure</h4>
+
 
 <p>The text files should be organized into folders whose names provide additional data about the items.</p>
 
@@ -1735,7 +1736,8 @@ link
 
 <p>The text files themselves consist of a series of field names, each followed by a colon, and then followed by the field data on the same and/or successive lines. </p>
 
-<h2>Template</h2>
+<h4 id="template">Template</h4>
+
 
 <p>The following lines can be used as a template for creating a Club Planner event. </p>
 
@@ -1791,7 +1793,8 @@ link
     */
 </code></pre>
 
-<h2>Input Fields</h2>
+<h4 id="input-fields">Input Fields</h4>
+
 
 <p>Field names and definitions follow. </p>
 
@@ -1887,7 +1890,8 @@ link
 <li>The means by which the information was communicated. </li>
 </ul>
 
-<h2>Calculated Fields</h2>
+<h4 id="calculated-fields">Calculated Fields</h4>
+
 
 <p>The following fields will be calculated and placed in the resulting list. </p>
 
@@ -1911,7 +1915,8 @@ link
 
 <p><strong>Notes as HTML</strong>: The entire notes field, converted from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> to HTML, suitable for insertion into a Web page or email. </p>
 
-<h2>Additional Fields in Club Notes File Format</h2>
+<h4 id="additional-fields-in-club-notes-file-format">Additional Fields in Club Notes File Format</h4>
+
 
 <p>The following additional fields are extracted for the Club Notes file format, with one row for each note header.</p>
 
