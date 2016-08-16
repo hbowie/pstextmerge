@@ -1,4 +1,11 @@
 
+## Version 4.50 (2016-08-15)
+
+1. **Added New Input Type for Note Index**
+
+    The Input Type of Note Index can be used to generate an index of notes that use the new Index field.
+
+
 ## Version 4.40 (2015-11-12)
 
 1. **Added New Apostrophe Variable Modifier**

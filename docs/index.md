@@ -3,6 +3,8 @@
 <h1 id="pstextmerge-user-guide">PSTextMerge User Guide</h1>
 
 
+Version: 4.50
+
 <h2 id="table-of-contents">Table of Contents</h2>
 
 <div id="toc">
@@ -308,6 +310,26 @@ Podcast
 If you select a folder containing [Markdown][] files, then this input option will extract metadata about each file and make them available in a list.
 
 See the [Markdown Metadata specification](#markdown-metadata-file-format) for details.
+
+<h5 id="notenik-notes">Notenik Notes</h5>
+
+
+Reads a folder of basic [Notenik][] Notes, containing only the basic fields of Title, Link, Tags and Body.
+
+<h5 id="notenik-notes-plus">Notenik Notes Plus</h5>
+
+
+Reads a folder of extended [Notenik][] Notes, containing the basic fields plus others.
+
+<h5 id="notenik-general">Notenik General</h5>
+
+
+Reads a folder of [Notenik][] Notes containing any fields.
+
+<h5 id="notenik-index">Notenik Index</h5>
+
+
+Reads a folder of [Notenik][] Notes containing Index fields, and builds a term index for the collection based on those fields.
 
 <h5 id="xml-rows-for-fields">XML Rows for Fields</h5>
 
@@ -779,6 +801,37 @@ The following special variables are predefined and available for substitution, n
 
 A variable can be optionally followed (within the less than/greater than signs) by a modifier indicator and one or more modifiers. The default modifier character is the ampersand (&amp;).
 
+The following list summarizes the primary use of various letters and characters as variable modifiers.
+
+A - AM/PM
+B - Base file
+C - Word Demarcation
+D - Day
+E - Day in Week
+F - Filename
+G - Era
+H - HTML
+I
+J - Link
+K - Hours in day
+L - Lowercase
+M - Month
+N - No Breaks
+O - Markdown to HTML
+P - Punctuation
+Q
+R - Keep characters on the right
+S - Seconds
+T
+U - Uppercase
+V
+W - Week in Year
+X - XML
+Y - Year
+Z - Time Zone
+' - E-mail Apostrophes
+_ - Replace spaces with underscores
+
 <h5 id="case-modifiers-u-or-l">Case Modifiers "U" or "L"</h5>
 
 
@@ -793,6 +846,11 @@ The letter "X" will cause selected special characters to be translated to their 
 
 
 The letter "H" will cause selected special characters to be translated to their equivalent HTML entities.
+
+<h4 id="markdown-modifier-o">Markdown Modifier "O"</h4>
+
+
+The letter "O" will cause the field to be treated as Markdown, and converted to HTML.
 
 <h5 id="email-apostrophes-modifier-">E-mail Apostrophes Modifier '</h5>
 
@@ -1961,5 +2019,6 @@ link
 [template]:     template.html
 
 [mozilla]:    http://www.mozilla.org/MPL/2.0/
+[notenik]:    http://www.powersurgepub.com/products/notenik/index.html
 
 
