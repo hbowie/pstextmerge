@@ -3,7 +3,7 @@
 <h1 id="pstextmerge-user-guide">PSTextMerge User Guide</h1>
 
 
-Version: 4.50
+Version: 4.60
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -803,34 +803,34 @@ A variable can be optionally followed (within the less than/greater than signs) 
 
 The following list summarizes the primary use of various letters and characters as variable modifiers.
 
-A - AM/PM
-B - Base file
-C - Word Demarcation
-D - Day
-E - Day in Week
-F - Filename
-G - Era
-H - HTML
-I
-J - Link
-K - Hours in day
-L - Lowercase
-M - Month
-N - No Breaks
-O - Markdown to HTML
-P - Punctuation
-Q
-R - Keep characters on the right
-S - Seconds
-T
-U - Uppercase
-V
-W - Week in Year
-X - XML
-Y - Year
-Z - Time Zone
-' - E-mail Apostrophes
-_ - Replace spaces with underscores
+A - AM/PM  <br />
+B - Base file  <br />
+C - Word Demarcation  <br />
+D - Day  <br />
+E - Day in Week  <br />
+F - Filename  <br />
+G - Era  <br />
+H - HTML  <br />
+I  <br />
+J - Link  <br />
+K - Hours in day  <br />
+L - Lowercase  <br />
+M - Month  <br />
+N - No Breaks  <br />
+O - Markdown to HTML  <br />
+P - Punctuation  <br />
+Q  <br />
+R - Keep characters on the right  <br />
+S - Seconds  <br />
+T - Convert an inTeger to a corresponding Letter of the AlphabeT  <br />
+U - Uppercase  <br />
+V  <br />
+W - Week in Year  <br />
+X - XML  <br />
+Y - Year  <br />
+Z - Time Zone  <br />
+' - E-mail Apostrophes  <br />
+_ - Replace spaces with underscores  <br />
 
 <h5 id="case-modifiers-u-or-l">Case Modifiers "U" or "L"</h5>
 

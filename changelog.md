@@ -1,4 +1,15 @@
 
+## Version 4.60 (2016-09-07)
+
+1. **Enhanced Parsing of Index URL**
+
+    Enhanced the parsing of the Index URL to allow embedded parentheses within the URL
+
+2. **New Variable Modifier for Alpha Numbering**
+
+    The variable modifier of 't' now causes an integer in the range of 1 - 26 to be converted to its corresponding alphabetic letter.
+
+
 ## Version 4.50 (2016-08-15)
 
 1. **Added New Input Type for Note Index**
