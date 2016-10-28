@@ -634,6 +634,11 @@ This tab allows the user to merge the currently loaded data into a template file
 
 This screen contains the following buttons.
 
+<h5 id="set-web-root">Set Web Root</h5>
+
+
+This allows the root folder of the output web directory to be set. Relative variables will then be replaced based on the depth of a file relative to this root directory.
+
 <h5 id="set-template-library">Set Template Library</h5>
 
 
@@ -786,14 +791,16 @@ A variable, unlike a command, can appear anywhere within the template file, and 
 The following special variables are predefined and available for substitution, no matter what data source is being used.
 
 <dl>
-<dt>datafilename</dt>
-	<dd>The name of the data source being used.</dd>
-<dt><a id="dataparent">dataparent</a></dt>
-	<dd>The path to the enclosing folder for the current data file. This can be used as part of an output command to specify an output file in the same folder as the data file. </dd>
-<dt>templatefilename</dt>
-	<dd>The name of the template file itself</dd>
-<dt>today</dt>
-	<dd>The current date, at the time that template output is being generated.</dd>
+	<dt>datafilename</dt>
+		<dd>The name of the data source being used.</dd>
+	<dt><a id="dataparent">dataparent</a></dt>
+		<dd>The path to the enclosing folder for the current data file. This can be used as part of an output command to specify an output file in the same folder as the data file. </dd>
+	<dt>relative</dt>
+		<dd>If a Web Root directory has been specified, then this variable will be replaced by the relative path from the output file being created back to the root directory.</dd>
+	<dt>templatefilename</dt>
+		<dd>The name of the template file itself</dd>
+	<dt>today</dt>
+		<dd>The current date, at the time that template output is being generated.</dd>
 </dl>
 
 <h5 id="variable-modifiers">Variable Modifiers</h5>
