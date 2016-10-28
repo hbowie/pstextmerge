@@ -1,4 +1,11 @@
 
+## Version 4.70 (2016-10-27)
+
+1. **Added Option for Tags Explosion**
+
+    Added option for Tags Explosion on Input tab.
+
+
 ## Version 4.60 (2016-09-07)
 
 1. **Enhanced Parsing of Index URL**

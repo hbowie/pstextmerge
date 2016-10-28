@@ -492,6 +492,11 @@ Note that this merge option is useful for programs (such as AppleWorks) that do 
 
 If you are about to read a file directory, then this field controls whether sub-directories are read, and to what depth. A value of 1 is the default, and indicates that only files and directories in the specified directory will be listed, with no sub-directory contents. A value of 2 indicates one level of sub-directories, and so forth. Use the Increment and Decrement buttons to change the depth.
 
+<h4 id="tags-explosion">Tags Explosion</h4>
+
+
+If this box is checked, then a field named "Tags" will be broken down into individual tags, and one row/record will be created for each separate tag embedded within the Tags field, with each individual tag being placed in a new field named "Tag" (singular rather than plural).
+
 <h3 id="textmerge-view">TextMerge View</h3>
 
 
@@ -816,9 +821,9 @@ C - Word Demarcation  <br />
 D - Day  <br />
 E - Day in Week  <br />
 F - Filename  <br />
-G - Era  <br />
+G - linked taGs<br />
 H - HTML  <br />
-I  <br />
+I - Initial Case - see Uppercase (U) and Lowercase (L)<br />
 J - Link  <br />
 K - Hours in day  <br />
 L - Lowercase  <br />
@@ -893,6 +898,11 @@ Remove awkward punctuation characters.
 
 
 The letter "R", in combination with a length modifier (see below), will cause the variable to be truncated to the given length, truncating characters on the left and keeping characters on the right.
+
+<h5 id="linked-tags-modifier-g">Linked Tags Modifier "G"</h5>
+
+
+Each tag will be made into a link, linking to '=$relative$=tags/xxtagxx.html', where 'xxtagxx' is the tag.
 
 <h5 id="length-modifier">Length Modifier</h5>
 
