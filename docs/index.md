@@ -3,7 +3,7 @@
 <h1 id="pstextmerge-user-guide">PSTextMerge User Guide</h1>
 
 
-Version: 4.60
+Version: 4.70
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
