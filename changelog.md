@@ -1,4 +1,11 @@
 
+## Version 4.80 (2016-11-19)
+
+1. **Added Summary Field Modifier**
+
+    Added &quot;S&quot; as a variable modifier, which will summarize a text field by extracting the first few sentences.
+
+
 ## Version 4.70 (2016-10-27)
 
 1. **Added Option for Tags Explosion**

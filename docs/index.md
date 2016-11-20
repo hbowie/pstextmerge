@@ -3,7 +3,7 @@
 <h1 id="pstextmerge-user-guide">PSTextMerge User Guide</h1>
 
 
-Version: 4.70
+Version: 4.80
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -833,7 +833,7 @@ O - Markdown to HTML  <br />
 P - Punctuation  <br />
 Q  <br />
 R - Keep characters on the right  <br />
-S - Seconds  <br />
+S - Summarize  <br />
 T - Convert an inTeger to a corresponding Letter of the AlphabeT  <br />
 U - Uppercase  <br />
 V  <br />
@@ -858,6 +858,11 @@ The letter "X" will cause selected special characters to be translated to their 
 
 
 The letter "H" will cause selected special characters to be translated to their equivalent HTML entities.
+
+<h4 id="summarize-modifier-s">Summarize Modifier "S"</h4>
+
+
+The letter "S" will pull the first few sentences from the field, within the first 250 characters. 
 
 <h4 id="markdown-modifier-o">Markdown Modifier "O"</h4>
 
