@@ -688,7 +688,7 @@ public class PSTextMerge
     
     // Help Menu 
     // helpMenu = new JMenu("Help");
-    // menuBar.add (helpMenu);
+    menuBar.add (helpMenu);
     
     log.recordEvent (LogEvent.NORMAL,
         "Application Folder = " + home.getAppFolder().toString(),

@@ -1,7 +1,11 @@
 
 ## Version 4.80 (2016-11-19)
 
-1. **Added Summary Field Modifier**
+1. **Restored Help Menu**
+
+    Restored Help Menu, which had gone missing at some point
+
+2. **Added Summary Field Modifier**
 
     Added &quot;S&quot; as a variable modifier, which will summarize a text field by extracting the first few sentences.
 
