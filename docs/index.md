@@ -1,5 +1,5 @@
 <!-- Generated using template product-user-guide-template.mdtoc -->
-<!-- Generated using template product-custom-user-guide-template.md -->
+<!-- Generated using template pstextmerge.md -->
 <h1 id="pstextmerge-user-guide">PSTextMerge User Guide</h1>
 
 
@@ -71,6 +71,27 @@ Version: 4.80
     </li>
     <li>
       <a href="#file-formats">File Formats</a>
+      <ul>
+        <li>
+          <a href="#template-file-format">Template File Format</a>
+        </li>
+        <li>
+          <a href="#script-file-format">Script File Format</a>
+        </li>
+        <li>
+          <a href="#file-directory-format">File Directory Format</a>
+        </li>
+        <li>
+          <a href="#markdown-metadata-file-format">Markdown Metadata File Format</a>
+        </li>
+        <li>
+          <a href="#pspub-outline-file-format">PSPub Outline File Format</a>
+        </li>
+        <li>
+          <a href="#club-planner-file-formats">Club Planner File Formats</a>
+        </li>
+      </ul>
+
     </li>
   </ul>
 
@@ -744,17 +765,1252 @@ The following commands are available. Note that the first two commands open loca
 
 The following file formats are used by PSTextMerge.
 
-<?include "../mdlib/template-file-spec.md" ?>
+<h3 id="template-file-format">Template File Format</h3>
 
-<?include "../mdlib/script-file-spec.md" ?>
 
-<?include "../mdlib/filedir-file-spec.md" ?>
+This section describes the contents of a template file, used for producing formatted output from a table of rows and columns.
 
-<?include "../mdlib/metamarkdown-file-spec.md" ?>
+This program will look for two sorts of special strings embedded within the template file: <a href="#vars">variables</a> and <a href="#commands">commands</a>.
 
-<?include "../mdlib/outline-file-spec.md" ?>
+<h4 id="delimiters">Delimiters</h4>
 
-<?include "../mdlib/clubplanner-file-spec.md" ?>
+
+Beginning with version 3.0, PSTextMerge will recognize either of two sets of command and variable delimiters automatically. The choice of delimiters will be triggered by the first command-beginning delimiters encountered. The new delimiters are generally recommended, since they are more likely to be treated kindly by various HTML editors when you are editing your template files.
+
+<table>
+<tr><th>Meaning</th><th>Original Delimiters</th><th>New Delimiters</th></tr>
+<tr><td>Start of Command</td><td>&lt;&lt;</td><td>&lt;?</td></tr>
+<tr><td>End of Command</td><td>&gt;&gt;</td><td>?&gt;</td></tr>
+<tr><td>Start of Variable</td><td>&lt;&lt;</td><td>=$</td></tr>
+<tr><td>End of Variable</td><td>&gt;&gt;</td><td>$=</td></tr>
+<tr><td>Start of Variable Modifiers</td><td>&amp;</td><td>&amp;</td></tr>
+</table>
+
+<h4 id="variables">Variables</h4>
+
+
+Variables will be replaced by values taken from the corresponding columns of the current data record, or from an internal table of global variables. Variables must be enclosed in the chosen delimiters. Each variable name must match a column heading from the data file, or a global name specified in a SET command. The comparison ignores case (upper or lower), embedded spaces and embedded punctuation when looking for a matching column heading. So a column heading of "First Name" will match with a variable of "firstname", for example.
+
+A variable, unlike a command, can appear anywhere within the template file, and need not be isolated on a line by itself. More than one variable can appear on the same line. Variables can be used within PSTextMerge commands, as well as other places within the template file.
+
+The following special variables are predefined and available for substitution, no matter what data source is being used.
+
+<dl>
+	<dt>datafilename</dt>
+		<dd>The name of the data source being used.</dd>
+	<dt><a id="dataparent">dataparent</a></dt>
+		<dd>The path to the enclosing folder for the current data file. This can be used as part of an output command to specify an output file in the same folder as the data file. </dd>
+	<dt>relative</dt>
+		<dd>If a Web Root directory has been specified, then this variable will be replaced by the relative path from the output file being created back to the root directory.</dd>
+	<dt>templatefilename</dt>
+		<dd>The name of the template file itself</dd>
+	<dt>today</dt>
+		<dd>The current date, at the time that template output is being generated.</dd>
+</dl>
+
+<h5 id="variable-modifiers">Variable Modifiers</h5>
+
+
+A variable can be optionally followed (within the less than/greater than signs) by a modifier indicator and one or more modifiers. The default modifier character is the ampersand (&amp;).
+
+The following list summarizes the primary use of various letters and characters as variable modifiers.
+
+A - AM/PM  <br />
+B - Base file  <br />
+C - Word Demarcation  <br />
+D - Day  <br />
+E - Day in Week  <br />
+F - Filename  <br />
+G - linked taGs<br />
+H - HTML  <br />
+I - Initial Case - see Uppercase (U) and Lowercase (L)<br />
+J - Link  <br />
+K - Hours in day  <br />
+L - Lowercase  <br />
+M - Month  <br />
+N - No Breaks  <br />
+O - Markdown to HTML  <br />
+P - Punctuation  <br />
+Q  <br />
+R - Keep characters on the right  <br />
+S - Summarize  <br />
+T - Convert an inTeger to a corresponding Letter of the AlphabeT  <br />
+U - Uppercase  <br />
+V  <br />
+W - Week in Year  <br />
+X - XML  <br />
+Y - Year  <br />
+Z - Time Zone  <br />
+' - E-mail Apostrophes  <br />
+_ - Replace spaces with underscores  <br />
+
+<h5 id="case-modifiers-u-or-l">Case Modifiers "U" or "L"</h5>
+
+
+The letters "U" or "L" (in either upper- or lower-case) will indicate that the variable is to be converted, respectively, to upper- or lower-case. If the letter "i" is also supplied (again in either upper- or lower-case), then only the first character of the variable value will be converted to the requested case. (The letter "i" stands for "initial".)
+
+<h5 id="xml-modifier-x">XML Modifier "X"</h5>
+
+
+The letter "X" will cause selected special characters to be translated to their equivalent XML entities. This is recommended, for example, when publishing an RSS (Really Simple Syndication) feed.
+
+<h5 id="html-modifier-h">HTML Modifier "H"</h5>
+
+
+The letter "H" will cause selected special characters to be translated to their equivalent HTML entities.
+
+<h4 id="summarize-modifier-s">Summarize Modifier "S"</h4>
+
+
+The letter "S" will pull the first few sentences from the field, within the first 250 characters. 
+
+<h4 id="markdown-modifier-o">Markdown Modifier "O"</h4>
+
+
+The letter "O" will cause the field to be treated as Markdown, and converted to HTML.
+
+<h5 id="email-apostrophes-modifier-">E-mail Apostrophes Modifier '</h5>
+
+
+Placing a single apostrophe as part of the variable modifiers string will cause any HTML entities representing an apostrophe to be converted back to a normal ASCII/UTF apostrophe character: '. This can be useful for generating HTML to use as e-mail content, since e-mail parsers seem to sometimes drop the HTML entities commonly used for apostrophes.
+
+<h5 id="link-modifier-j">Link Modifier "J"</h5>
+
+
+Convert a URL to an HTML anchor tag with that URL as the href value.
+
+<h5 id="no-breaks-modifier-n">No Breaks Modifier "N"</h5>
+
+
+Remove HTML break (br) tags from the string.
+
+<h5 id="base-file-modifier-b">Base File Modifier "B"</h5>
+
+
+The letter "B" will cause the file extension, including the period, to be removed from a file name. This can be used, for example, to generate an output file name with the same name as the input data file (using the variable name "datafilename"), but with a different extension.
+
+<h5 id="file-name-modifier-f">File Name Modifier "F"</h5>
+
+
+Converts a string to a conventional, universal file name, changing spaces to dashes, removing any odd characters, making all letters lower-case, and converting white space to hyphens.
+
+<h5 id="remove-awkward-punctuation-modifier-p">Remove Awkward Punctuation Modifier "P"</h5>
+
+
+Remove awkward punctuation characters.
+
+<h5 id="keep-characters-on-the-right-modifier-r">Keep Characters on the Right Modifier "R"</h5>
+
+
+The letter "R", in combination with a length modifier (see below), will cause the variable to be truncated to the given length, truncating characters on the left and keeping characters on the right.
+
+<h5 id="linked-tags-modifier-g">Linked Tags Modifier "G"</h5>
+
+
+Each tag will be made into a link, linking to '=$relative$=tags/xxtagxx.html', where 'xxtagxx' is the tag.
+
+<h5 id="length-modifier">Length Modifier</h5>
+
+
+One or more digits following the modifier indicator will be interpreted as the length to which the variable should be truncated or padded. If the length modifier is shorter than the variable length, then by default characters will be truncated on the right (and preserved on the left) of the variable to bring it to the specified length (if it is desired to keep characters on the right, then also use the "R" modifier, described above). If the length modifier is longer than the initial variable length, then the variable will be padded with zeroes on the left to bring it to the specified length.
+
+<h5 id="underscore-modifier">Underscore Modifier</h5>
+
+
+An underscore character ("_") following the modifier indicator will cause all spaces in the variable to be replaced by underscores. This can be useful when creating a file name, for example.
+
+<h5 id="punctuation-modifier">Punctuation Modifier</h5>
+
+
+Any punctuation character other than an underscore following the modifier indicator will be interpreted as a separator that will be placed before the current variable, if the variable is non-blank, and if the preceding variable was also non-blank and also marked by a similar variable modifier. A space will be added after the separator, and before the current variable, if the punctuation is not a forwards or backwards slash ("/" or "\"). This is an easy way to list several variables on a single line, separating non-blank ones from others with commas (or other punctuation).
+
+<h5 id="word-demarcation-modifier">Word Demarcation Modifier</h5>
+
+
+If a variable may be interpreted as a series of "words," with the words delimited by white space, punctuation, or transitions from lower to upper case ("two words", "TWO_WORDS" or "twoWords"), then these variable modifiers may be used to change the way in which the words are delimited.
+
+<table>
+<tr><th>Letter</th><th>Meaning</th></tr>
+
+	<tr><td>c </td>
+		<td>This letter must begin the string, to indicate that modified word demarcation is desired. This should be followed by three letters, each with one of the following values. The first occurrence indicates what should be done with the first letter of the variable; the second occurrence indicates what should be done with the first letter of all other words; the third occurrence indicates what should be done with all other letters in the variable.</td></tr>
+	<tr><td>u </td>
+		<td>This letter indicates that upper-case is desired. </td></tr>
+	<tr><td>l </td>
+		<td>This letter indicates that lower-case is desired. </td></tr>
+	<tr><td>a </td>
+		<td>This letter indicates that the case should be left as-is. </td></tr>
+	<tr><td>- </td>
+		<td>Any character(s) following the 'c', other than 'u', 'l' or 'a', will be used as delimiters separating each word. </td></tr>
+</table>
+
+For example, if the template file contained the following:
+
+<blockquote>
+
+</blockquote>
+
+And the name variable was equal to:
+
+<blockquote>
+	HERB BOWIE
+</blockquote>
+
+Then the resulting name in the output text file would be:
+
+<blockquote>
+	Herb Bowie
+</blockquote>
+
+<h5 id="formatting-string">Formatting String</h5>
+
+
+A string of characters indicating how the variable is to be formatted. The formatting string, if specified, should follow any other variable modifiers. Any character other than those listed above will cause the remainder of the variable modifiers to be treated as a formatting string. Currently, a formatting string is valid only for dates -- either for the special variable **today**, or for any variable date in "mm/dd/yy" format.
+
+A date formatting string follows the normal rules for Java date formatting. One or more occurrences of an upper-case "M" indicates a month, a lower-case "y" is used for a year, and a lower-case "d" is used for the day of the month. An upper-case "E" can be used for the day of the week. Generally, the number of occurrences of each letter you specify will be used to indicate the width of the field you want ("yyyy" for a 4-digit year, for example). Specifying more than two occurrences of "M" indicates you want the month represented by letters rather than numbers, with 4 or more occurrences indicating you want the month spelled out, and 3 occurrences indicating you want a three-letter abbreviation.
+
+See below for full definition of allowable characters and their meanings.
+
+<table>
+	<tr>
+		<th>Symbol</th>
+		<th>Meaning</th>
+		<th>Presentation</th>
+		<th>Example</th>
+	</tr>
+	<tr>
+		<td>G</td>
+		<td>era designator</td>
+		<td>Text</td>
+		<td>AD</td>
+	</tr>
+	<tr>
+		<td>y</td>
+		<td>year</td>
+		<td>Number</td>
+		<td>1996</td>
+	</tr>
+	<tr>
+		<td>M</td>
+		<td>month in year</td>
+		<td>Text & Number</td>
+		<td>July & 07</td>
+	</tr>
+	<tr>
+		<td>d</td>
+		<td>day in month</td>
+		<td>Number</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td>h</td>
+		<td>hour in am/pm</td>
+		<td>1~12</td>
+		<td>12</td>
+	</tr>
+	<tr>
+		<td>H</td>
+		<td>hour in day</td>
+		<td>0~23</td>
+		<td>0</td>
+	</tr>
+	<tr>
+		<td>m</td>
+		<td>minute in hour</td>
+		<td>Number</td>
+		<td>30</td>
+	</tr>
+	<tr>
+		<td>s</td>
+		<td>second in minute</td>
+		<td>Number</td>
+		<td>55</td>
+	</tr>
+	<tr>
+		<td>S</td>
+		<td>millisecond</td>
+		<td>Number</td>
+		<td>978</td>
+	</tr>
+	<tr>
+		<td>E</td>
+		<td>day in week</td>
+		<td>Text</td>
+		<td>Tuesday</td>
+	</tr>
+	<tr>
+		<td>D</td>
+		<td>day in year</td>
+		<td>Number</td>
+		<td>189</td>
+	</tr>
+	<tr>
+		<td>F</td>
+		<td>day of week in month</td>
+		<td>Number</td>
+		<td>2 (2nd Wed in July)</td>
+	</tr>
+	<tr>
+		<td>w</td>
+		<td>week in year</td>
+		<td>Number</td>
+		<td>27</td>
+	</tr>
+	<tr>
+		<td>W</td>
+		<td>week in month</td>
+		<td>Number</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td>a</td>
+		<td>am/pm marker</td>
+		<td>Text</td>
+		<td>PM</td>
+	</tr>
+	<tr>
+		<td>k</td>
+		<td>hour in day</td>
+		<td>Number</td>
+		<td>24</td>
+	</tr>
+	<tr>
+		<td>K</td>
+		<td>hour in am/pm</td>
+		<td>Number</td>
+		<td>0</td>
+	</tr>
+	<tr>
+		<td>z</td>
+		<td>time zone</td>
+		<td>Text</td>
+		<td>Pacific Standard Time</td>
+	</tr>
+	<tr>
+		<td>'</td>
+		<td>escape for text</td>
+		<td>Delimiter</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>single quote</td>
+		<td>Literal</td>
+		<td></td>
+	</tr>
+</table>
+
+The count of pattern letters determine the format.
+
+<strong>(Text)</strong>: 4 or more pattern letters--use full form,
+&lt; 4--use short or abbreviated form if one exists.
+
+<strong>(Number)</strong>: the minimum number of digits. Shorter
+numbers are zero-padded to this amount. Year is handled specially;
+that is, if the count of 'y' is 2, the Year will be truncated to 2 digits.
+
+<strong>(Text &amp; Number)</strong>: 3 or over, use text, otherwise use number.
+
+Any characters in the pattern that are not in the ranges of ['a'..'z']
+and ['A'..'Z'] will be treated as quoted text. For instance, characters
+like ':', '.', ' ', '#' and '@' will appear in the resulting time text
+even they are not embraced within single quotes.
+
+<h4 id="commands">Commands</h4>
+
+
+All commands must be enclosed in the chosen delimiters. In addition, all commands must appear on lines by themselves. Command names can be in upper- or lower-case. Each command may have zero or more operands. Operands may be separated by any of the following delimiters: space, comma (','), semi-colon (';') or colon (':'). Operands that contain any of these delimiters must be enclosed in single or double-quotation marks.
+
+The following commands are recognized. They are presented in the typical sequence in which they would be used.
+
+<div class="pnobr">
+<p>&lt;?delims new delimiters?&gt;</p>
+<p>&lt;?output "filename.ext"?&gt;</p>
+<p>&lt;?set global = 0?&gt;</p>
+<p>&lt;?nextrec?&gt;</p>
+<p>&lt;?include "filename.ext" ?&gt;</p>
+<p>&lt;?ifchange ?&gt;</p>
+<p>&lt;?if ?&gt;</p>
+<p>&lt;?definegroup group-number ?&gt;</p>
+<p>&lt;?ifendgroup group-number?&gt;</p>
+<p>&lt;?ifendlist group-number?&gt;</p>
+<p>&lt;?ifnewlist group-number?&gt;</p>
+<p>&lt;?ifnewgroup group-number?&gt;</p>
+<p>&lt;?else?&gt;</p>
+<p>&lt;?endif?&gt;</p>
+<p>&lt;?loop?&gt;</p>
+</div>
+
+<h5 id="ltdelims-inew-delimitersigta">&lt;?delims <i>new delimiters</i>?&gt;</a></h5>
+
+
+If used at all, this command should be the first command in the template file. This command overrides the standard delimiters used to recognize the beginnings and ends of commands and variables, for the remainder of the current template file. The command can have one to five operands. Each operand will become a new delimiter. They should be specified in the following order.
+
+* beginning of a command (normally paired less than signs)
+* the end of a command (normally paired greater than signs)
+* the beginning of a variable (normally paired less than signs)
+* the end of a variable (normally paired greater than signs)
+* the beginning of variable modifiers (normally a single ampersand)
+
+Note that, when using this command, this command itself must use the standard delimiters. The new delimiters should only begin to be used on following lines.
+
+<h5 id="ltoutput-ifilenameextigt">&lt;?output <i>filename.ext</i>?&gt;</h5>
+
+
+This command names and opens the output file. The single operand is the name of the output file. <i>filename.ext</i> should be the desired name of your output file. This command would normally be the first line in your template file. Subsequent template records will be written to the output file. Note, however, that the filename can contain a variable name. In this case, the output command would immediately follow the nextrec command, and a new output file would be opened for each tab-delimited data record.
+
+<h5 id="ltset-iglobali--0gt">&lt;?set <i>global</i> = 0?&gt;</h5>
+
+
+This command can define a global variable and set its value. This command would normally have three operands: the name of the global variable, an operator, and a value.
+
+<ul>
+<li>Global variable name. This should not be the same as the name of any variable name specified by the input data file. The global variable name, when used as the object of a SET command, should not be enclosed within the normal variable delimiters, since this would cause the variable name to be replaced by its current value.</li>
+
+<li>Operator. Any of the following operators can be used.
+<dl>
+<dt>=</dt>
+<dd>This will cause the global variable to be set equal to the following value.</dd>
+<dt>+= or simply +</dt>
+<dd>This will cause the value to be added to the current value of the global variable.</dd>
+<dt>++</dt>
+<dd>This can be used to add a value of 1 to the current value of the global variable, without having to specify the following value of 1. (In this case, the SET command only takes two operands.)</dd>
+<dt>-= or simply -</dt>
+<dd>This will cause the value to be subtracted from the current value of the global variable.</dd>
+<dt>--</dt>
+<dd>This can be used to subtract a value of 1 from the current value of the global variable, without having to specify the following value of 1. (In this case, the SET command only requires two operands.)</dd>
+</dl></li>
+<li>Value. This can be a literal or a variable (in which case it should be surrounded by the normal variable delimiters). The value can be a text string or an integer.</li>
+</ul>
+One intended use for the SET command is to support a line counter. By initializing the value to 0, and then adding to it whenever an output line is generated, the IF command can be used to check for page overflow (in a table column, for example), and then start a new page or column, resetting the counter to 0 again.
+
+Another common use for the SET command is to preserve record variables in global variables so that they will be available within an IFENDGROUP block.
+
+<h5 id="ltnextrecgt">&lt;?nextrec?&gt;</h5>
+
+
+This command indicates the beginning of the code that will be written out once per data record. Lines prior to the nextrec command will only be written out once.
+
+<h5 id="ltinclude-ifilenameextigt">&lt;?include <i>filename.ext</i>?&gt;</h5>
+
+
+This command allows you to include text from another file into the output stream being generated by the template.
+
+An optional operand of "copy" will ensure that the include file is included without conversion; otherwise, if the input and output file extensions are different, and are capable of conversion, the input file will be converted to the output file's format (for example, [Markdown][] or Textile can be converted to html).
+
+Markdown conversion will be done using the [Pegdown][] processor, using the options for typographic conversions (as with SmartyPants) and table generation.
+
+If converting from Markdown, then an optional operand of "nometa" will cause metadata lines to be skipped when generating the HTML output; otherwise, they will be included.
+
+The filename may include variables, allowing you to tailor the included content based on one or more fields from your input data source. This is especially useful when you would like to include output from another template in the output generated by this template (effectively combining outputs from two separate templates into a single output). If an include file is not found, then it will simply be skipped and processing will continue, with a log message to note the event.
+
+For any conversion resulting in HTML, a pseudo-tag of &lt;toc&gt; can be used to generate a table of contents based on following heading tags. An optional attribute of "from" can be used to specify the beginning of a range of heading levels to be included; an optional attribute of "through" or "thru" can be used to specify the end of a range of heading levels to be included. See the following example.
+
+		<toc from="h2" thru="h4" />
+
+<h5 id="ltifchange-gt">&lt;?ifchange ?&gt;</h5>
+
+
+The ifchange command can be used to test a variable to see if it has a different value than it did on the last data record. If the variable has changed, then the following lines up to the closing endif command will be subjected to normal output processing. If the variable has not changed, then following lines will be skipped until the closing endif command is encountered. This command can be used to generate some special header information whenever a key field changes. Note that only one variable can be used with ifchange commands in one template file, since the value of any ifchange command is simply compared to the variable for the last ifchange command encountered.
+
+<h5 id="ltif-gt">&lt;?if ?&gt;</h5>
+
+
+The if command can be used to test a variable to see if it is non-blank. If the variable is non-blank, then the following lines up to the closing endif command will be subject to normal output processing. If the variable is blank, then following lines will be skipped until the closing endif command is encountered. In this case, the first and only operand would be the variable to be tested.
+
+The if command can also be used to test a variable to compare it  to one or more constants. In this case, the command would have three or more operands: the name of the variable, a logical operator, and one or more values.
+
+<ul>
+<li>Variable Name. This can be a variable from the input data file, or a global variable (see the SET command above).</li>
+
+<li>Logical Operator. Any of the following operators can be used.
+<dl>
+<dt>= or ==</dt>
+<dd>This will return true if the variable is equal to any of the specified values.</dd>
+<dt>&gt;</dt>
+<dd>This will return true if the variable is greater than the value.</dd>
+<dt>&lt;</dt>
+<dd>This will return true if the variable is less than the value.</dd>
+<dt>&gt;= or !&lt;</dt>
+<dd>This will return true if the variable is greater than or equal to the value.</dd>
+<dt>&lt;= or !&gt;</dt>
+<dd>This will return true if the variable is less than or equal to the value.</dd>
+</dl></li>
+<li>Value. This can be a literal or a variable. The value can be a text string or an integer.</li>
+</ul>
+
+<h5 id="ltdefinegroup-igroupnumberi-gt">&lt;?definegroup <i>group-number</i> ?&gt;</h5>
+
+
+This is the first of five commands that define key fields and then conditionally write output when there is a break on any of those fields. Up to ten group break fields can be defined. Each must be assigned a number from 1 to 10. Numbers should be assigned sequentially beginning with 1. Input data should normally be sorted by the same fields used in any definegroup commands. Definegroup commands should precede ifendgroup and ifnewgroup commands, and should generally be specified in ascending order by group number. The definegroup command has two operands.
+
+* Group Number. This must be a number from 1 to 10. Numbers should be assigned sequentially beginning with 1. Lower-numbered groups are considered more major than higher-numbered groups, in the sense that lower-numbered group breaks will automatically trigger higher-numbered group breaks.
+
+* Variable Name. This is the name of the key field variable.
+
+<h5 id="ltifendgroup-igroupnumberigt">&lt;?ifendgroup <i>group-number</i>?&gt;</h5>
+
+
+This is the second of the five group commands. Lines following this command and preceding the next group or endif command will be written to the output file at the end of a group of records sharing a common value for this key field. Ifendgroup commands should follow definegroup commands and precede ifnewgroup commands, and should generally be specified in <i>descending</i> order by group number. The ifendgroup command has one operand.
+
+<ul>
+<li>Group Number. The group number whose group-ending output lines follow.</li>
+</ul>
+
+Note that references to record variables within an IFENDGROUP block will retrieve the data from the record causing the break (i.e., the first record in the new group), not the last record in the group just ended. Use the SET command to save data in global variables if you need to later access it when a group break has been detected.
+
+<h5 id="ltifendlist-igroupnumberigt">&lt;?ifendlist <i>group-number</i>?&gt;</h5>
+
+
+This is the third of the five group commands. Lines following this command and preceding the next group or endif command will be written to the output file at the end of a list of records containing this key field. The end of a list will be triggered by a change in key values at the next higher level, or by a record containing blanks at the current group level. Ifendlist commands should follow ifendgroup commands and precede ifnewlist commands, and should generally be specified in <i>descending</i> order by group number. The ifendlist command has one operand. Note that the ifendlist and ifnewlist commands can generally be used to insert HTML tags to end a list and begin a list.
+
+<ul>
+<li>Group Number. The group number whose list-ending output lines follow.</li>
+</ul>
+
+Note that references to record variables within an IFENDLIST block will retrieve the data from the record causing the break (i.e., the first record in the new group), not the last record in the group just ended. Use the SET command to save data in global variables if you need to later access it when a list break has been detected. Note that the ifendlist and ifnewlist commands can generally be used to insert HTML tags to end a list and begin a list.
+
+<h5 id="ltifnewlist-igroupnumberigt">&lt;?ifnewlist <i>group-number</i>?&gt;</h5>
+
+
+This is the fourth of the five group commands. Lines following this command and preceding the next group or endif command will be written to the output file at the beginning of a new list of records at this group level. Ifnewlist commands should follow definegroup, ifendgroup and ifendlist commands, should precede ifnewgroup commands, and should generally be specified in <i>ascending</i> order by group number. The ifnewlist command has one operand.
+
+<ul>
+<li>Group Number. The group number whose list-beginning output lines follow.</li>
+</ul>
+
+<h5 id="ltifnewgroup-igroupnumberigt">&lt;?ifnewgroup <i>group-number</i>?&gt;</h5>
+
+
+This is the fifth of the five group commands. Lines following this command and preceding the next group or endif command will be written to the output file at the beginning of a group of records sharing a common value for this key field. Ifnewgroup commands should follow all other group commands, and should generally be specified in <i>ascending</i> order by group number. The ifnewgroup command has one operand.
+
+<ul>
+<li>Group Number. The group number whose group-beginning output lines follow.
+</ul>
+
+<h5 id="ltelsegt">&lt;?else?&gt;</h5>
+
+
+The else command terminates the scope of its corresponding if, ifchange, ifendgroup or ifnewgroup command, and applies the opposite logical condition to the following template lines.
+
+<h5 id="ltendifgt">&lt;?endif?&gt;</h5>
+
+
+The endif command terminates the scope of its corresponding if, ifchange, ifendgroup or ifnewgroup command.
+
+<h5 id="ltloopgt">&lt;?loop?&gt;</h5>
+
+
+This command indicates the end of the code that will be written out once per data record. Lines after the loop command will be written out once per output file created, at the end of each file.
+
+<h3 id="script-file-format">Script File Format</h3>
+
+
+<p>The script file is itself a tab-delimited text file, and you can edit one using your favorite tool for such things. You can create one completely from scratch if you want, but it usually easiest to record one first, and then edit the results. </p>
+
+<p>The script file has the following columns. </p>
+
+<ol>
+<li>module -- This names the tab to process the command.</li>
+<li>action -- This names the action to be taken, and usually corresponds to a button on a tab.</li>
+<li>modifier -- This supplies a value that modifies the intent of the command in some way.</li>
+<li>object -- The name of the thing to be acted upon.</li>
+<li>value -- A value that the object is to be set equal to.</li>
+</ol>
+
+<p>Following is a complete list of all the allowable forms for script commands. Constants are displayed in normal type. Variables appear in italics. Blank cells indicate fields that are not applicable to a particular command, and therefore can be left blank or empty. Forward slashes are used to separate alternate values: only one of them must appear (without the slash) in an actual script command. Most of the values correspond directly to equivalent buttons on the tabs, as described elsewhere in this user guide. The one non-intuitive value is probably the Filter values for the andor object: True sets "and" logic on, while False sets "or" logic on.</p>
+
+<p>Note that file names may begin with the literal "PATH" surrounded by "#" symbols. When recording a script, the program will automatically replace the path containing the script file with this literal. In addition, upwards references from the location of the script file will be indicated by two consecutive periods for each level in the folder hierarchy. On playback, the reversing decoding will occur. In effect this means that files within the same path structure as the script file, or a sub-folder, will have their locations identified relative to the location of the script file. Files on a completely different path will have their locations identified with absolute drive and path information. The overall effect of this is to make a script file, along with the input files referenced by the script file, portable packages that can be moved from one location to another, or executed with different drive identifiers, and still execute correctly. Normally all of this will be transparent to the user. </p>
+
+<p>Similarly, the literal "#TEMPLATES#" will be used as a placeholder for the path to the current template library, as set with the Set Template Library button on the Template tab. </p>
+
+<p>The "epubin" and "epubout" actions require some additional description, since they have no correlates on the Script tab just described. The former identifies a directory containing the contents of an e-book in the EPUB format; the latter identifies the ".epub" file to be created using that directory as input. </p>
+
+<table class="shaded" border="0" cellspacing="2" cellpadding="4">
+    <tr class="shaded">
+        <th class="shaded" width="70" align="center">module</th>
+
+        <th class="shaded" width="70" align="center">action</th>
+
+        <th class="shaded" width="210" align="center">modifier</th>
+
+        <th class="shaded" width="70" align="center">object</th>
+
+        <th class="shaded" width="140" align="center">value<br /></th>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">url</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">url name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">file</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">dir</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">directory name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">html1</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">html2</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">html3</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">xml</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">xls</td>
+
+        <td class="shaded" align="center">merge/blank</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">epubin</td>
+
+        <td class="shaded" align="center">dir</td>
+
+        <td class="shaded" align="center">blank</td>
+
+        <td class="var" align="center">directory name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">input</td>
+
+        <td class="shaded" align="center">epubout</td>
+
+        <td class="shaded" align="center">file</td>
+
+        <td class="shaded" align="center">blank</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">sort</td>
+
+        <td class="shaded" align="center">add</td>
+
+        <td class="shaded" align="center">Ascending/ Descending</td>
+
+        <td class="var" align="center">field name</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">sort</td>
+
+        <td class="shaded" align="center">clear</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">sort</td>
+
+        <td class="shaded" align="center">set</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">params</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">combine</td>
+
+        <td class="shaded" align="center">add</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">dataloss</td>
+
+        <td class="var" align="center">integer</td>
+    </tr>
+
+    <tr class="shaded">
+        <td colspan="5" align="right">0 = no data loss, 1 = one record overrides, 2 = allow concatenation</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">combine</td>
+
+        <td class="shaded" align="center">add</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">precedence</td>
+
+        <td class="var" align="center">integer</td>
+    </tr>
+
+    <tr class="shaded">
+        <td colspan="5" align="right">+1 = later overrides earlier, -1 = earlier overrides later</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">combine</td>
+
+        <td class="shaded" align="center">add</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">minnoloss</td>
+
+        <td class="var" align="center">integer</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">combine</td>
+
+        <td class="shaded" align="center">set</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">params</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">filter</td>
+
+        <td class="shaded" align="center">set</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">andor</td>
+
+        <td class="shaded" align="center">True/ False</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">filter</td>
+
+        <td class="shaded" align="center">add</td>
+
+        <td class="shaded" align="center">operator</td>
+
+        <td class="var" align="center">field name</td>
+
+        <td class="var" align="center">comparison value</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">filter</td>
+
+        <td class="shaded" align="center">clear</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">filter</td>
+
+        <td class="shaded" align="center">set</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">params</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">output</td>
+
+        <td class="shaded" align="center">set</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">usedict</td>
+
+        <td class="shaded" align="center">True/ False</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">output</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">template</td>
+
+        <td class="shaded" align="center">open</td>
+
+        <td class="shaded" align="center">file</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="var" align="center">file name</td>
+    </tr>
+
+    <tr class="shaded">
+        <td class="shaded" align="center">template</td>
+
+        <td class="shaded" align="center">generate</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+
+        <td class="shaded" align="center">&nbsp;</td>
+    </tr>
+</table>
+
+<h3 id="file-directory-format">File Directory Format</h3>
+
+
+<p><em><a href="powersurgepub.html#input">PSTextMerge User Guide</a></em></p>
+
+<p>The following special column headings are predefined for file directory entries.</p>
+
+<dl>
+<dt>Sort Key</dt>
+    <dd>Used for sorting the directory entries alphanumerically, without regards to case (upper or lower) or punctuation. The complete file path will appear here, all in lower-case, with spaces between file directories, and spaces replacing punctuation. </dd>
+
+<dt>Folder1 through Foldern</dt>
+    <dd>Folder1 will contain the first sub-directory name, within the specified input directory, if this entry came from a sub-directory. Folder1 through Foldern columns will appear, where &#8220;n&#8221; is the maximum directory depth - 1 (since a maximum directory depth of 1 indicates no sub-directory explosion at all). </dd>
+
+    <dt>Path</dt>
+        <dd>The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row. </dd>
+
+<dt>File Name</dt>
+    <dd>Name of the file or sub-directory. </dd>
+
+<dt>Type</dt>
+    <dd>The type of directory entry: &#8220;File&#8221; or &#8220;Directory&#8221;.</dd>
+
+<dt>English Name</dt>
+    <dd>A file name with standardized spacing, without punctuation, and without a file extension.</dd>
+
+    <dt>File Name w/o Extension</dt>
+        <dd>The file name without its extension.</dd>
+
+<dt>File Ext</dt>
+    <dd>The file extension, if a file and if it has one.</dd>
+
+<dt>File Size</dt>
+    <dd>Size of the file, in bytes.</dd>
+
+<dt>Last Mod Date</dt>
+    <dd>Date of last change to the file, in &#8220;yyyy-mm-dd&#8221; format.</dd>
+
+<dt>Last Mod Time </dt>
+    <dd>Time of last change to the file, in &#8220;hh:mm:ss zzz&#8221; format, where &#8220;hh&#8221; is a 24-hour (military) hour, &#8220;mm&#8221; is minutes, &#8220;ss&#8221; is seconds and &#8220;zzz&#8221; is an abbreviation of the time zone. </dd>
+
+<dt>Word1 through Word5 </dt>
+    <dd>The file name, without directories and without extension, will be broken down into up to five separate fields, using punctuation, spaces, and case transitions to demarcate words. </dd>
+
+</dl>
+
+<h3 id="markdown-metadata-file-format">Markdown Metadata File Format</h3>
+
+
+<p>The following special column headings are predefined for metadata gathered from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> files.</p>
+
+<p>Metadata is provided in the spirit of, although not in complete conformance with, the <a href="http://fletcher.github.com/peg-multimarkdown/">MultiMarkdown</a> syntax. That is, special lines are expected at the top of the file, each line starting with a key, followed by a colon and then a value, as in the following example.</p>
+
+<blockquote>
+<p>Title:  Markdown Metadata <br />
+Author: Herb Bowie  <br />
+Tags:   Java, Documentation  <br />
+Date:   July 4, 2012</p>
+</blockquote>
+
+<p>Note that there are two variants of this file type, one simply labeled &#8220;Markdown Metadata&#8221; and the other labeled &#8220;Markdown Metadata Tags&#8221;. The first has only one row per Markdown file, and identifies all tags for that file. The second has one row per tag per file, and identifies only one tag at a time. The first file format would normally be used for a simple index of the files, while the second format would be used to generate an index by tag. </p>
+
+<dl>
+<dt>Complete Path</dt>
+    <dd>The complete path to the file, including all directories, plus the file name and extension. </dd>
+
+<dt>Base Path</dt>
+    <dd>The folder path to the top directory containing the markdown files included in the list. </dd>
+
+<dt>Local Path</dt>
+    <dd>The series of folders, with each folder/directory separated from the previous one with a slash, between the top level folder selected and the file name identified later in this row. </dd>
+
+<dt>Depth</dt>
+    <dd>0 for files at the top level of the extract, 1 for files within the next set of folders, and so forth. </dd>
+
+<dt>File Name</dt>
+    <dd>Name of the file, including its file extension. </dd>
+
+<dt>File Name Base</dt>
+    <dd>The file name without its extension, and without the period preceding the extension.</dd>
+
+<dt>File Ext</dt>
+    <dd>The file extension, without the preceding period.</dd>
+
+<dt>Last Mod Date</dt>
+    <dd>Date of last change to the file, in &#8220;yyyy-mm-dd hh:mm:ss TMZ&#8221; format.</dd>
+
+<dt>File Size</dt>
+    <dd>Approximate size of the file, in bytes.</dd>
+
+<dt>Title</dt>
+    <dd>The title can come from a number of different sources. If the file does not contain a title, then the file name will be used as the title, after removing its extension, and normalizing the case and word separators to leading caps and a space, respectively. If the file contains a level 1 heading, denoted by an initial line followed by a line of simulated double underlines (four or more equal signs), per the [Markdown][] specification, then this will be used as the title. And finally, if the metadata at the top of the file contains a line starting with &#8220;Title:&#8221;, then the remainder of the line will be used as the title.  </dd>
+
+<dt>Author</dt>
+    <dd>If the file title is followed by a byline, starting with the word &#8220;by&#8221;, then the remainder of the line will be used as the author. Alternatively, if the metadata at the top of the file contains a line starting with &#8220;By&#8221;, &#8220;Author&#8221;, or &#8220;Creator&#8221;, then the remainder of the line will be used as the author. </dd>
+
+<dt>Date</dt>
+    <dd>The date associated with the file, as established by a metadata line at the top of the file starting with &#8220;Date:&#8221;. </dd>
+
+<dt>Breadcrumbs</dt>
+    <dd></dd>
+
+<dt>Tags</dt>
+    <dd>These would be the tags provided by a metadata line starting with the key of &#8220;Tags&#8221;, &#8220;Keywords&#8221; or &#8220;Category&#8221;. Multiple tags may be provided, each separated from the other by a comma, with or without spaces. Tags may be nested as well, with a period separating each level, without any spaces. </dd>
+
+<dt>Linked Tags</dt>
+    <dd></dd>
+
+<dt>Tag</dt>
+    <dd></dd>
+
+</dl>
+
+<h3 id="pspub-outline-file-format">PSPub Outline File Format</h3>
+
+
+This is a special text file format to allow easy representation of an outline structure. Indention is used to indicate outline levels. The first character of the first line is assumed to be the "bullet" character that will subsequently identify all list items. Blank lines indicate paragraph breaks. A line beginning with "a:" (or simply with "http:") identifies a URL to be associated with the preceding outline item.
+
+This structure is then converted to a columnar data structure, with one row for each paragraph/list item, and with the following columns.
+
+sectionnumber1 through sectionnumber10
+:    The sectionnumber1 column contains the current highest level "section", or item number, in the overall structure. These numbers are assigned internally, beginning with 1, and are not taken from the input file.
+
+headingflag
+:    Set to "true" if this item is a bulleted item, otherwise set to "false".
+
+level
+:    Starting with 1, the depth of the current item in the overall structure.
+
+text
+:    The body of the item or paragraph.
+
+link
+:    The URL, if any, supplied for this item or paragraph.
+
+<h3 id="club-planner-file-formats">Club Planner File Formats</h3>
+
+
+<p>Information about events and other items for club consideration are stored in text files, with one event/item per file. </p>
+
+<p>Note that there are two variants of this file, one labeled &#8220;Club Planner&#8221; and the other labeled &#8220;Club Notes&#8221;. The first has only one row per event, while the second has one row per note header in the Notes field for each event.</p>
+
+<h4 id="folder-structure">Folder Structure</h4>
+
+
+<p>The text files should be organized into folders whose names provide additional data about the items.</p>
+
+<p>The event files should be placed into something like the following folder structure. </p>
+
+<ul>
+    <li><em>Club Name 2011 - 2012</em> &#8212; A folder containing all events for the club operating year, with both starting and ending year included in the folder name.
+        <ul>
+            <li><em>Events</em> &#8212; A folder containing all the event info. Other folders at this level may be used to store other information. Folders at the next level indicate status, and the following folder names are suggested.
+                <ul>
+                    <li><em>Archive</em> &#8212; For events that have already occurred and are no longer of current interest.</li>
+                    <li><em>Board</em> &#8212; Items of interest to the board of directors.</li>
+                    <li><em>Current</em> &#8212; Items of current interest.</li>
+                    <li><em>Future</em> &#8212; Items being considered for the future, but not yet of current interest.</li>
+                    <li><em>News</em> &#8212; Items to be reported in the next Email newsletter.</li>
+                    <li><em>Save</em> &#8212; Items being saved for possible consideration.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<p>The text files themselves consist of a series of field names, each followed by a colon, and then followed by the field data on the same and/or successive lines. </p>
+
+<h4 id="template">Template</h4>
+
+
+<p>The following lines can be used as a template for creating a Club Planner event. </p>
+
+<pre><code>    /*
+        Fill out this form for a new event, then save it with the name of the event. Use a plain
+        text editor to complete the form. Fill out as many fields as you can, and leave the
+        rest blank. Note that text such as this, between a slash asterisk and an asterisk slash,
+        are comments and not content. Text following a pair of slashes on a line are also
+        treated as comments. Comments may be deleted once the form is filled out, or left in.
+    */
+    Type:
+    /*
+        Type should be one of the following:
+        Active / Board / Career Networking / Close Meeting /
+        Collaboration w/Other Clubs  / Communication / Community / Culture /
+        Family / Finance  / Membership / Open Meeting / Organization  /
+        Scholarship  / Social / Sports / Student Connections
+    */
+    What:                           // Enter a short title for the event
+    When:                           // e.g., Sat Mar 31 at 8 PM
+    Where:                          // Name of the venue, street address, city state and zip
+    Who:                            // Name of primary contact at email address
+    Why:                            // Justification for approving this event
+    Teaser:                         // Two or three sentences hitting the high points
+    Blurb:                          // One or more paragraphs with additional details
+    Cost:                           // e.g., $43 per person
+    Purchase:                       // Instructions for purchasing tickets
+    Tickets:                        // How purchasers will receive tickets
+    Quantity:                       // e.g., Block of 20 seats
+    Planned Income:                 // e.g., $43 x 20 = $860
+    Planned Expense:                // e.g., $43 x 20 = $860
+    Planned Attendance:             // How many people do we expect to participate?
+    Actual Income:
+    Actual Expense:
+    Actual Attendance:
+    Recap:                          // How did the event go? Any lessons learned?
+    ID:                             // Enter the article ID from our Web site
+    Link:                           // URL with more info about the event
+    Venue:                          // Link with more info about the venue
+    Image:                          // URL for an image about the event
+    News Image:                     // URL for an image to use in the email newsletter
+    Discuss:                        // Points to be discussed at our next board meeting
+    Notes:
+    /*
+    Copy and paste notes about the event. Precede each note with a header line indicating
+    who it came from, on what date and via what medium. For example:
+
+    -- Will Dorchak, Feb 16, via email
+
+    Follow the header with a blank line, and the the text of the note, using blank lines
+    to separate paragraphs.
+
+    */
+</code></pre>
+
+<h4 id="input-fields">Input Fields</h4>
+
+
+<p>Field names and definitions follow. </p>
+
+<p><strong>Type</strong>: This is the general type of the event. The following values are suggested.  </p>
+
+<ul>
+<li>Active &#8212; An active event, such as a hike.</li>
+<li>Board &#8212; An item for consideration by the board, or pertaining to the board. </li>
+<li>Career Networking &#8212; Professional advancement.</li>
+<li>Close Meeting &#8212; An item to appear at the end of the board meeting agenda. </li>
+<li>Collaboration w/Other Clubs &#8212; Worked in common with other clubs, such as the other Big Ten clubs in the area.</li>
+<li>Communication &#8212; An item having to do with club communications, such as our Web site, Facebook page or email newsletters. </li>
+<li>Community &#8212; A community service event. </li>
+<li>Culture &#8212; A cultural event. </li>
+<li>Family &#8212; An event intended for families with children. </li>
+<li>Finance &#8212; An item having to do with club finances. </li>
+<li>Membership &#8212; An event planned to promote membership in the club.</li>
+<li>Open Meeting &#8212; An item to appear at the beginning of the board meeting agenda. </li>
+<li>Organization &#8212; An event or item having to do with the organization of the club. </li>
+<li>Scholarship &#8212; An event having to do with the club&#8217;s scholarship fund and the scholarships awarded to deserving students. </li>
+<li>Social &#8212; A purely social event. </li>
+<li>Sports &#8212; An event having to do with athletics. </li>
+<li>Student Connections &#8212; Prospective or current U-M students hailing from the greater Seattle area. </li>
+</ul>
+
+<p><strong>What</strong>: A brief descriptive title for the event. </p>
+
+<p><strong>When</strong>: An indication of the date and time that the event will be held, in a format emphasizing human readability. This need not be a complete date. It need not and generally should not contain the year, since this can be inferred from the operating year identified in the higher level folder. If an exact date is known, then this field should generally start with a three-character abbreviation for the day of the week. Three-character abbreviations for the month are also recognized and encouraged. Following are perfectly good examples of dates.</p>
+
+<ul>
+<li>Apr</li>
+<li>Sat May 5</li>
+<li>Thu Mar 25 5:30 - 7:30 PM</li>
+</ul>
+
+<p><strong>Where</strong>: The location of the event, including the name of the venue and its address.</p>
+
+<p><strong>Who</strong>: Who is assigned to plan, coordinate and host the event. Can include multiple names. Can include email addresses and phone numbers.</p>
+
+<p><strong>Why</strong>: Why does the club think it would be a good idea to host the event? Why do we think this would be an event deserving of the club&#8217;s resources?</p>
+
+<p><strong>Teaser</strong>: One to three sentences describing the event. Not intended to provide complete information, but intended to pique the reader&#8217;s interest and motivate him to read further. </p>
+
+<p><strong>Blurb</strong>: Additional information about the event. Need not repeat information in the teaser, and need not repeat additional event details available from other fields, such as When and Where. This field can contain multiple paragraphs, separated by blank lines. <a href="http://daringfireball.net/projects/markdown/">Markdown</a> formatting will be applied to this section. </p>
+
+<p><strong>Cost</strong>: The cost per person to attend the event. If the event is free, then leave this field blank.</p>
+
+<p><strong>Purchase</strong>: Instructions on how to purchase tickets to the event, if any. </p>
+
+<p><strong>Tickets</strong>: For purchasers, information on how they are to receive the tickets. </p>
+
+<p><strong>Quantity</strong>: Number of seats or tickets available for the event; maximum number of attendees. </p>
+
+<p><strong>Planned Income</strong>: The amount of money the club plans to receive for the event. For this and the following dollar amount fields, multiple dollar figures may be interspersed with descriptive words. &#8220;$20 x 40&#8221; will result in a planned income of $800.00, for example. </p>
+
+<p><strong>Planned Expense</strong>: The amount of money planned/budgeted to be spent on the event.</p>
+
+<p><strong>Planned Attendance</strong>: The number of attendees built into the club&#8217;s planning assumptions. </p>
+
+<p><strong>Actual Income</strong>: The club&#8217;s actual income for the event.</p>
+
+<p><strong>Actual Expense</strong>: The club&#8217;s actual expenses for the event. </p>
+
+<p><strong>Actual Attendance</strong>: The actual number of people who attended the event. </p>
+
+<p><strong>Recap</strong>: A brief summary of how the event went. Can include lessons learned from the event. </p>
+
+<p><strong>ID</strong>: After the event has been added to the club web site, the ID assigned to the page by the Content Management System should be entered here. This might be identified in the URL for the event as the &#8220;articleid&#8221;, as in &#8220;articleid=17&#8221;, meaning that an ID of &#8220;17&#8221; should be entered here. </p>
+
+<p><strong>Link</strong>: A URL pointing to a Web page with more information about the event. </p>
+
+<p><strong>Venue</strong>: A URL pointing to a Web page with more information about the venue for the event. </p>
+
+<p><strong>Image</strong>: A URL pointing to an image that can be used to help advertise the event. </p>
+
+<p><strong>News Image</strong>: A URL pointing to an image suitable for use in our newsletter.</p>
+
+<p><strong>Discuss</strong>: Identification of any issues to be discussed at an upcoming club meeting. </p>
+
+<p><strong>Notes</strong>: One or more blocks of text with information about the event. This field can contain multiple paragraphs, separated by blank lines. <a href="http://daringfireball.net/projects/markdown/">Markdown</a> formatting will be applied to this section.</p>
+
+<p>Each block of text should be preceded by a line similar to the following example. </p>
+
+<pre><code>-- AAUM on Feb 21 via email
+</code></pre>
+
+<p>Note that each such header line contains the following elements:</p>
+
+<ul>
+<li>Two hyphens and a space</li>
+<li>Identification of the source of the following information.</li>
+<li>The date on which the information was communicated. </li>
+<li>The means by which the information was communicated. </li>
+</ul>
+
+<h4 id="calculated-fields">Calculated Fields</h4>
+
+
+<p>The following fields will be calculated and placed in the resulting list. </p>
+
+<p><strong>Year</strong>: The operating year for the event, if available from one of the enclosing folders (see section above on folder structure). </p>
+
+<p><strong>Status</strong>: The event&#8217;s status, based on its immediately enclosing folder name. </p>
+
+<p><strong>Seq</strong>: This is intended as a sort key, to create an agenda for a club meeting. A type of &#8220;Open Meeting&#8221; will result in a sequence of 1; a type of &#8220;Finance&#8221; will result in a sequence of 2; a type of &#8220;Communication&#8221; will result in a sequence of 8; a type of &#8220;Close Meeting&#8221; will result in a sequence of 9; any other type will result in a sequence of 5. </p>
+
+<p><strong>YMD</strong>: This will contain the event&#8217;s date, or as much of it as is known, in a predictable &#8220;yyyy-mm-dd&#8221; format that can be used for sorting. The information here is calculated based on the club&#8217;s operating year and the <em>When</em> field. </p>
+
+<p><strong>File Name</strong>: The name of the file, without any folder information, and without a file extension. </p>
+
+<p><strong>Blurb as HTML</strong>: The blurb field, converted from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> to HTML, suitable for insertion into a Web page or email. </p>
+
+<p><strong>Over/Under</strong>: The amount by which the club&#8217;s actual income and expenses differed from the club&#8217;s planned income and expenses. A positive amount indicates the club did better than expected, with lower expenses and/or higher income than planned; a negative amount means the club did worse than expected. </p>
+
+<p><strong>Finance Projection</strong>: The projected impact of this event on the club&#8217;s finances, calculated based on the planned and actual income and expenses. A negative number decreases the club&#8217;s funds, while a positive number increases them. This number is calculated using the planned values if no actuals are available, or the actual values once they are entered. </p>
+
+<p><strong>Short Date</strong>: This is a short, human-readable form of the date. It includes a three-letter abbreviation for the day of the week, a three-letter abbreviation for the month, and the 2-digit day of the month. </p>
+
+<p><strong>Notes as HTML</strong>: The entire notes field, converted from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> to HTML, suitable for insertion into a Web page or email. </p>
+
+<h4 id="additional-fields-in-club-notes-file-format">Additional Fields in Club Notes File Format</h4>
+
+
+<p>The following additional fields are extracted for the Club Notes file format, with one row for each note header.</p>
+
+<p><strong>Note For</strong>: The date of the note, in yyyy-mm-dd format, suitable for sorting and/or filtering, as extracted from the note header. </p>
+
+<p><strong>Note From</strong>: The source of the note, as extracted from the note header. </p>
+
+<p><strong>Note Via</strong>: The medium by which the note was communicated, as extracted from the note header. </p>
+
+<p><strong>Note</strong>: The text of the note, following the note header. </p>
+
+<p><strong>Note as HTML</strong>: The text of the note, converted from <a href="http://daringfireball.net/projects/markdown/">Markdown</a> to HTML, suitable for insertion into a Web page or email.</p>
+
+<p><em><a href="powersurgepub.html#input">Return to User Guide</a></em></p>
 
 
 [java]:       http://www.java.com/
@@ -786,5 +2042,4 @@ The following file formats are used by PSTextMerge.
 
 [mozilla]:    http://www.mozilla.org/MPL/2.0/
 [notenik]:    http://www.powersurgepub.com/products/notenik/index.html
-
 
