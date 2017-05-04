@@ -1198,7 +1198,7 @@ This command allows you to include text from another file into the output stream
 
 An optional operand of "copy" will ensure that the include file is included without conversion; otherwise, if the input and output file extensions are different, and are capable of conversion, the input file will be converted to the output file's format (for example, [Markdown][] or Textile can be converted to html).
 
-Markdown conversion will be done using the [Pegdown][] processor, using the options for typographic conversions (as with SmartyPants) and table generation.
+Markdown conversion will be done using the [flexmark](https://github.com/vsch/flexmark-java) processor, using the options for typographic conversions (as with SmartyPants), table generation and definition lists.
 
 If converting from Markdown, then an optional operand of "nometa" will cause metadata lines to be skipped when generating the HTML output; otherwise, they will be included.
 
