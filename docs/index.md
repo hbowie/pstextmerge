@@ -3,97 +3,97 @@
 <h1 id="pstextmerge-user-guide">PSTextMerge User Guide</h1>
 
 
-Version: 4.80
+Version: 5.00
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
 <div id="toc">
-  <ul>
-    <li>
-      <a href="#introduction">Introduction</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li>
-          <a href="#system-requirements">System Requirements</a>
-        </li>
-        <li>
-          <a href="#rights">Rights</a>
-        </li>
-        <li>
-          <a href="#installation">Installation</a>
-        </li>
-        <li>
-          <a href="#command-line-parameters">Command Line Parameters</a>
-        </li>
-      </ul>
+<ul>
+<li>
+<a href="#introduction">Introduction</a>
+</li>
+<li>
+<a href="#getting-started">Getting Started</a>
+<ul>
+<li>
+<a href="#system-requirements">System Requirements</a>
+</li>
+<li>
+<a href="#rights">Rights</a>
+</li>
+<li>
+<a href="#installation">Installation</a>
+</li>
+<li>
+<a href="#command-line-parameters">Command Line Parameters</a>
+</li>
+</ul>
 
-    </li>
-    <li>
-      <a href="#data-fields">Data Fields</a>
-    </li>
-    <li>
-      <a href="#file-operations">File Operations</a>
-    </li>
-    <li>
-      <a href="#user-interface">User Interface</a>
-      <ul>
-        <li>
-          <a href="#textmerge-input">TextMerge Input</a>
-        </li>
-        <li>
-          <a href="#textmerge-view">TextMerge View</a>
-        </li>
-        <li>
-          <a href="#textmerge-sort">TextMerge Sort</a>
-        </li>
-        <li>
-          <a href="#textmerge-filter">TextMerge Filter</a>
-        </li>
-        <li>
-          <a href="#textmerge-output">TextMerge Output</a>
-        </li>
-        <li>
-          <a href="#textmerge-template">TextMerge Template</a>
-        </li>
-        <li>
-          <a href="#textmerge-script">TextMerge Script</a>
-        </li>
-        <li>
-          <a href="#textmerge-logging">TextMerge Logging</a>
-        </li>
-      </ul>
+</li>
+<li>
+<a href="#data-fields">Data Fields</a>
+</li>
+<li>
+<a href="#file-operations">File Operations</a>
+</li>
+<li>
+<a href="#user-interface">User Interface</a>
+<ul>
+<li>
+<a href="#textmerge-input">TextMerge Input</a>
+</li>
+<li>
+<a href="#textmerge-view">TextMerge View</a>
+</li>
+<li>
+<a href="#textmerge-sort">TextMerge Sort</a>
+</li>
+<li>
+<a href="#textmerge-filter">TextMerge Filter</a>
+</li>
+<li>
+<a href="#textmerge-output">TextMerge Output</a>
+</li>
+<li>
+<a href="#textmerge-template">TextMerge Template</a>
+</li>
+<li>
+<a href="#textmerge-script">TextMerge Script</a>
+</li>
+<li>
+<a href="#textmerge-logging">TextMerge Logging</a>
+</li>
+</ul>
 
-    </li>
-    <li>
-      <a href="#help">Help</a>
-    </li>
-    <li>
-      <a href="#file-formats">File Formats</a>
-      <ul>
-        <li>
-          <a href="#template-file-format">Template File Format</a>
-        </li>
-        <li>
-          <a href="#script-file-format">Script File Format</a>
-        </li>
-        <li>
-          <a href="#file-directory-format">File Directory Format</a>
-        </li>
-        <li>
-          <a href="#markdown-metadata-file-format">Markdown Metadata File Format</a>
-        </li>
-        <li>
-          <a href="#pspub-outline-file-format">PSPub Outline File Format</a>
-        </li>
-        <li>
-          <a href="#club-planner-file-formats">Club Planner File Formats</a>
-        </li>
-      </ul>
+</li>
+<li>
+<a href="#help">Help</a>
+</li>
+<li>
+<a href="#file-formats">File Formats</a>
+<ul>
+<li>
+<a href="#template-file-format">Template File Format</a>
+</li>
+<li>
+<a href="#script-file-format">Script File Format</a>
+</li>
+<li>
+<a href="#file-directory-format">File Directory Format</a>
+</li>
+<li>
+<a href="#markdown-metadata-file-format">Markdown Metadata File Format</a>
+</li>
+<li>
+<a href="#pspub-outline-file-format">PSPub Outline File Format</a>
+</li>
+<li>
+<a href="#club-planner-file-formats">Club Planner File Formats</a>
+</li>
+</ul>
 
-    </li>
-  </ul>
+</li>
+</ul>
 
 </div>
 
@@ -125,7 +125,7 @@ Because PSTextMerge may be run on multiple platforms, it may look slightly diffe
 <h3 id="rights">Rights</h3>
 
 
-PSTextMerge Copyright 1999 - 2016 by Herb Bowie
+PSTextMerge Copyright 1999 - 2017 by Herb Bowie
 
 PSTextMerge is [open source software](http://opensource.org/osd). Source code is available at [GitHub](http://github.com/hbowie/pstextmerge).
 

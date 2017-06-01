@@ -5,3 +5,5 @@
 /dist/
 /manifest.mf
 /nbproject/
+/deploy
+/package

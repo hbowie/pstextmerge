@@ -1,5 +1,5 @@
 /*
- * Copyright 1999 - 2016 Herb Bowie
+ * Copyright 1999 - 2017 Herb Bowie
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@ public class PSTextMerge
   
   /** Program Name */
   public    static  final String  PROGRAM_NAME = "PSTextMerge";
-  public    static  final String  PROGRAM_VERSION = "4.80";
+  public    static  final String  PROGRAM_VERSION = "5.00";
   
   private   static  final String  USER_GUIDE
       = "userguide/pstextmerge.html";
